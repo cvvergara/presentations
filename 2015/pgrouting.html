@@ -420,166 +420,13 @@ seq | node | edge |    cost    |  agg_cost
                 </section>
 
 
-                <section>
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <a href="http://imgs.xkcd.com/comics/goto.png"><img style="border:0;background:none;padding-top:80px;margin-bottom:0px;height:250px" src="pgrouting/wrapper.png" /></a>
-                        <small style="font-size:18px;text-align:right;">Quelle: http://imgs.xkcd.com/comics/goto.png</small>
-                        <h2>Custom Functions</h2>
-                        <img class="logo" src="../img/georepublic.png" />
-                    </section>
+    
 
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <p><pre><code data-trim class="sql example" style="line-height:40px;max-height:580px;">
-CREATE OR REPLACE FUNCTION pgr_fromAtoB(
-    IN tbl varchar,
-    IN x1 float, IN y1 float,
-    IN x2 float, IN y2 float,
-)
-RETURNS SETOF record AS $$
-BEGIN
-    FOR rec IN EXECUTE sql LOOP
-        RETURN NEXT;
-    END LOOP;
-END;
-$$ LANGUAGE 'plpgsql' VOLATILE STRICT;
-                        </code></pre></p>
-                        <img class="logo" src="../img/georepublic.png" />
-                    </section>
-
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <img src="pgrouting/traveltime.png" />
-                    </section>
-
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <a class="stretch" href="http://demo.smartvrp.com/na/routing"><img src="pgrouting/drivetime.png" /></a>
-                    </section>
-
-                </section>
-
-                <section>
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <img style="border:0;background:none;padding-top:80px;padding-bottom:10px;width:300px" src="pgrouting/costs.png" />
-                        <h1>Tour Planning</h1>
-                        <img class="logo" src="../img/georepublic.png" />
-                    </section>
-
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h1 style="padding-top:120px;">The Goal</h1>
-                        <h3 class="large-margin" style="line-height:1.6em;text-transform:none;">Find the best schedule and route <br/>to visit and complete all tasks?</h3>
-                        <img class="logo" src="../img/georepublic.png" />
-                    </section>
-
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h2>pgr_vrpOneDepot</h2>
-                        <p class="medium-margin"><strong>V</strong>ehicle <strong>R</strong>outing <strong>P</strong>roblem Solver</p>
-                        <p><pre><code data-trim class="sql example">
-SELECT * FROM pgr_vrpOneDepot(
-        'SELECT * FROM vorders'::text,
-        'SELECT * FROM vvehicles'::text,
-        'SELECT * FROM vdistance'::text,
-    1 ); 
-                        </code></pre></p>
-                        <p><small>(Currently available in "develop" branch))</small></p>
-                        <img class="logo" src="../img/georepublic.png" />
-                    </section>
-
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h3 style="padding-top:20px;">Sample Application</h3>
-                        <a href="http://demo.smartvrp.com"><img src="pgrouting/screenshot_001.png" /></a>
-                        <img class="logo" src="../img/georepublic.png" />
-                    </section>
-
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <a class="stretch"  href="http://demo.smartvrp.com"><img src="pgrouting/screenshot_002.png" /></a>
-                    </section>
-
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <a class="stretch"  href="http://demo.smartvrp.com"><img src="pgrouting/screenshot_003.png" /></a>
-                    </section>
-
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h3 style="padding-top:20px;">Optimized Schedule</h3>
-                        <a href="http://demo.smartvrp.com"><img src="pgrouting/screenshot_004.png" /></a>
-                        <p><a href="http://demo.smartvrp.com">demo.smartvrp.com</a></p>
-                        <img class="logo" src="../img/georepublic.png" />
-                    </section>
-
-                </section>
-
-                <section>
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <img style="border:0;background:none;padding-top:80px;padding-bottom:30px;" src="pgrouting/garbage.gif" />
-                        <h2>Garbage Collection</h2>
-                        <img class="logo" src="../img/georepublic.png" />
-                    </section>
-
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h2 style="padding-top:40px;padding-bottom:30px;">Complex Optimization Problem</h2>
-                        <ul>
-                            <li>Depot to empty trucks</li>
-                            <li>Various vehicle types</li>
-                            <li>Different garbage types</li>
-                            <li>U-turns prohibited</li>
-                            <li>Road-access constraints</li>
-                            <li>Special requirements</li>   
-                        </ul>
-                        <img class="logo" src="../img/georepublic.png" />
-                    </section>
-
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <a href="http://imaptools.com:8080/tt/5"><img style="width:70%;" src="pgrouting/uruguay.png" /></a>
-                        <p><a href="http://imaptools.com:8080/tt/5">http://imaptools.com:8080/tt/5</a></p>
-                        <img class="logo" src="../img/georepublic.png" />
-                    </section>
-                </section>
-
-                <section>
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <img style="border:0;background:none;padding-top:30px;margin-bottom:0px;height:500px" src="pgrouting/gsoc.png" />
-                        <img class="logo" src="../img/georepublic.png" />
-                    </section>
-
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h2 style="padding-top:40px;padding-bottom:30px;">GSoC Project since 2010</h2>
-                        <ul>
-                            <li>Multimodal Routing</li>
-                            <li>Time-Dependent Shortest Path</li>
-                            <li>Graph Partitioning</li> 
-                            <li>VRP with Time Windows</li>      
-                            <li>New osm2pgrouting (import, export, OSRM profiles)</li>      
-                        </ul>
-                        <img class="logo" src="../img/georepublic.png" />
-                    </section>
-                </section>
-
-
-
-
-                <section>
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h2 style="padding-top:40px;padding-bottom:30px;">Goals</h2>
-                        <ul>
-                            <li>Better use of Boost</li>
-                            <li>Removal of duplicate code</li>
-                            <li>Support for big integer</li>
-                            <li>Vertex ID handling</li>
-                            <li>Smarter "undirected with reverse cost"</li>
-                        </ul>
-                        <img class="logo" src="../img/georepublic.png" />
-                    </section>
-
-
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <img class="stretch" src="pgrouting/pgr_now.png" />
-                        <img class="logo" src="../img/georepublic.png" />
-                    </section>
-
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
                         <img class="stretch" src="pgrouting/pgr_then.png" />
                         <img class="logo" src="../img/georepublic.png" />
-                    </section>
                 </section>
-
+    
                 <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
                     <h2 style="padding-top:80px;">Interested in pgRouting?</h2>
                     <ul style="padding-top:40px;">
@@ -601,7 +448,7 @@ SELECT * FROM pgr_vrpOneDepot(
 
         <script>
 
-            // Full list of configuration options available here:
+            // Full list of configuration options available at:
             // https://github.com/hakimel/reveal.js#configuration
             Reveal.initialize({
                 controls: true,
@@ -609,17 +456,16 @@ SELECT * FROM pgr_vrpOneDepot(
                 history: true,
                 center: true,
 
-                theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-                transition: Reveal.getQueryHash().transition || 'cube', // default/cube/page/concave/zoom/linear/fade/none
+                transition: 'convex', // none/fade/slide/convex/concave/zoom
 
-                // Optional libraries used to extend on reveal.js
+                // Optional reveal.js plugins
                 dependencies: [
-                    { src: '../lib/js/classList.js', condition: function() { return !document.body.classList; } },
-                    { src: '../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-                    { src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-                    { src: '../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-                    { src: '../plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-                    { src: '../plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/zoom-js/zoom.js', async: true },
+                    { src: 'plugin/notes/notes.js', async: true }
                 ]
             });
 
