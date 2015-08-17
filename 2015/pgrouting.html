@@ -328,14 +328,14 @@ F  // 50 more lines of code
                         <img class="logo" src="../img/georepublic.png" />
                     </section>
                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h2> User contradictory input </h2>
+                        <h3> User contradictory input </h3>
                         <p><pre><code class="sql"  data-trim contenteditable >
 select * from pgr_foo(
   'select id, source, target, cost, reverse_cost from edges', 3, 5,
   false,
   false);
  </code></pre></p>
-                        <h2>and</h2>
+                        <h3>and</h3>
                         <p><pre><code class="sql" data-trim contenteditable >
 select * from pgr_foo(
   'select id, source, target, cost from edges', 3, 5,
@@ -345,7 +345,6 @@ select * from pgr_foo(
                         <br></br>
                         <img class="logo" src="../img/georepublic.png" />
                     </section>
-
                 </section>
 
 
@@ -363,6 +362,11 @@ select * from pgr_foo(
                             <li> Gradual creation of internal library </li>
                             <li> Incremental releases </li>
                         </ul>
+                        <br></br>
+                        <img class="logo" src="../img/georepublic.png" />
+                    </section>
+                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                        <img style="border:0;background:none;height:550px" src="future/slide1.png" />
                         <br></br>
                         <img class="logo" src="../img/georepublic.png" />
                     </section>
@@ -461,6 +465,46 @@ select * from pgr_foo(
                         <br></br>
                         <img class="logo" src="../img/georepublic.png"/>
                     </section>
+
+                    <!-- pgRouging 2.1 undirected graph-->
+                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                        <h3>pgr_Dijkstra</h3>
+                        <div style="font-size: 50%;"> <p>
+                        <ul>
+                            <li>
+                                Given a graph: <br>
+                                \[ G(V,E) =
+                                    \begin{cases}
+                                        G_d(V,E)       & \quad \text{when } directed = true\\
+                                        G_u(V,E)       & \quad \text{when } directed = false\\
+                                    \end{cases}
+                                \]
+                            </li>
+                            <li>  and the starting and ending vertices: <br>
+                                $start_v$ and  $end_v$
+                            </li>
+                        <li> The algorithm returns a path $\pi$, if it exists, which is the shortest path using Dijsktra algorithm between $start_v$ and $end_v$ in terms of a sequence of vertices and of edges:<br>
+                         \[
+                            \pi = 
+                            \{(seq_i, node_i, edge_i, cost_i, agg\_cost_i) |  \\
+                            seq_i = i \\
+                            node_1 = start_v \\
+                            \land node_{|\pi|} = end_v \\
+                            \land edge_i = 
+                                \begin{cases}
+                                    id(node_i, node_{i+i}, cost_{(node_i, node_{i+i})} ) & \quad \text{when } i \neq |\pi| \\
+                                    -1  & \quad \text{when } i = |\pi| \\ 
+                                \end{cases} \\
+                            \land agg\_cost_i = \sum_{j=1}^{i-1} cost_j
+                         \}
+                         \]
+                        </li> 
+                        <li>If there is no path, $\pi = \varnothing$ </li>
+                        </ul> </p></div>
+                        <br></br>
+                        <img class="logo" src="../img/georepublic.png" />
+                    </section>
+
                 </section>
 
                 <!-- pgRouging 2.2 -->
