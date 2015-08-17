@@ -380,6 +380,27 @@ select * from pgr_foo(
                         <br></br>
                         <img class="logo" src="../img/georepublic.png" />
                     </section>
+                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                        <img style="border:0;background:none;height:550px" src="future/slide2.1.png" />
+                        <br></br>
+                        <img class="logo" src="../img/georepublic.png" />
+                    </section>
+                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                        <h3>ANY-INTEGER</h3>
+                        <ul> <li> int </li>   
+                            <li> smallint </li>   
+                            <li> bigint </li>   
+                        </ul>
+                        <h3>ANY-NUMERICAL</h3>
+                        <ul> <li> int </li>   
+                            <li> smallint </li>   
+                            <li> bigint </li>   
+                            <li> real </li>   
+                            <li> float </li>   
+                        </ul>
+                        <br></br>
+                        <img class="logo" src="../img/georepublic.png" />
+                    </section>
 
                     <!-- pgRouging 2.1 directed graph-->
                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
@@ -504,6 +525,106 @@ select * from pgr_foo(
                         <br></br>
                         <img class="logo" src="../img/georepublic.png" />
                     </section>
+                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                        <h2> pgr_dijkstra </h2> <h3> on undirected graph </h3>
+                        <h4> With reverse cost </h4>
+                        <p><pre><code class="sql"  data-trim contenteditable >
+SELECT * FROM pgr_Dijkstra(
+  'SELECT id, source, target, cost, reverse_cost FROM edges',
+  3, -- start_v
+  5, -- end_v
+  false);
+			</code></pre></p>
+                        <h4> Without reverse cost </h4>
+                        <p><pre><code class="sql"  data-trim contenteditable >
+SELECT * FROM pgr_Dijkstra(
+  'SELECT id, source, target, cost FROM edges',
+  3, 5,
+  false);
+			</code></pre></p>
+                        <br></br>
+                        <img class="logo" src="../img/georepublic.png" />
+                    </section>
+                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                        <h2> pgr_dijkstra </h2> <h3> directed graph </h3>
+                        <h4> With reverse cost </h4>
+                        <p><pre><code class="sql"  data-trim contenteditable >
+SELECT * FROM pgr_Dijkstra(
+  'SELECT id, source, target, cost, reverse_cost FROM edges',
+  3, 5,
+  true);
+                        </code></pre></p>
+                        <h4> Without reverse cost </h4>
+                        <p><pre><code class="sql"  data-trim contenteditable >
+SELECT * FROM pgr_Dijkstra(
+  'SELECT id, source, target, cost FROM edges',
+  3, 5,
+  true);
+                        </code></pre></p>
+                        <br></br>
+                        <img class="logo" src="../img/georepublic.png" />
+                    </section>
+                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                        <h2> pgr_dijkstra </h2> <h3> Variations </h3>
+                        <h4> One to one <h4>
+                            <p><pre><code class="sql" data-trim contenteditable>
+SELECT * FROM pgr_dijkstra(sql,2,3);
+ seq |  node | edge | cost | agg_cost
+-----+-------+------+------+----------
+                            </code></pre></p>
+                        <h4> Many to 1<h4>
+                            <p><pre><code class="sql" data-trim contenteditable>
+SELECT * FROM pgr_dijkstra(sql,[2],3);
+ seq | start_v | node | edge | cost | agg_cost
+-----+---------+------+------+------+----------
+                            </code></pre></p>
+                        <br></br>
+                        <img class="logo" src="../img/georepublic.png" />
+                    </section>
+                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                        <h2> pgr_dijkstra </h2> <h3> Variations </h3>
+                        <h4> One to many <h4>
+                            <p><pre><code class="sql" >
+SELECT * FROM pgr_dijkstra(sql, 2,[3]);
+ seq | end_v | node | edge | cost | agg_cost
+-----+-------+------+------+------+----------
+                            </code></pre></p>
+                        <h4> Many to many <h4>
+                            <p><pre><code class="sql" >
+SELECT * FROM pgr_dijkstra(sql,[2],[3]);
+ seq | start_v | end_v | node | edge | cost | agg_cost
+-----+---------+-------+------+------+------+----------
+                            </code></pre></p>
+                        <br></br>
+                        <img class="logo" src="../img/georepublic.png" />
+                    </section>
+
+
+                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                        <h2> pgr_dijkstra </h2> <h3> from 2, 7 to 3, 5 </h3>
+                        <h4> Using: one to many <h4>
+                            <p><pre><code class="sql" >
+
+Select * from pgr_dijkstra(sql,2,[3,5]);
+Select * from pgr_dijkstra(sql,7,[3,5]);
+                            </code></pre></p>
+
+                        <h4> Using: many to one <h4>
+                            <p><pre><code class="sql" >
+Select * from pgr_dijkstra(sql,[2,7],3);
+Select * from pgr_dijkstra(sql,[2,7],5);
+                            </code></pre></p>
+
+                        <h4> Using: many to many <h4>
+                            <p><pre><code class="sql" >
+Select * from pgr_dijkstra(sql,[2,7],[3,5]);
+                            </code></pre></p>
+
+                        <br></br>
+                        <img class="logo" src="../img/georepublic.png" />
+                    </section>
+
+
 
                 </section>
 
@@ -511,6 +632,11 @@ select * from pgr_foo(
                 <section>
                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
                         <img style="border:0;background:none;height:550px" src="future/route-future-2.2.png" />
+                        <br></br>
+                        <img class="logo" src="../img/georepublic.png" />
+                    </section>
+                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                        <img style="border:0;background:none;height:550px" src="future/slide2.2.png" />
                         <br></br>
                         <img class="logo" src="../img/georepublic.png" />
                     </section>
@@ -524,6 +650,11 @@ select * from pgr_foo(
                         <br></br>
                         <img class="logo" src="../img/georepublic.png" />
                     </section>
+                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                        <img style="border:0;background:none;height:550px" src="future/slide3.0.png" />
+                        <br></br>
+                        <img class="logo" src="../img/georepublic.png" />
+                    </section>
                 </section>
 
                 <!-- pgRouging future -->
@@ -533,14 +664,10 @@ select * from pgr_foo(
                         <br></br>
                         <img class="logo" src="../img/georepublic.png" />
                     </section>
-                </section>
-
-
-    
-
-                <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
                         <img class="stretch" src="pgrouting/pgr_then.png" />
                         <img class="logo" src="../img/georepublic.png" />
+                    </section>
                 </section>
     
                 <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
