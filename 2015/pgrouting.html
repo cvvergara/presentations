@@ -180,30 +180,25 @@
 
                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
                         <h2>Create a Database</h2>
-                        <p class="medium-margin">pgRouting extends PostgreSQL/PostGIS</p>
-                        <p><pre><code data-trim class="sql example">
+                        <p >pgRouting extends PostgreSQL/PostGIS</p>
+                        <pre><code data-trim class="sql example">
 CREATE DATABASE routing;
 \c routing
 CREATE EXTENSION postgis;
-CREATE EXTENSION pgrouting;
-                        </code></pre></p>
-                        <br></br>
-                        <img class="logo" src="../img/georepublic.png" />
+CREATE EXTENSION pgrouting; </code></pre> 
+                        <p> <br> <img class="logo" src="../img/georepublic.png" /> <p>
                     </section>
 
                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
                         <h2>SQL Query</h2>
-                        <p><pre><code data-trim class="sql example">
-SELECT * FROM pgr_dijkstra('
+                        <pre><code data-trim class="sql example"> SELECT * FROM pgr_dijkstra('
       SELECT gid as id,
              source,
              target,
              length as cost
         FROM ways',
-    30, 60, false);
-                        </code></pre></p>
-                        <br></br>
-                        <img class="logo" src="../img/georepublic.png" />
+    30, 60, false); </code></pre>
+                        <p> <br> <img class="logo" src="../img/georepublic.png" /> <p>
                     </section>
 
                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
@@ -220,10 +215,8 @@ seq | node | edge |    cost    |  agg_cost
   6 |   10 | 6869 | 0.01642741 | 0.36802626
   7 |   59 |   72 | 0.01093851 | 0.38445368
   8 |   60 |   -1 |          0 | 0.39539219
-(9 rows)
-                        </code></pre></p>
-                        <br></br>
-                        <img class="logo" src="../img/georepublic.png" />
+(9 rows) </code></pre></p>
+                        <p> <br> <img class="logo" src="../img/georepublic.png" /> <p>
                     </section>
                 </section>  <!-- pgRouging is Routing on the data base -->
 
@@ -259,7 +252,7 @@ seq | node | edge |    cost    |  agg_cost
                 </section>  <!-- pgRouging minimize costs -->
 
 
-                <section>
+                <section> <!-- Towards 3.0, goals & idea -->
                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
                         <img style="border:0;background:none;padding-top:80px;padding-bottom:40px;height:250px" src="pgrouting/pgrouting.png" />
                         <h2>Towards v3.0</h2>
@@ -275,7 +268,7 @@ seq | node | edge |    cost    |  agg_cost
                             </ul>
                             <li>Internal library</li>
                             <li>Support for big integer</li>
-                            <li>Avoid user contradicotry input </li>
+                            <li>Avoid user contradictory input </li>
                         </ul>
                         <br></br>
                         <img class="logo" src="../img/georepublic.png" />
@@ -305,11 +298,6 @@ seq | node | edge |    cost    |  agg_cost
                         <img class="logo" src="../img/georepublic.png" />
                     </section>
                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <img style="border:0;background:none;height:550px" src="future/slide1.png" />
-                        <br></br>
-                        <img class="logo" src="../img/georepublic.png" />
-                    </section>
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
                         <img style="border:0;background:none;height:550px" src="future/animation1.gif" />
                         <br></br>
                         <img class="logo" src="../img/georepublic.png" />
@@ -320,6 +308,44 @@ seq | node | edge |    cost    |  agg_cost
                         <br></br>
                         <img class="logo" src="../img/georepublic.png" />
                     </section>
+
+                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+			<h2> Cool code </h2>
+                        <p><pre><code class="cpp"  data-trim contenteditable > void old_complicated_stuff() {
+A  // 100 lines of code
+B  // 50 lines of code
+bug
+C  // 50 more lines of code
+D  // 50 more lines of code
+} </code></pre></p>
+			<h2> copy / paste </h2>
+                        <p><pre><code class="c++" data-trim contenteditable > void my_complicated_stuff() {
+E  // 100 lines of code
+// TODO part of complicated stuff
+F  // 50 more lines of code
+} </code></pre></p>
+                        <br></br>
+                        <img class="logo" src="../img/georepublic.png" />
+                    </section>
+                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                        <h2> User contradictory input </h2>
+                        <p><pre><code class="sql"  data-trim contenteditable >
+select * from pgr_foo(
+  'select id, source, target, cost, reverse_cost from edges', 3, 5,
+  false,
+  false);
+ </code></pre></p>
+                        <h2>and</h2>
+                        <p><pre><code class="sql" data-trim contenteditable >
+select * from pgr_foo(
+  'select id, source, target, cost from edges', 3, 5,
+  false,
+  true);
+ </code></pre></p>
+                        <br></br>
+                        <img class="logo" src="../img/georepublic.png" />
+                    </section>
+
                 </section>
 
 
@@ -334,7 +360,7 @@ seq | node | edge |    cost    |  agg_cost
                         <h2>Plan</h2>
                         <ul>
                             <li> Precise definition of Graphs </li>
-                            <li> Gradual creation of library </li>
+                            <li> Gradual creation of internal library </li>
                             <li> Incremental releases </li>
                         </ul>
                         <br></br>
@@ -349,6 +375,91 @@ seq | node | edge |    cost    |  agg_cost
                         <img style="border:0;background:none;height:550px" src="future/route-future-2.1.png" />
                         <br></br>
                         <img class="logo" src="../img/georepublic.png" />
+                    </section>
+
+                    <!-- pgRouging 2.1 directed graph-->
+                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                        <h3>Weighted Directed Graph</h3>
+                        <div style="font-size: 80%;"> <p>
+                        <ul>
+                            <li>
+                                Let $V$ be a set of vertices<br>
+                                $V = source \cup target \cup \{start_v\} \cup \{end_v\}$
+                            </li>
+                            <li>
+                                Let $E$ be a set of edges
+                                <ul>
+                                    <li>when $reverse\_cost = \varnothing$:<br>
+                                        $E = \{ (source_i, target_i, cost_i) | cost_i \geq 0 \}$
+                                    </li>
+                                    <li>when $reverse\_cost \neq \varnothing$:<br>
+                                        $E = \{ (source_i, target_i, cost_i) | cost_i \geq0 \}$<br>
+                                        $\cup \quad \{ (target_i, source_i, reverse\_cost_i) | reverse\_cost_i \geq 0)\}$
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>$G_d(V,E)$ is a weighted directed graph</li>
+                        </ul>
+                        </p></div>
+                        <br></br>
+                        <img class="logo" src="../img/georepublic.png" />
+                    </section>
+                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                        <h3>Weighted Directed Graph<br>with reverse cost</h3>
+                        <img style="border:0;background:none;height:500px" src="future/Fig1-directedWreverse.png" />
+                        <br></br>
+                        <img class="logo" src="../img/georepublic.png"/>
+                    </section>
+                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                        <h3>Weighted Directed Graph<br>no reverse cost</h3>
+                        <img style="border:0;background:none;height:500px" src="future/Fig2-DirectedNoReverse.png" />
+                        <br></br>
+                        <img class="logo" src="../img/georepublic.png"/>
+                    </section>
+
+
+
+                    <!-- pgRouging 2.1 undirected graph-->
+                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                        <h3>Weighted Undirected Graph</h3>
+                        <div style="font-size: 60%;"> <p>
+                        <ul>
+                            <li>
+                                Let $V$ be a set of vertices<br>
+                                $V = source \cup target \cup \{start_v\} \cup \{end_v\}$
+                            </li>
+                            <li>
+                                Let $E$ be a set of edges
+                                <ul>
+                                    <li>when $reverse\_cost = \varnothing$:<br>
+                                        $E = \{ (source_i, target_i, cost_i) | cost_i \geq 0 \}$<br>
+                                        $\cup \quad \{ (target_i, source_i, cost_i) | cost_i \geq 0 \}$
+                                    </li>
+                                    <li>when $reverse\_cost \neq \varnothing$:<br>
+                                        $E = \{ (source_i, target_i, cost_i) | cost_i \geq0 \}$<br>
+                                        $\cup \quad \{ (target_i, source_i, cost_i) | cost_i \geq 0 \}$<br>
+                                        $\cup \quad \{ (target_i, source_i, reverse\_cost_i) | reverse\_cost_i \geq 0)\}$<br>
+                                        $\cup \quad \{ (source_i, target_i, reverse\_cost_i) | reverse\_cost_i \geq 0)\}$
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>$G_u(V,E)$ is a weighted undirected graph</li>
+                        </ul>
+                        </p></div>
+                        <br></br>
+                        <img class="logo" src="../img/georepublic.png" />
+                    </section>
+                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                        <h3>Weighted Undirected Graph<br>with reverse cost</h3>
+                        <img style="border:0;background:none;height:500px" src="future/Fig4-undirectedWreverse.png" />
+                        <br></br>
+                        <img class="logo" src="../img/georepublic.png"/>
+                    </section>
+                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                        <h3>Weighted Undirected Graph<br>no reverse cost</h3>
+                        <img style="border:0;background:none;height:500px" src="future/Fig3-undirectedNoreverse.png" />
+                        <br></br>
+                        <img class="logo" src="../img/georepublic.png"/>
                     </section>
                 </section>
 
@@ -418,15 +529,20 @@ seq | node | edge |    cost    |  agg_cost
                 center: true,
 
                 transition: 'convex', // none/fade/slide/convex/concave/zoom
+		math: {
+			// mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+			config: 'TeX-AMS_HTML-full'
+		},
 
                 // Optional reveal.js plugins
                 dependencies: [
                     { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-                    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-                    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-                    { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-                    { src: 'plugin/zoom-js/zoom.js', async: true },
-                    { src: 'plugin/notes/notes.js', async: true }
+                    { src: '../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: '../plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: '../plugin/zoom-js/zoom.js', async: true },
+                    { src: '../plugin/notes/notes.js', async: true },
+                    { src: '../plugin/math/math.js', async: true }
                 ]
             });
 
