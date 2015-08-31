@@ -48,7 +48,7 @@
                     </h1>
                     <h3 class="large-margin" style="margin-top:70px !important;color:#13daec;text-shadow:none;">... and more with pgRouting</h3>
                     <p>
-                        <small>Created by <a href="http://blog.georepublic.info">Daniel Kastl</a> / <a href="http://twitter.com/dkastl">@dkastl</a></small>
+                        <small>Presented by <a href="http://blog.georepublic.info">Daniel Kastl</a> / <a href="http://twitter.com/dkastl">@dkastl</a> & <a href="http://blog.georepublic.info">Vicky</a> </small>
                     </p>
                     <img class="logo" src="../img/georepublic.png" />
                 </section>
@@ -132,7 +132,8 @@
                         <h2 style="padding-top:40px;padding-bottom:30px;">An Open Source project, ...</h2>
                         <img style="border:0;background:#ffffff;padding:10px;height:300px" src="pgrouting/postgres.gif" />
                         <img style="border:0;background:#ffffff;padding:10px;height:300px" src="pgrouting/postgis.png" />
-                        <br></br>
+                        <br>
+                        <img style="border:0;background:#ffffff;padding:10px;height:50px" src="pgrouting/boostlogo.jpeg" />
                         <img class="logo" src="../img/georepublic.png" />
                     </section>
 
@@ -160,7 +161,7 @@
 
 
                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h2 style="padding-top:40px;padding-bottom:30px;">A Library providing ...</h2>
+                        <h2 style="padding-top:40px;padding-bottom:30px;">Let's Route ...</h2>
                         <ul>
                             <li> Shortest Path Algorithm
                                 <ul>
@@ -203,18 +204,18 @@ CREATE EXTENSION pgrouting; </code></pre>
 
                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
                         <h2>Query Result</h2>
-                        <p><pre><code data-trim class="sql example" style="line-height:26px;">
-seq | node | edge |    cost    |  agg_cost  
-----+------+------+------------+------------
-  0 |   30 |   53 | 0.05912676 |          0
-  1 |   44 |   52 | 0.06654083 | 0.05912676
-  2 |   14 |   15 | 0.08095568 | 0.12566759
-  3 |   13 |   14 | 0.07269427 | 0.20662328
-  4 |   12 |   13 | 0.08123934 | 0.27931755
-  5 |   11 |   12 | 0.00746935 | 0.36055690
-  6 |   10 | 6869 | 0.01642741 | 0.36802626
-  7 |   59 |   72 | 0.01093851 | 0.38445368
-  8 |   60 |   -1 |          0 | 0.39539219
+                        <p><pre><code data-trim class="sql" style="line-height:28px; font-size: 140%;">
+seq | path_seq | node | edge |  cost  | agg_cost  
+----+----------+------+------+--------+----------
+  1 |        1 |   30 |   53 | 0.0591 |        0
+  2 |        2 |   44 |   52 | 0.0665 |   0.0591
+  3 |        3 |   14 |   15 | 0.0809 |   0.1256
+  4 |        4 |   13 |   14 | 0.0726 |   0.2065
+  5 |        5 |   12 |   13 | 0.0812 |   0.2791
+  6 |        6 |   11 |   12 | 0.0074 |   0.3603
+  7 |        7 |   10 | 6869 | 0.0164 |   0.3677
+  8 |        8 |   59 |   72 | 0.0109 |   0.3841
+  9 |        9 |   60 |   -1 |      0 |   0.3950
 (9 rows) </code></pre></p>
                         <p> <br> <img class="logo" src="../img/georepublic.png" /> <p>
                     </section>
@@ -313,16 +314,14 @@ seq | node | edge |    cost    |  agg_cost
 			<h2> Cool code </h2>
                         <p><pre><code class="cpp"  data-trim contenteditable > void old_complicated_stuff() {
 A  // 100 lines of code
-B  // 50 lines of code
-bug
+B  // 500 lines of complicated code with a bug
 C  // 50 more lines of code
-D  // 50 more lines of code
 } </code></pre></p>
 			<h2> copy / paste </h2>
                         <p><pre><code class="c++" data-trim contenteditable > void my_complicated_stuff() {
-E  // 100 lines of code
-// TODO part of complicated stuff
-F  // 50 more lines of code
+D  // 100 lines of code
+// TODO copy/paste 500 lines of old complicated stuff
+E  // 50 more lines of code
 } </code></pre></p>
                         <br></br>
                         <img class="logo" src="../img/georepublic.png" />
@@ -332,15 +331,17 @@ F  // 50 more lines of code
                         <p><pre><code class="sql"  data-trim contenteditable >
 select * from pgr_foo(
   'select id, source, target, cost, reverse_cost from edges', 3, 5,
-  false,
-  false);
+  false -- directed flag,
+  false -- has_rcost flag
+);
  </code></pre></p>
                         <h3>and</h3>
                         <p><pre><code class="sql" data-trim contenteditable >
 select * from pgr_foo(
   'select id, source, target, cost from edges', 3, 5,
-  false,
-  true);
+  false -- directed flag,
+  true  -- has_rcost flag
+);
  </code></pre></p>
                         <br></br>
                         <img class="logo" src="../img/georepublic.png" />
@@ -381,7 +382,7 @@ select * from pgr_foo(
                         <img class="logo" src="../img/georepublic.png" />
                     </section>
                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <img style="border:0;background:none;height:550px" src="future/slide2.1.png" />
+                        <img style="border:0;background:none;height:550px" src="future/pgrouting21progress.png" />
                         <br></br>
                         <img class="logo" src="../img/georepublic.png" />
                     </section>
@@ -430,6 +431,22 @@ select * from pgr_foo(
                         <img class="logo" src="../img/georepublic.png" />
                     </section>
                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                        <h3>Weighted Directed Graph</h3>
+                        <p><pre><code data-trim class="sql" style="line-height:28px; font-size: 140%;">
+source | target | cost | r_cost 
+------+--------+------+--------
+     3 |      6 |   40 |   38
+     3 |      8 |   25 |  -25
+     6 |      8 |  -1  |   32
+			</code></pre></p>
+                        <p> <br>
+                        <img style="border:0;background:#ffffff;padding:10px;height:300px" src="future/directed.gif" />
+                        <br></br>
+                        <img class="logo" src="../img/georepublic.png"/>
+                    </section>
+                    
+
+                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
                         <h3>Weighted Directed Graph<br>with reverse cost</h3>
                         <img style="border:0;background:none;height:500px" src="future/Fig1-directedWreverse.png" />
                         <br></br>
@@ -474,6 +491,22 @@ select * from pgr_foo(
                         <br></br>
                         <img class="logo" src="../img/georepublic.png" />
                     </section>
+                    
+                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                        <h3>Weighted Directed Graph</h3>
+                        <p><pre><code data-trim class="sql" style="line-height:28px; font-size: 140%;">
+source | target | cost | r_cost 
+------+--------+------+--------
+     3 |      6 |   40 |   38
+     3 |      8 |   25 |  -25
+     6 |      8 |  -1  |   32
+			</code></pre></p>
+                        <p> <br>
+                        <img style="border:0;background:#ffffff;padding:10px;height:300px" src="future/undirected.gif" />
+                        <br></br>
+                        <img class="logo" src="../img/georepublic.png"/>
+                    </section>
+                    
                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
                         <h3>Weighted Undirected Graph<br>with reverse cost</h3>
                         <img style="border:0;background:none;height:500px" src="future/Fig4-undirectedWreverse.png" />
@@ -507,8 +540,8 @@ select * from pgr_foo(
                         <li> The algorithm returns a path $\pi$, if it exists, which is the shortest path using Dijsktra algorithm between $start_v$ and $end_v$ in terms of a sequence of vertices and of edges:<br>
                          \[
                             \pi = 
-                            \{(seq_i, node_i, edge_i, cost_i, agg\_cost_i) |  \\
-                            seq_i = i \\
+                            \{(path\_seq_i, node_i, edge_i, cost_i, agg\_cost_i) |  \\
+                            path\_seq_i = i \\
                             node_1 = start_v \\
                             \land node_{|\pi|} = end_v \\
                             \land edge_i = 
@@ -525,14 +558,17 @@ select * from pgr_foo(
                         <br></br>
                         <img class="logo" src="../img/georepublic.png" />
                     </section>
+                    
+
+                    
                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
                         <h2> pgr_dijkstra </h2> <h3> on undirected graph </h3>
                         <h4> With reverse cost </h4>
                         <p><pre><code class="sql"  data-trim contenteditable >
 SELECT * FROM pgr_Dijkstra(
   'SELECT id, source, target, cost, reverse_cost FROM edges',
-  3, -- start_v
-  5, -- end_v
+  3, -- start_vid
+  5, -- end_vid
   false);
 			</code></pre></p>
                         <h4> Without reverse cost </h4>
@@ -565,35 +601,35 @@ SELECT * FROM pgr_Dijkstra(
                         <img class="logo" src="../img/georepublic.png" />
                     </section>
                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h2> pgr_dijkstra </h2> <h3> Variations </h3>
+                        <h2> pgr_Dijkstra </h2> <h3> Variations </h3>
                         <h4> One to one <h4>
                             <p><pre><code class="sql" data-trim contenteditable>
-SELECT * FROM pgr_dijkstra(sql,2,3);
- seq |  node | edge | cost | agg_cost
------+-------+------+------+----------
+SELECT * FROM pgr_Dijkstra(edges_sql,2,3);
+ seq | path_seq | node | edge | cost | agg_cost
+-----+----------+------+------+------+---------
                             </code></pre></p>
                         <h4> Many to 1<h4>
                             <p><pre><code class="sql" data-trim contenteditable>
-SELECT * FROM pgr_dijkstra(sql,[2],3);
- seq | start_v | node | edge | cost | agg_cost
------+---------+------+------+------+----------
+SELECT * FROM pgr_Dijkstra(edges_sql,ARRAY[2],3);
+ seq | path_seq | start_vid | node | edge | cost | agg_cost
+-----+----------+-----------+------+------+------+---------
                             </code></pre></p>
                         <br></br>
                         <img class="logo" src="../img/georepublic.png" />
                     </section>
                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h2> pgr_dijkstra </h2> <h3> Variations </h3>
+                        <h2> pgr_Dijkstra </h2> <h3> Variations </h3>
                         <h4> One to many <h4>
                             <p><pre><code class="sql" >
-SELECT * FROM pgr_dijkstra(sql, 2,[3]);
- seq | end_v | node | edge | cost | agg_cost
------+-------+------+------+------+----------
+SELECT * FROM pgr_Dijkstra(edges_sql, 2,ARRAY[3]);
+ seq | path_seq | end_vid | node | edge | cost | agg_cost
+-----+----------+---------+------+------+------+---------
                             </code></pre></p>
                         <h4> Many to many <h4>
                             <p><pre><code class="sql" >
-SELECT * FROM pgr_dijkstra(sql,[2],[3]);
- seq | start_v | end_v | node | edge | cost | agg_cost
------+---------+-------+------+------+------+----------
+SELECT * FROM pgr_Dijkstra(edges_sql,ARRAY[2],ARRAY[3]);
+seq | path_seq | start_vid | end_vid | node | edge | cost | agg_cost
+----+----------+-----------+---------+------+------+------+---------
                             </code></pre></p>
                         <br></br>
                         <img class="logo" src="../img/georepublic.png" />
@@ -601,23 +637,23 @@ SELECT * FROM pgr_dijkstra(sql,[2],[3]);
 
 
                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h2> pgr_dijkstra </h2> <h3> from 2, 7 to 3, 5 </h3>
+                        <h2> pgr_Dijkstra </h2> <h3> from 2, 7 to 3, 5 </h3>
                         <h4> Using: one to many <h4>
                             <p><pre><code class="sql" >
 
-Select * from pgr_dijkstra(sql,2,[3,5]);
-Select * from pgr_dijkstra(sql,7,[3,5]);
+Select * from pgr_Dijkstra(edges_sql,2,ARRAY[3,5]);
+Select * from pgr_Dijkstra(edges_sql,7,ARRAY[3,5]);
                             </code></pre></p>
 
                         <h4> Using: many to one <h4>
                             <p><pre><code class="sql" >
-Select * from pgr_dijkstra(sql,[2,7],3);
-Select * from pgr_dijkstra(sql,[2,7],5);
+Select * from pgr_Dijkstra(edges_sql,ARRAY[2,7],3);
+Select * from pgr_Dijkstra(edges_sql,ARRAY[2,7],5);
                             </code></pre></p>
 
                         <h4> Using: many to many <h4>
                             <p><pre><code class="sql" >
-Select * from pgr_dijkstra(sql,[2,7],[3,5]);
+Select * from pgr_Dijkstra(edges_sql,ARRAY[2,7],ARRAY[3,5]);
                             </code></pre></p>
 
                         <br></br>
@@ -636,7 +672,13 @@ Select * from pgr_dijkstra(sql,[2,7],[3,5]);
                         <img class="logo" src="../img/georepublic.png" />
                     </section>
                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <img style="border:0;background:none;height:550px" src="future/slide2.2.png" />
+                        <img style="border:0;background:none;height:550px" src="future/pgrouting22progress1.png" />
+                        <br></br>
+                        <img class="logo" src="../img/georepublic.png" />
+                    </section>
+
+                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                        <img style="border:0;background:none;height:550px" src="future/pgrouting22progress2.png" />
                         <br></br>
                         <img class="logo" src="../img/georepublic.png" />
                     </section>
