@@ -44,7 +44,7 @@
             <div class="slides">
 
                 <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                    <h1 style="text-transform:none;margin-top:70px;font-size:115px;line-height:125px">Shortest Path Search <br>in your Database<br>
+                    <h1 style="text-transform:none;margin-top:40px;font-size:100px;line-height:125px">Shortest Path Search <br>in your Database<br>
                     </h1>
                     <h3 class="large-margin" style="margin-top:70px !important;color:#13daec;text-shadow:none;">... and more with pgRouting</h3>
                     <p>
@@ -53,6 +53,15 @@
                     <img class="logo" src="../img/georepublic.png" />
                 </section>
 
+                <!-- Machado -->
+                <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                    <h1 style="text-transform:none;margin-top:20px;font-size:60px;line-height:100px">
+                    "Caminante no hay camino, <br>
+                    se hace el camino al andar...."
+                    </h1>
+                    <br><br><br>
+                    <h2 style="font-size:50px">Antonio Machado</h2>
+                </section>   <!-- end of Machado -->
 
                 <section>  <!-- Vicky's background -->
                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
@@ -105,8 +114,8 @@
 
                 <section> <!-- pgRouging is Routing on the data base -->
                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h2 style="padding-top:10px;padding-bottom:10px;">A Library providing ...</h2>
-                        <img style="border:0;background:none;padding-top:40px;padding-bottom:40px;height:250px" src="pgrouting/database.png" />
+                        <h1 style="padding-top:10px;padding-bottom:10px;font-size:80px">A Library providing</h2>
+                        <img style="border:0;background:none;padding-top:30px;padding-bottom:30px;height:200px" src="pgrouting/database.png" />
                         <h2>Routing in the Database</h2>
                         <br></br>
                         <img class="logo" src="../img/georepublic.png" />
@@ -114,12 +123,14 @@
 
 
                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h2 style="padding-top:40px;padding-bottom:30px;">Let's Route ...</h2>
-                        <ul>
+                        <h2 style="padding-top:10px;padding-bottom:10px;">Let's Route ...</h2>
+                        <ul style="font-size:40px">
                             <li> Shortest Path Algorithm
-                                <ul>
-                                    <li>Dijkstra, A-Star, One-to-many, All-pair SP.</li>
-                                    <li>Alternative Routes & Turn Restrictions</li>
+                                <ul style="font-size:30px">
+                                    <li>Dijkstra</li>
+                                    <li>A-Star.</li>
+                                    <li>Alternative Routes</li>
+                                    <li>Turn Restrictions</li>
                                 </ul>
                             </li>
                             <li>Traveling Salesperson Algorithm</li>
@@ -210,10 +221,12 @@ seq | path_seq | node | edge |  cost  | agg_cost
                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
                         <img style="border:0;background:none;padding-top:80px;padding-bottom:40px;height:250px" src="pgrouting/pgrouting.png" />
                         <h2>Towards v3.0</h2>
+                        <br></br>
                         <img class="logo" src="../img/georepublic.png" />
                     </section>
                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
                         <h2 style="padding-top:40px;padding-bottom:30px;">Goals</h2>
+                        <h3>developers</h3>
                         <ul>
                             <li>Boost</li>
                             <ul>
@@ -221,12 +234,21 @@ seq | path_seq | node | edge |  cost  | agg_cost
                                 <li>Directed Graph</li>
                             </ul>
                             <li>Internal library</li>
+                        </ul>
+                        <br></br>
+                        <img class="logo" src="../img/georepublic.png" />
+                    </section>
+                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                        <h2 style="padding-top:40px;padding-bottom:30px;">Goals</h2>
+                        <h3>users</h3>
+                        <ul>
                             <li>Support for big integer</li>
                             <li>Avoid user contradictory input </li>
                         </ul>
                         <br></br>
                         <img class="logo" src="../img/georepublic.png" />
                     </section>
+
                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
                         <h1 style="padding-top:120px;">An Idea</h1>
                         <h3 class="large-margin" style="line-height:1.6em;text-transform:none;">Keep the graph in memory <br/> to speedup subsequent requests</h3>
@@ -340,16 +362,16 @@ select * from pgr_foo(
                     </section>
                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
                         <h3>ANY-INTEGER</h3>
-                        <ul> <li> int </li>   
-                            <li> smallint </li>   
-                            <li> bigint </li>   
+                        <ul> <li> INTEGER </li>   
+                            <li> SMALLINT </li>   
+                            <li> BIGINT </li>   
                         </ul>
                         <h3>ANY-NUMERICAL</h3>
-                        <ul> <li> int </li>   
-                            <li> smallint </li>   
-                            <li> bigint </li>   
-                            <li> real </li>   
-                            <li> float </li>   
+                        <ul style="font-size=18px"> <li> INTEGER </li>   
+                            <li> SMALLINT </li>   
+                            <li> BIGINT </li>   
+                            <li> REAL </li>
+                            <li> FLOAT </li>   
                         </ul>
                         <br></br>
                         <img class="logo" src="../img/georepublic.png" />
@@ -397,19 +419,6 @@ source | target | cost | reverse_cost
                         <img class="logo" src="../img/georepublic.png"/>
                     </section>
                     
-
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h3>Weighted Directed Graph<br>with reverse cost</h3>
-                        <img style="border:0;background:none;height:500px" src="future/Fig1-directedWreverse.png" />
-                        <br></br>
-                        <img class="logo" src="../img/georepublic.png"/>
-                    </section>
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h3>Weighted Directed Graph<br>no reverse cost</h3>
-                        <img style="border:0;background:none;height:500px" src="future/Fig2-DirectedNoReverse.png" />
-                        <br></br>
-                        <img class="logo" src="../img/georepublic.png"/>
-                    </section>
 
 
 
@@ -459,19 +468,7 @@ source | target | cost | reverse_cost
                         <img class="logo" src="../img/georepublic.png"/>
                     </section>
                     
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h3>Weighted Undirected Graph<br>with reverse cost</h3>
-                        <img style="border:0;background:none;height:500px" src="future/Fig4-undirectedWreverse.png" />
-                        <br></br>
-                        <img class="logo" src="../img/georepublic.png"/>
-                    </section>
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h3>Weighted Undirected Graph<br>no reverse cost</h3>
-                        <img style="border:0;background:none;height:500px" src="future/Fig3-undirectedNoreverse.png" />
-                        <br></br>
-                        <img class="logo" src="../img/georepublic.png"/>
-                    </section>
-
+  
                     <!-- pgRouging 2.1 undirected graph-->
                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
                         <h3>pgr_Dijkstra</h3>
@@ -511,6 +508,32 @@ source | target | cost | reverse_cost
                         <img class="logo" src="../img/georepublic.png" />
                     </section>
                     
+                  
+                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                        <h3>Weighted Directed Graph<br>with reverse cost</h3>
+                        <img style="border:0;background:none;height:500px" src="future/Fig1-directedWreverse.png" />
+                        <br></br>
+                        <img class="logo" src="../img/georepublic.png"/>
+                    </section>
+                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                        <h3>Weighted Directed Graph<br>no reverse cost</h3>
+                        <img style="border:0;background:none;height:500px" src="future/Fig2-DirectedNoReverse.png" />
+                        <br></br>
+                        <img class="logo" src="../img/georepublic.png"/>
+                    </section>
+
+                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                        <h3>Weighted Undirected Graph<br>with reverse cost</h3>
+                        <img style="border:0;background:none;height:500px" src="future/Fig4-undirectedWreverse.png" />
+                        <br></br>
+                        <img class="logo" src="../img/georepublic.png"/>
+                    </section>
+                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                        <h3>Weighted Undirected Graph<br>no reverse cost</h3>
+                        <img style="border:0;background:none;height:500px" src="future/Fig3-undirectedNoreverse.png" />
+                        <br></br>
+                        <img class="logo" src="../img/georepublic.png"/>
+                    </section>
 
                     
                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
@@ -675,7 +698,18 @@ Select * from pgr_Dijkstra(edges_sql,ARRAY[2,7],ARRAY[3,5]);
                         <img class="logo" src="../img/georepublic.png" />
                     </section>
                 </section>
-    
+                
+                    <!-- Machado -->
+                <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                    <h1 style="text-transform:none;margin-top:20px;font-size:60px;line-height:100px">
+                    ... y al volver la vista atrás <br>
+                    se ve la senda que nunca  <br>
+                    se ha de volver a pisar. <br>
+                    </h1>
+                    <br><br><br>
+                    <h2 style="font-size:50px">Antonio Machado</h2>
+                </section>   <!-- end of Machado -->
+                
                 <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
                     <h2 style="padding-top:80px;">Interested in pgRouting?</h2>
                     <ul style="padding-top:40px;">
