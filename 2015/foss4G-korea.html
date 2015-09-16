@@ -293,7 +293,7 @@ seq | path_seq | node | edge |  cost  | agg_cost
 			<h2> Cool code </h2>
                         <p><pre><code class="cpp"  data-trim contenteditable > void existing_complicated_code() {
 A  // 100 lines of code
-B  // 500 lines of complicated code with a bug
+B  // 500 lines of complicated code with an unsolved issue
 C  // 50 more lines of code
 } </code></pre></p>
 			<h2> copy / paste </h2>
@@ -552,7 +552,8 @@ SELECT * FROM pgr_Dijkstra(
   'SELECT id, source, target, cost, reverse_cost FROM edges',
   3, -- start_vid
   5, -- end_vid
-  false);
+  false -- directed flag
+);
 			</code></pre></p>
                         <h4> Without reverse cost </h4>
                         <p><pre><code class="sql"  data-trim contenteditable >
