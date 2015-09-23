@@ -44,9 +44,9 @@
             <div class="slides">
 
                 <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                    <h1 style="text-transform:none;margin-top:40px;font-size:100px;line-height:125px">Shortest Path Search <br>in your Database<br>
+                    <h1 style="text-transform:none;margin-top:40px;font-size:100px;line-height:125px">最短経路探索<br>データベース内の<br>
                     </h1>
-                    <h3 class="large-margin" style="margin-top:70px !important;color:#13daec;text-shadow:none;">... and more with pgRouting</h3>
+                    <h3 class="large-margin" style="margin-top:70px !important;color:#13daec;text-shadow:none;">pgroutingなどについて</h3>
                     <p>
                         <small>Presented by <a href="http://blog.georepublic.info">Vicky Vergara</a> </small>
                     </p>
@@ -55,19 +55,18 @@
 
                 <!-- Machado -->
                 <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                    <h1 style="text-transform:none;margin-top:20px;font-size:60px;line-height:80px">
-                    "Caminante, son tus huellas	<br>
-                    el camino y nada más;<br>
-                    caminante, no hay camino,<br>
-                    se hace camino al andar." 
+                    <h1 style="text-transform:none;margin-top:20px;font-size:50px;line-height:60px">
+                    "Al andar se hace camino<br>
+                    y al volver la vista atrás<br>
+                    se ve la senda que nunca<br>
+                    se ha de volver a pisar."<br>
                     </h1>
-                    <br>
-                    
-                    <h3 style="font-size:30px">Walker, your footprints are<br>
-                    the path and nothing more;<br>
-                    walker, there is no path,<br>
-                    the path is made when walking.</h3>
-                    <br>
+                    <h2 style="text-transform:none;margin-top:20px;font-size:50px;line-height:60px">
+                    パスは、歩行によって行われ<br>
+                    そして、振り返って<br>
+                    パスは決してありません<br>
+                    彼は再び歩きました。<br>
+                    </h2>
                     <h2 style="font-size:50px">Antonio Machado</h2>
                 </section>   <!-- end of Machado -->
 
@@ -76,14 +75,14 @@
                     <h1 style="text-transform:none;margin-top:20px;font-size:50px;line-height:60px">Celia Virginia Vergara Castillo
                     </h1>
                         <ul>
-                            <li>Economist, Computer Scientist</li>
-                            <li>Work in Georepublic</li>
-                            <li>pgRouting developer</li>
+                            <li>経済学者, コンピュータ科学者</li>
+                            <li>Georepublic</li>
+                            <li>pgRouting software developer</li>
                             <li>Living in Mexico</li>
                             <li>Known as Vicky</li>
                         </ul>
                         <br>
-                        Please, enjoy FOSS4G Korea!!!
+                        Please, enjoy Open Source FOSS4G!!!
                         <br><br>
                         <img class="logo" src="../img/georepublic.png" />
                     </section>
@@ -124,7 +123,7 @@
                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
                         <h1 style="padding-top:10px;padding-bottom:10px;font-size:80px">A Library providing</h2>
                         <img style="border:0;background:none;padding-top:30px;padding-bottom:30px;height:200px" src="pgrouting/database.png" />
-                        <h2 style="font-size:60px">Routing functionality in the Database</h2>
+                        <h2>Routing in the Database</h2>
                         <br></br>
                         <img class="logo" src="../img/georepublic.png" />
                     </section>
@@ -136,7 +135,7 @@
                             <li> Shortest Path Algorithm
                                 <ul style="font-size:30px">
                                     <li>Dijkstra</li>
-                                    <li>A-Star</li>
+                                    <li>A-Star.</li>
                                     <li>Alternative Routes</li>
                                     <li>Turn Restrictions</li>
                                 </ul>
@@ -293,7 +292,7 @@ seq | path_seq | node | edge |  cost  | agg_cost
 			<h2> Cool code </h2>
                         <p><pre><code class="cpp"  data-trim contenteditable > void existing_complicated_code() {
 A  // 100 lines of code
-B  // 500 lines of complicated code with an unsolved issue
+B  // 500 lines of complicated code with a bug
 C  // 50 more lines of code
 } </code></pre></p>
 			<h2> copy / paste </h2>
@@ -339,9 +338,9 @@ select * from pgr_foo(
                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
                         <h2>Plan</h2>
                         <ul>
-                            <li> Precise definition of graphs </li>
+                            <li> Precise definition of Graphs </li>
                             <li> Gradual creation of internal library </li>
-                            <li> Incremental releases</li>
+                            <li> Incremental releases </li>
                         </ul>
                         <br></br>
                         <img class="logo" src="../img/georepublic.png" />
@@ -552,8 +551,7 @@ SELECT * FROM pgr_Dijkstra(
   'SELECT id, source, target, cost, reverse_cost FROM edges',
   3, -- start_vid
   5, -- end_vid
-  false -- directed flag
-);
+  false);
 			</code></pre></p>
                         <h4> Without reverse cost </h4>
                         <p><pre><code class="sql"  data-trim contenteditable >
@@ -708,6 +706,16 @@ Select * from pgr_Dijkstra(edges_sql,ARRAY[2,7],ARRAY[3,5]);
                     </section>
                 </section>
                 
+                    <!-- Machado -->
+                <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                    <h1 style="text-transform:none;margin-top:20px;font-size:60px;line-height:100px">
+                    ... y al volver la vista atrás <br>
+                    se ve la senda que nunca  <br>
+                    se ha de volver a pisar. <br>
+                    </h1>
+                    <br><br><br>
+                    <h2 style="font-size:50px">Antonio Machado</h2>
+                </section>   <!-- end of Machado -->
                 
                 <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
                     <h2 style="padding-top:80px;">Interested in pgRouting?</h2>
@@ -720,24 +728,6 @@ Select * from pgr_Dijkstra(edges_sql,ARRAY[2,7],ARRAY[3,5]);
                     <br></br>
                     <img class="logo" src="../img/georepublic.png" />
                 </section>
-                               <!-- Machado -->
-                <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                    <h1 style="text-transform:none;margin-top:20px;font-size:60px;line-height:80px">
-                    "Caminante, son tus huellas	<br>
-                    el camino y nada más;<br>
-                    caminante, no hay camino,<br>
-                    se hace camino al andar." 
-                    </h1>
-                    <br>
-                    
-                    <h3 style="font-size:30px">Walker, your footprints are<br>
-                    the path and nothing more;<br>
-                    walker, there is no path,<br>
-                    the path is made when walking.</h3>
-                    <br>
-                    <h2 style="font-size:50px">Antonio Machado</h2>
-                </section>   <!-- end of Machado -->
-
 
             </div>
 
