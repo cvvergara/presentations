@@ -26,6 +26,10 @@ section h2 {
 	margin-top: 20px !important;
 }
 
+section .reveal.center .slides{
+	min-height: 680px !important;
+}
+
 code.sql.example {
 	padding: 30px;
 	font-size: 28px;

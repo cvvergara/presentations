@@ -128,11 +128,9 @@
 
                 <section> <!-- pgRouging is Routing on the data base -->
                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                    <!-- TODO translate -->
-                        <h1 style="padding-top:10px;padding-bottom:10px;font-size:80px">A Library providing</h2>
                         <img style="border:0;background:none;padding-top:30px;padding-bottom:30px;height:200px" src="pgrouting/database.png" />
                         <!-- TODO translate -->
-                        <h2>Routing in the Database</h2>
+                        <h2>ライブラリは<br>データベース内での<br>ルート検索機能を<br>提供しています</h2>
                         <br></br>
                         <img class="logo" src="../img/georepublic.png" />
                     </section>
@@ -257,12 +255,22 @@ $ osm2pgrouting -d routing -f sampledata.osm
 
                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
                         <h2> pgr_Dijkstra </h2> <h3> Variations </h3>
+                        <br></br>
+                        <img class="logo" src="../img/georepublic.png" />
+                    </section>
+                    
+                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
                         <h4> One to one <h4>
                             <p><pre><code class="sql" data-trim contenteditable>
 SELECT * FROM pgr_Dijkstra(edges_sql,2,3);
  seq | path_seq | node | edge | cost | agg_cost
 -----+----------+------+------+------+---------
                             </code></pre></p>
+                        <br></br>
+                        <img class="logo" src="../img/georepublic.png" />
+                    </section>
+                    
+                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
                         <h4> Many to 1<h4>
                             <p><pre><code class="sql" data-trim contenteditable>
 SELECT * FROM pgr_Dijkstra(edges_sql,ARRAY[2],3);
@@ -273,13 +281,18 @@ SELECT * FROM pgr_Dijkstra(edges_sql,ARRAY[2],3);
                         <img class="logo" src="../img/georepublic.png" />
                     </section>
                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h2> pgr_Dijkstra </h2> <h3> Variations </h3>
                         <h4> One to many <h4>
                             <p><pre><code class="sql" >
 SELECT * FROM pgr_Dijkstra(edges_sql, 2,ARRAY[3]);
  seq | path_seq | end_vid | node | edge | cost | agg_cost
 -----+----------+---------+------+------+------+---------
                             </code></pre></p>
+                        <br></br>
+                        <img class="logo" src="../img/georepublic.png" />
+                    </section>
+                    
+                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                           
                         <h4> Many to many <h4>
                             <p><pre><code class="sql" >
 SELECT * FROM pgr_Dijkstra(edges_sql,ARRAY[2],ARRAY[3]);
