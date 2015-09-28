@@ -105,8 +105,7 @@
                         <img class="logo" src="../img/georepublic.png" />
                     </section>
                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                    <!-- TODO translate -->
-                        <h2 style="padding-top:40px;padding-bottom:30px;">An Open Source プロジェクト, ...</h2>
+                        <h2 style="padding-top:40px;padding-bottom:30px;"> オープンソースプロジェクト, ...</h2>
                         <img style="border:0;background:#ffffff;padding:10px;height:300px" src="pgrouting/postgres.gif" />
                         <img style="border:0;background:#ffffff;padding:10px;height:300px" src="pgrouting/postgis.png" />
                         <br>
@@ -115,8 +114,7 @@
                     </section>
 
                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                    <!-- TODO translate -->
-                        <h2 style="padding-top:40px;padding-bottom:30px;">An Open Source プロジェクト, ...</h2>
+                        <h2 style="padding-top:40px;padding-bottom:30px;"> オープンソースプロジェクト, ...</h2>
                         <img style="border:0;background:#ffffff;padding:10px;height:300px" src="pgrouting/osi.png" />
                         <br></br>
                         <img class="logo" src="../img/georepublic.png" />
@@ -506,68 +504,6 @@ SELECT * FROM pgr_Dijkstra(
                         <br></br>
                         <img class="logo" src="../img/georepublic.png" />
                     </section>
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h2> pgr_Dijkstra </h2> <h3> Variations </h3>
-                        <h4> One to one <h4>
-                            <p><pre><code class="sql" data-trim contenteditable>
-SELECT * FROM pgr_Dijkstra(edges_sql,2,3);
- seq | path_seq | node | edge | cost | agg_cost
------+----------+------+------+------+---------
-                            </code></pre></p>
-                        <h4> Many to 1<h4>
-                            <p><pre><code class="sql" data-trim contenteditable>
-SELECT * FROM pgr_Dijkstra(edges_sql,ARRAY[2],3);
- seq | path_seq | start_vid | node | edge | cost | agg_cost
------+----------+-----------+------+------+------+---------
-                            </code></pre></p>
-                        <br></br>
-                        <img class="logo" src="../img/georepublic.png" />
-                    </section>
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h2> pgr_Dijkstra </h2> <h3> Variations </h3>
-                        <h4> One to many <h4>
-                            <p><pre><code class="sql" >
-SELECT * FROM pgr_Dijkstra(edges_sql, 2,ARRAY[3]);
- seq | path_seq | end_vid | node | edge | cost | agg_cost
------+----------+---------+------+------+------+---------
-                            </code></pre></p>
-                        <h4> Many to many <h4>
-                            <p><pre><code class="sql" >
-SELECT * FROM pgr_Dijkstra(edges_sql,ARRAY[2],ARRAY[3]);
-seq | path_seq | start_vid | end_vid | node | edge | cost | agg_cost
-----+----------+-----------+---------+------+------+------+---------
-                            </code></pre></p>
-                        <br></br>
-                        <img class="logo" src="../img/georepublic.png" />
-                    </section>
-
-
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h2> pgr_Dijkstra </h2> <h3> from 2, 7 to 3, 5 </h3>
-                        <h4> Using: one to many <h4>
-                            <p><pre><code class="sql" >
-
-Select * from pgr_Dijkstra(edges_sql,2,ARRAY[3,5]);
-Select * from pgr_Dijkstra(edges_sql,7,ARRAY[3,5]);
-                            </code></pre></p>
-
-                        <h4> Using: many to one <h4>
-                            <p><pre><code class="sql" >
-Select * from pgr_Dijkstra(edges_sql,ARRAY[2,7],3);
-Select * from pgr_Dijkstra(edges_sql,ARRAY[2,7],5);
-                            </code></pre></p>
-
-                        <h4> Using: many to many <h4>
-                            <p><pre><code class="sql" >
-Select * from pgr_Dijkstra(edges_sql,ARRAY[2,7],ARRAY[3,5]);
-                            </code></pre></p>
-
-                        <br></br>
-                        <img class="logo" src="../img/georepublic.png" />
-                    </section>
-
-
-
                 </section>
 
                 
