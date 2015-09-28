@@ -96,8 +96,17 @@
                         <br></br>
                         <img class="logo" src="../img/georepublic.png" />
                     </section>
-
                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                        
+                        <!-- TODO translate -->
+                        <h2>New Release</h2>
+                        <img style="border:0;background:none;padding-top:80px;padding-bottom:40px;height:250px" src="pgrouting/pgrouting.png" />
+                        <h2>pgRouting 2.1</h2>
+                        <br></br>
+                        <img class="logo" src="../img/georepublic.png" />
+                    </section>
+                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                    <!-- TODO translate -->
                         <h2 style="padding-top:40px;padding-bottom:30px;">An Open Source プロジェクト, ...</h2>
                         <img style="border:0;background:#ffffff;padding:10px;height:300px" src="pgrouting/postgres.gif" />
                         <img style="border:0;background:#ffffff;padding:10px;height:300px" src="pgrouting/postgis.png" />
@@ -107,6 +116,7 @@
                     </section>
 
                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                    <!-- TODO translate -->
                         <h2 style="padding-top:40px;padding-bottom:30px;">An Open Source プロジェクト, ...</h2>
                         <img style="border:0;background:#ffffff;padding:10px;height:300px" src="pgrouting/osi.png" />
                         <br></br>
@@ -121,32 +131,16 @@
 
                 <section> <!-- pgRouging is Routing on the data base -->
                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                    <!-- TODO translate -->
                         <h1 style="padding-top:10px;padding-bottom:10px;font-size:80px">A Library providing</h2>
                         <img style="border:0;background:none;padding-top:30px;padding-bottom:30px;height:200px" src="pgrouting/database.png" />
+                        <!-- TODO translate -->
                         <h2>Routing in the Database</h2>
                         <br></br>
                         <img class="logo" src="../img/georepublic.png" />
                     </section>
 
 
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h2 style="padding-top:10px;padding-bottom:10px;">Let's Route ...</h2>
-                        <ul style="font-size:40px">
-                            <li> Shortest Path Algorithm
-                                <ul style="font-size:30px">
-                                    <li>Dijkstra</li>
-                                    <li>A-Star.</li>
-                                    <li>Alternative Routes</li>
-                                    <li>Turn Restrictions</li>
-                                </ul>
-                            </li>
-                            <li>Traveling Salesperson Algorithm</li>
-                            <li>Drivetime Analysis</li>
-                            <li>Vehicle Route Problem Solver</li>
-                        </ul>
-                        <br></br>
-                        <img class="logo" src="../img/georepublic.png" />
-                    </section>
 
 
 
@@ -161,6 +155,40 @@ CREATE EXTENSION pgrouting; </code></pre>
                         <p> <br> <img class="logo" src="../img/georepublic.png" /> <p>
                     </section>
 
+                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                        <h2>Insert your data</h2>
+                        <pre><code class="sh" style="line-height:130%; font-size: 120%;">                        
+$ BBOX="-122.8,45.4,-122.5,45.6"
+$ wget --progress=dot:mega -O "sampledata.osm" \
+  "http://www.overpass-api.de/api/xapi?*[bbox=${BBOX}][@meta]"
+$ osm2pgrouting -d routing -f sampledata.osm
+                        </code></pre> 
+                        <p> <br> <img class="logo" src="../img/georepublic.png" /> <p>
+                    </section>
+
+                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                        <!-- TODO translate -->
+                        <h2 style="padding-top:10px;padding-bottom:10px;">Lets Route!!!</h2>
+                        <ul style="font-size:40px">
+                        <!-- TODO translate -->
+                            <li> Shortest Path Algorithm
+                                <ul style="font-size:30px">
+                                    <li>Dijkstra</li>
+                                    <li>A-Star</li>
+                                    <li>Alternative Routes</li>
+                                    <li>Turn Restrictions</li>
+                                </ul>
+                            </li>
+                            <li>Traveling Salesperson Algorithm</li>
+                            <li>Drivetime Analysis</li>
+                            <li>Vehicle Route Problem Solver</li>
+                        </ul>
+                        <br></br>
+                        <img class="logo" src="../img/georepublic.png" />
+                    </section>
+                </section>  <!-- pgRouging is Routing on the data base -->
+                
+                <section> <!-- one to one-->
                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
                         <h2>SQL Query</h2>
                         <pre><code data-trim class="sql example"> SELECT * FROM pgr_dijkstra('
@@ -169,28 +197,104 @@ CREATE EXTENSION pgrouting; </code></pre>
              target,
              length as cost
         FROM ways',
-    30, 60, false); </code></pre>
+    61796, 73402, false); </code></pre>
                         <p> <br> <img class="logo" src="../img/georepublic.png" /> <p>
                     </section>
 
                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
                         <h2>Query Result</h2>
                         <p><pre><code data-trim class="sql" style="line-height:28px; font-size: 140%;">
-seq | path_seq | node | edge |  cost  | agg_cost  
-----+----------+------+------+--------+----------
-  1 |        1 |   30 |   53 | 0.0591 |        0
-  2 |        2 |   44 |   52 | 0.0665 |   0.0591
-  3 |        3 |   14 |   15 | 0.0809 |   0.1256
-  4 |        4 |   13 |   14 | 0.0726 |   0.2065
-  5 |        5 |   12 |   13 | 0.0812 |   0.2791
-  6 |        6 |   11 |   12 | 0.0074 |   0.3603
-  7 |        7 |   10 | 6869 | 0.0164 |   0.3677
-  8 |        8 |   59 |   72 | 0.0109 |   0.3841
-  9 |        9 |   60 |   -1 |      0 |   0.3950
-(9 rows) </code></pre></p>
+.seq | path_seq | node  |  edge  |  cost  | agg_cost
+-----+----------+-------+--------+--------+---------
+   1 |        1 | 61796 |  27230 | 4.4036 |        0
+   2 |        2 | 40331 |  27259 | 1.7314 |   4.4036
+   3 |        3 | 42625 |  27258 | 0.0006 |   6.1350
+   4 |        4 | 30608 |  27257 | 5.5380 |   0.0006
+   5 |        5 |   119 |  27256 | 2.1807 |   0.0007
+   6 |        6 |  2452 |  73536 | 0.0014 |   0.0007
+   7 |        7 | 12805 | 101791 | 0.0002 |   0.0021
+   8 |        8 | 73921 | 100483 | 0.0005 |   0.0024
+   9 |        9 | 73402 |     -1 |      0 |   0.0029
+  </code></pre></p>
                         <p> <br> <img class="logo" src="../img/georepublic.png" /> <p>
                     </section>
-                </section>  <!-- pgRouging is Routing on the data base -->
+                </section>  <!-- one to one -->
+
+<!-- one to many-->
+               
+                <section> <!-- one to many-->
+                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                        <h2>SQL Query</h2>
+                        <pre><code data-trim class="sql example"> SELECT * FROM pgr_dijkstra('
+      SELECT gid AS id,
+             source,
+             target,
+             length_m AS cost
+        FROM ways',
+    61796, ARRAY[73402, 51647], false); </code></pre>
+                        <p> <br> <img class="logo" src="../img/georepublic.png" /> <p>
+                    </section>
+
+                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                        <h2>Query Result</h2>
+                        <p><pre><code data-trim class="sql" style="line-height:28px; font-size: 120%;">
+.seq | path_seq | end_vid | node  |  edge  | cost  | agg_cost
+-----+----------+---------+-------+--------+-------+---------
+   1 |        1 |   51647 | 61796 |  27230 |  4.89 |      0
+   2 |        2 |   51647 | 40331 |  27259 |  1.92 |   4.89
+   3 |        3 |   51647 | 42625 |  27258 | 70.38 |   6.81
+...
+  17 |       17 |   51647 | 10243 |  95616 | 79.25 | 387.06
+  18 |       18 |   51647 | 51647 |     -1 |     0 | 466.32
+  19 |        1 |   73402 | 61796 |  27230 |  4.89 |      0
+  20 |        2 |   73402 | 40331 |  27259 |  1.92 |   4.89
+...
+  26 |        8 |   73402 | 73921 | 100483 | 55.33 | 220.19
+  27 |        9 |   73402 | 73402 |     -1 |     0 | 275.52
+   </code></pre></p>
+                        <p> <br> <img class="logo" src="../img/georepublic.png" /> <p>
+                    </section>
+                </section>  <!-- one to one -->
+
+                <section>  <!--variations -->
+
+                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                        <h2> pgr_Dijkstra </h2> <h3> Variations </h3>
+                        <h4> One to one <h4>
+                            <p><pre><code class="sql" data-trim contenteditable>
+SELECT * FROM pgr_Dijkstra(edges_sql,2,3);
+ seq | path_seq | node | edge | cost | agg_cost
+-----+----------+------+------+------+---------
+                            </code></pre></p>
+                        <h4> Many to 1<h4>
+                            <p><pre><code class="sql" data-trim contenteditable>
+SELECT * FROM pgr_Dijkstra(edges_sql,ARRAY[2],3);
+ seq | path_seq | start_vid | node | edge | cost | agg_cost
+-----+----------+-----------+------+------+------+---------
+                            </code></pre></p>
+                        <br></br>
+                        <img class="logo" src="../img/georepublic.png" />
+                    </section>
+                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                        <h2> pgr_Dijkstra </h2> <h3> Variations </h3>
+                        <h4> One to many <h4>
+                            <p><pre><code class="sql" >
+SELECT * FROM pgr_Dijkstra(edges_sql, 2,ARRAY[3]);
+ seq | path_seq | end_vid | node | edge | cost | agg_cost
+-----+----------+---------+------+------+------+---------
+                            </code></pre></p>
+                        <h4> Many to many <h4>
+                            <p><pre><code class="sql" >
+SELECT * FROM pgr_Dijkstra(edges_sql,ARRAY[2],ARRAY[3]);
+seq | path_seq | start_vid | end_vid | node | edge | cost | agg_cost
+----+----------+-----------+---------+------+------+------+---------
+                            </code></pre></p>
+                        <br></br>
+                        <img class="logo" src="../img/georepublic.png" />
+                    </section>
+                </section>  <!-- variations -->
+
+
 
 
                 <section>  <!-- pgRouging minimize costs -->
@@ -224,166 +328,10 @@ seq | path_seq | node | edge |  cost  | agg_cost
                 </section>  <!-- pgRouging minimize costs -->
 
 
-                <section> <!-- Towards 3.0, goals & idea -->
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <img style="border:0;background:none;padding-top:80px;padding-bottom:40px;height:250px" src="pgrouting/pgrouting.png" />
-                        <h2>Towards v3.0</h2>
-                        <br></br>
-                        <img class="logo" src="../img/georepublic.png" />
-                    </section>
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h2 style="padding-top:40px;padding-bottom:30px;">Goals</h2>
-                        <h3>developers</h3>
-                        <ul>
-                            <li>Boost</li>
-                            <ul>
-                                <li>Undirected Graph</li>
-                                <li>Directed Graph</li>
-                            </ul>
-                            <li>Internal library</li>
-                        </ul>
-                        <br></br>
-                        <img class="logo" src="../img/georepublic.png" />
-                    </section>
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h2 style="padding-top:40px;padding-bottom:30px;">Goals</h2>
-                        <h3>users</h3>
-                        <ul>
-                            <li>Support for big integer</li>
-                            <li>Avoid user contradictory input </li>
-                        </ul>
-                        <br></br>
-                        <img class="logo" src="../img/georepublic.png" />
-                    </section>
-
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h1 style="padding-top:120px;">An Idea</h1>
-                        <h3 class="large-margin" style="line-height:1.6em;text-transform:none;">Keep the graph in memory <br/> to speedup subsequent requests</h3>
-                        <br></br>
-                        <img class="logo" src="../img/georepublic.png" />
-                    </section>
-                </section>
-
-
-
-                <!-- pgRouging 2.0 -->
-                <section>
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h3> pgRouting 2.0 </h3>
-                        <img style="border:0;background:none;height:500px" src="future/route-future-2.0.gif" />
-                        <br></br>
-                        <img class="logo" src="../img/georepublic.png" />
-                    </section>
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h3> pgRouting 2.0 </h3>
-                        <img style="border:0;background:none;height:550px" src="future/static1.png" />
-                        <br></br>
-                        <img class="logo" src="../img/georepublic.png" />
-                    </section>
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <img style="border:0;background:none;height:550px" src="future/animation1.gif" />
-                        <br></br>
-                        <img class="logo" src="../img/georepublic.png" />
-                    </section>
-
-                    
-
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-			<h2> Cool code </h2>
-                        <p><pre><code class="cpp"  data-trim contenteditable > void existing_complicated_code() {
-A  // 100 lines of code
-B  // 500 lines of complicated code with a bug
-C  // 50 more lines of code
-} </code></pre></p>
-			<h2> copy / paste </h2>
-                        <p><pre><code class="c++" data-trim contenteditable > void new_complicated_code() {
-D  // 100 lines of code
-// TODO copy/paste 500 lines of existing complicated code
-E  // 50 more lines of code
-} </code></pre></p>
-                        <br></br>
-                        <img class="logo" src="../img/georepublic.png" />
-                    </section>
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h3> User contradictory input </h3>
-                        <p><pre><code class="sql"  data-trim contenteditable >
-select * from pgr_foo(
-  'select id, source, target, cost, reverse_cost from edges', 3, 5,
-  false -- directed flag,
-  false -- has_rcost flag
-);
- </code></pre></p>
-                        <h3>and</h3>
-                        <p><pre><code class="sql" data-trim contenteditable >
-select * from pgr_foo(
-  'select id, source, target, cost from edges', 3, 5,
-  false -- directed flag,
-  true  -- has_rcost flag
-);
- </code></pre></p>
-                        <br></br>
-                        <img class="logo" src="../img/georepublic.png" />
-                    </section>
-                </section>
-
-
-                <!-- pgRouging plan -->
-                <section>
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h3> pgRouting plan </h3>
-                        <img style="border:0;background:none;height:500px" src="future/route-future-plan.gif" />
-                        <br></br>
-                        <img class="logo" src="../img/georepublic.png" />
-                    </section>
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h2>Plan</h2>
-                        <ul>
-                            <li> Precise definition of Graphs </li>
-                            <li> Gradual creation of internal library </li>
-                            <li> Incremental releases </li>
-                        </ul>
-                        <br></br>
-                        <img class="logo" src="../img/georepublic.png" />
-                    </section>
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <img style="border:0;background:none;height:550px" src="future/slide1.png" />
-                        <br></br>
-                        <img class="logo" src="../img/georepublic.png" />
-                    </section>
-                </section>
 
 
                 <!-- pgRouging 2.1 -->
                 <section>
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h3> pgRouting 2.1 </h3>
-                        <img style="border:0;background:none;height:500px" src="future/route-future-2.1.gif" />
-                        <br></br>
-                        <img class="logo" src="../img/georepublic.png" />
-                    </section>
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h3> pgRouting 2.1 </h3>
-                        <img style="border:0;background:none;height:550px" src="future/pgrouting21progress.png" />
-                        <br></br>
-                        <img class="logo" src="../img/georepublic.png" />
-                    </section>
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h3>ANY-INTEGER</h3>
-                        <ul> <li> INTEGER </li>   
-                            <li> SMALLINT </li>   
-                            <li> BIGINT </li>   
-                        </ul>
-                        <h3>ANY-NUMERICAL</h3>
-                        <ul style="font-size=18px"> <li> INTEGER </li>   
-                            <li> SMALLINT </li>   
-                            <li> BIGINT </li>   
-                            <li> REAL </li>
-                            <li> FLOAT </li>   
-                        </ul>
-                        <br></br>
-                        <img class="logo" src="../img/georepublic.png" />
-                    </section>
-
                     <!-- pgRouging 2.1 directed graph-->
                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
                         <h3>Weighted Directed Graph</h3>
@@ -425,10 +373,11 @@ source | target | cost | reverse_cost
                         <br></br>
                         <img class="logo" src="../img/georepublic.png"/>
                     </section>
+                </section>
                     
 
 
-
+                <section>
                     <!-- pgRouging 2.1 undirected graph-->
                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
                         <h3>Weighted Undirected Graph</h3>
@@ -474,8 +423,9 @@ source | target | cost | reverse_cost
                         <br></br>
                         <img class="logo" src="../img/georepublic.png"/>
                     </section>
-                    
-  
+                </section>
+                
+                <section>
                     <!-- pgRouging 2.1 undirected graph-->
                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
                         <h3>pgr_Dijkstra</h3>
@@ -514,35 +464,10 @@ source | target | cost | reverse_cost
                         <br></br>
                         <img class="logo" src="../img/georepublic.png" />
                     </section>
-                    
-                  
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h3>Weighted Directed Graph<br>with reverse cost</h3>
-                        <img style="border:0;background:none;height:500px" src="future/Fig1-directedWreverse.png" />
-                        <br></br>
-                        <img class="logo" src="../img/georepublic.png"/>
-                    </section>
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h3>Weighted Directed Graph<br>no reverse cost</h3>
-                        <img style="border:0;background:none;height:500px" src="future/Fig2-DirectedNoReverse.png" />
-                        <br></br>
-                        <img class="logo" src="../img/georepublic.png"/>
-                    </section>
-
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h3>Weighted Undirected Graph<br>with reverse cost</h3>
-                        <img style="border:0;background:none;height:500px" src="future/Fig4-undirectedWreverse.png" />
-                        <br></br>
-                        <img class="logo" src="../img/georepublic.png"/>
-                    </section>
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h3>Weighted Undirected Graph<br>no reverse cost</h3>
-                        <img style="border:0;background:none;height:500px" src="future/Fig3-undirectedNoreverse.png" />
-                        <br></br>
-                        <img class="logo" src="../img/georepublic.png"/>
-                    </section>
-
-                    
+                </section>
+                
+                
+                <section>
                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
                         <h2> pgr_dijkstra </h2> <h3> on undirected graph </h3>
                         <h4> With reverse cost </h4>
@@ -646,74 +571,21 @@ Select * from pgr_Dijkstra(edges_sql,ARRAY[2,7],ARRAY[3,5]);
 
                 </section>
 
-                <!-- pgRouging 2.2 -->
-                <section>
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h3> pgRouting 2.2 ...</h3>
-                        <img style="border:0;background:none;height:550px" src="future/route-future-2.2.gif" />
-                        <br></br>
-                        <img class="logo" src="../img/georepublic.png" />
-                    </section>
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h3> pgRouting 2.2 ...<br> Functionality </h3>
-                        <img style="border:0;background:none;height:550px" src="future/pgrouting22progress1.png" />
-                        <br></br>
-                        <img class="logo" src="../img/georepublic.png" />
-                    </section>
-
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h3> pgRouting 2.2 ...<br> Documentation</h3>
-                        <img style="border:0;background:none;height:550px" src="future/pgrouting22progress2.png" />
-                        <br></br>
-                        <img class="logo" src="../img/georepublic.png" />
-                    </section>
-                </section>
-
-
-                <!-- pgRouging 3.0 -->
-                <section>
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h3> pgRouting 3.0 </h3>
-                        <img style="border:0;background:none;height:550px" src="future/route-future-3.0.gif" />
-                        <br></br>
-                        <img class="logo" src="../img/georepublic.png" />
-                    </section>
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h3> pgRouting 3.0 </h3>
-                        <img style="border:0;background:none;height:550px" src="future/slide3.0.png" />
-                        <br></br>
-                        <img class="logo" src="../img/georepublic.png" />
-                    </section>
-                </section>
-
-                <!-- pgRouging future -->
-                <section>
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">                    
-                        <h3> pgRouting future </h3>
-                        <img style="border:0;background:none;height:550px" src="future/route-future-future.gif" />
-                        <br></br>
-                        <img class="logo" src="../img/georepublic.png" />
-                    </section>
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <img style="border:0;background:none;height:550px" src="future/animation2.gif" />
-                        <br></br>
-                        <img class="logo" src="../img/georepublic.png" />
-                    </section>
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <img style="border:0;background:none;height:550px" src="future/animation3.gif" />
-                        <br></br>
-                        <img class="logo" src="../img/georepublic.png" />
-                    </section>
-                </section>
                 
-                    <!-- Machado -->
+                <!-- Machado -->
                 <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                    <h1 style="text-transform:none;margin-top:20px;font-size:60px;line-height:100px">
-                    ... y al volver la vista atrás <br>
-                    se ve la senda que nunca  <br>
-                    se ha de volver a pisar. <br>
+                    <h1 style="text-transform:none;margin-top:20px;font-size:50px;line-height:60px">
+                    "Al andar se hace camino<br>
+                    y al volver la vista atrás<br>
+                    se ve la senda que nunca<br>
+                    se ha de volver a pisar."<br>
                     </h1>
-                    <br><br><br>
+                    <h2 style="text-transform:none;margin-top:20px;font-size:50px;line-height:60px">
+                    パスは、歩行によって行われ<br>
+                    そして、振り返って<br>
+                    パスは決してありません<br>
+                    彼は再び歩きました。<br>
+                    </h2>
                     <h2 style="font-size:50px">Antonio Machado</h2>
                 </section>   <!-- end of Machado -->
                 
