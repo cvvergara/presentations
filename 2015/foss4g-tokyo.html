@@ -96,16 +96,7 @@
                         <img class="logo" src="../img/georepublic.png" />
                     </section>
                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        
-                        <!-- TODO translate -->
-                        <h2>New Release</h2>
-                        <img style="border:0;background:none;padding-top:80px;padding-bottom:40px;height:250px" src="pgrouting/pgrouting.png" />
-                        <h2>pgRouting 2.1</h2>
-                        <br></br>
-                        <img class="logo" src="../img/georepublic.png" />
-                    </section>
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h2 style="padding-top:40px;padding-bottom:30px;"> オープンソースプロジェクト, ...</h2>
+                        <h2 style="padding-top:40px;padding-bottom:30px;"> オープンソースプロジェクト</h2>
                         <img style="border:0;background:#ffffff;padding:10px;height:300px" src="pgrouting/postgres.gif" />
                         <img style="border:0;background:#ffffff;padding:10px;height:300px" src="pgrouting/postgis.png" />
                         <br>
@@ -114,56 +105,59 @@
                     </section>
 
                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h2 style="padding-top:40px;padding-bottom:30px;"> オープンソースプロジェクト, ...</h2>
+                        <h2 style="padding-top:40px;padding-bottom:30px;"> オープンソースプロジェクト</h2>
                         <img style="border:0;background:#ffffff;padding:10px;height:300px" src="pgrouting/osi.png" />
                         <br></br>
                         <img class="logo" src="../img/georepublic.png" />
                     </section>
+                    
 
-
+                     
                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <img class="stretch" src="pgrouting/forkme.png" />
-                    </section>
-                </section> <!-- end of pgRouging is open source -->
-
-                <section> <!-- pgRouging is Routing on the data base -->
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <img style="border:0;background:none;padding-top:30px;padding-bottom:30px;height:200px" src="pgrouting/database.png" />
                         <!-- TODO translate -->
-                        <h2>ライブラリは<br>データベース内での<br>ルート検索機能を<br>提供しています</h2>
+                        <h2>New Release</h2>
+                        <img style="border:0;background:none;padding-top:80px;padding-bottom:40px;height:250px" src="newVersionImages/rotatingNewVersion.gif" />
+                        <img style="border:0;background:none;padding-top:80px;padding-bottom:40px;height:250px" src="pgrouting/pgrouting.png" />
+                        <h2 style="color:blue;">pgRouting 2.1</h2>
                         <br></br>
                         <img class="logo" src="../img/georepublic.png" />
                     </section>
-
-
-
-
-
+                    
+          
+                    <!-- pgRouging 2.1 undirected graph-->
                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h2>Create a Database</h2>
-                        <p >pgRouting extends PostgreSQL/PostGIS</p>
-                        <pre><code data-trim class="sql example">
-CREATE DATABASE routing;
-\c routing
-CREATE EXTENSION postgis;
-CREATE EXTENSION pgrouting; </code></pre> 
-                        <p> <br> <img class="logo" src="../img/georepublic.png" /> <p>
+                        <h3>Precise definitions <br> Weighted Undirected Graph</h3>
+                        <div style="font-size: 60%;"> <p>
+                        <ul>
+                            <li>
+                                Let $V$ be a set of vertices<br>
+                                $V = source \cup target \cup \{start_v\} \cup \{end_v\}$
+                            </li>
+                            <li>
+                                Let $E$ be a set of edges
+                                <ul>
+                                    <li>when $reverse\_cost = \varnothing$:<br>
+                                        $E = \{ (source_i, target_i, cost_i) | cost_i \geq 0 \}$<br>
+                                        $\cup \quad \{ (target_i, source_i, cost_i) | cost_i \geq 0 \}$
+                                    </li>
+                                    <li>when $reverse\_cost \neq \varnothing$:<br>
+                                        $E = \{ (source_i, target_i, cost_i) | cost_i \geq0 \}$<br>
+                                        $\cup \quad \{ (target_i, source_i, cost_i) | cost_i \geq 0 \}$<br>
+                                        $\cup \quad \{ (target_i, source_i, reverse\_cost_i) | reverse\_cost_i \geq 0)\}$<br>
+                                        $\cup \quad \{ (source_i, target_i, reverse\_cost_i) | reverse\_cost_i \geq 0)\}$
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>$G_u(V,E)$ is a weighted undirected graph</li>
+                        </ul>
+                        </p></div>
+                        <br></br>
+                        <img class="logo" src="../img/georepublic.png" />
                     </section>
-
-                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h2>Insert your data</h2>
-                        <pre><code class="sh" style="line-height:130%; font-size: 120%;">                        
-$ BBOX="-122.8,45.4,-122.5,45.6"
-$ wget --progress=dot:mega -O "sampledata.osm" \
-  "http://www.overpass-api.de/api/xapi?*[bbox=${BBOX}][@meta]"
-$ osm2pgrouting -d routing -f sampledata.osm
-                        </code></pre> 
-                        <p> <br> <img class="logo" src="../img/georepublic.png" /> <p>
-                    </section>
-
+ 
                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
                         <!-- TODO translate -->
-                        <h2 style="padding-top:10px;padding-bottom:10px;">Lets Route!!!</h2>
+                        <h2 style="padding-top:10px;padding-bottom:10px;">Many algorithms</h2>
                         <ul style="font-size:40px">
                         <!-- TODO translate -->
                             <li> Shortest Path Algorithm
@@ -181,9 +175,62 @@ $ osm2pgrouting -d routing -f sampledata.osm
                         <br></br>
                         <img class="logo" src="../img/georepublic.png" />
                     </section>
+
+                    
+                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                        <img class="stretch" src="pgrouting/forkme.png" />
+                    </section>
+
+
+ 
+                </section> <!-- end of pgRouging is open source -->
+
+                <section> <!-- pgRouging is Routing on the data base -->
+                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                        <img style="border:0;background:none;padding-top:30px;padding-bottom:30px;height:200px" src="pgrouting/database.png" />
+                        <!-- TODO translate -->
+                        <h2>ライブラリは<br>データベース内での<br>ルート検索機能を<br>提供しています</h2>
+                        <br></br>
+                        <img class="logo" src="../img/georepublic.png" />
+                    </section>
+
+
+
+
+
+                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                        <!-- TODO translate -->
+                        <h2>Create a Database</h2>
+                        <pre><code data-trim class="sql example">
+CREATE DATABASE routing;
+\c routing
+CREATE EXTENSION postgis;
+CREATE EXTENSION pgrouting; </code></pre> 
+                        <p> <br> <img class="logo" src="../img/georepublic.png" /> <p>
+                    </section>
+
+                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                        <h2>Insert your data</h2>
+                        <pre><code class="sh" style="line-height:130%; font-size: 120%;">                        
+$ BBOX="-122.8,45.4,-122.5,45.6"
+$ wget --progress=dot:mega -O "sampledata.osm" \
+  "http://www.overpass-api.de/api/xapi?*[bbox=${BBOX}][@meta]"
+$ osm2pgrouting -d routing -f sampledata.osm
+                        </code></pre> 
+                        <!-- TODO add a building map image -->
+                        <p> <br> <img class="logo" src="../img/georepublic.png" /> <p>
+                    </section>
+
                 </section>  <!-- pgRouging is Routing on the data base -->
                 
                 <section> <!-- one to one-->
+                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                        <h2 style="padding-top:40px;padding-bottom:30px;">From one Place to one Destination</h2>
+                        <h3 style="padding-top:40px;padding-bottom:30px;">TODO here goes image of a person, a route, and a restaurant</h3>
+                        <br></br>
+                        <img class="logo" src="../img/georepublic.png" />
+                    </section>
+
                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
                         <h2>SQL Query</h2>
                         <pre><code data-trim class="sql example"> SELECT * FROM pgr_dijkstra('
@@ -214,10 +261,14 @@ $ osm2pgrouting -d routing -f sampledata.osm
                         <p> <br> <img class="logo" src="../img/georepublic.png" /> <p>
                     </section>
                 </section>  <!-- one to one -->
-
-<!-- one to many-->
-               
+              
                 <section> <!-- one to many-->
+                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                        <h2 style="padding-top:40px;padding-bottom:30px;">From one Place to many Destination</h2>
+                        <h3 style="padding-top:40px;padding-bottom:30px;">TODO here goes image of a person, a route, and several restaurants</h3>
+                        <br></br>
+                        <img class="logo" src="../img/georepublic.png" />
+                    </section>
                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
                         <h2>SQL Query</h2>
                         <pre><code data-trim class="sql example"> SELECT * FROM pgr_dijkstra('
@@ -229,83 +280,65 @@ $ osm2pgrouting -d routing -f sampledata.osm
     61796, ARRAY[73402, 51647], false); </code></pre>
                         <p> <br> <img class="logo" src="../img/georepublic.png" /> <p>
                     </section>
+                </section>  <!-- one to many -->
+
+                <section> <!-- many to one-->
+                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                        <h2 style="padding-top:40px;padding-bottom:30px;">From many Places to one Destination</h2>
+                        <h3 style="padding-top:40px;padding-bottom:30px;">TODO here goes image of several persons, routes, and one restaurant</h3>
+                        <br></br>
+                        <img class="logo" src="../img/georepublic.png" />
+                    </section>
+                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                        <h2>SQL Query</h2>
+                        <pre><code data-trim class="sql example"> SELECT * FROM pgr_dijkstra('
+      SELECT gid AS id,
+             source,
+             target,
+             length_m AS cost
+        FROM ways',
+    ARRAY[61796,47568], 73402, false); </code></pre>
+                        <p> <br> <img class="logo" src="../img/georepublic.png" /> <p>
+                    </section>
+                </section>  <!-- one to many -->
+                
+              <section> <!-- many to one-->
+                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                        <h2 style="padding-top:40px;padding-bottom:30px;">From many Places to one Destination</h2>
+                        <h3 style="padding-top:40px;padding-bottom:30px;">TODO here goes image of several persons, routes, and several restaurants</h3>
+                        <br></br>
+                        <img class="logo" src="../img/georepublic.png" />
+                    </section>
+                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                        <h2>SQL Query</h2>
+                        <pre><code data-trim class="sql example"> SELECT * FROM pgr_dijkstra('
+  SELECT gid AS id,
+         source, target,
+         length_m AS cost
+    FROM ways',
+  ARRAY[61796, 47568], ARRAY[73402, 51647], false); </code></pre>
+                        <p> <br> <img class="logo" src="../img/georepublic.png" /> <p>
+                    </section>
 
                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
                         <h2>Query Result</h2>
                         <p><pre><code data-trim class="sql" style="line-height:28px; font-size: 120%;">
-.seq | path_seq | end_vid | node  |  edge  | cost  | agg_cost
------+----------+---------+-------+--------+-------+---------
-   1 |        1 |   51647 | 61796 |  27230 |  4.89 |      0
-   2 |        2 |   51647 | 40331 |  27259 |  1.92 |   4.89
-   3 |        3 |   51647 | 42625 |  27258 | 70.38 |   6.81
-...
-  17 |       17 |   51647 | 10243 |  95616 | 79.25 | 387.06
-  18 |       18 |   51647 | 51647 |     -1 |     0 | 466.32
-  19 |        1 |   73402 | 61796 |  27230 |  4.89 |      0
-  20 |        2 |   73402 | 40331 |  27259 |  1.92 |   4.89
-...
-  26 |        8 |   73402 | 73921 | 100483 | 55.33 | 220.19
-  27 |        9 |   73402 | 73402 |     -1 |     0 | 275.52
-   </code></pre></p>
+|   Column  |     Content                     |
+|-----------|---------------------------------|
+| seq       | Sequencial number               |
+| path_seq  | Sequencial number for each path |
+| start_vid | Start vertex of the path        |
+| end_vid   | End vertex of the path          |
+| node      | Node identifier                 |
+| edge      | Edge identifier                 |
+| cost      | Cost of the edge                |
+| agg_cost  | Cost of the path up to the node |
+                         </code></pre>
                         <p> <br> <img class="logo" src="../img/georepublic.png" /> <p>
                     </section>
-                </section>  <!-- one to one -->
-
-                <section>  <!--variations -->
-
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h2> pgr_Dijkstra </h2> <h3> Variations </h3>
-                        <br></br>
-                        <img class="logo" src="../img/georepublic.png" />
-                    </section>
-                    
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h4> One to one <h4>
-                            <p><pre><code class="sql" data-trim contenteditable>
-SELECT * FROM pgr_Dijkstra(edges_sql,2,3);
- seq | path_seq | node | edge | cost | agg_cost
------+----------+------+------+------+---------
-                            </code></pre></p>
-                        <br></br>
-                        <img class="logo" src="../img/georepublic.png" />
-                    </section>
-                    
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h4> Many to 1<h4>
-                            <p><pre><code class="sql" data-trim contenteditable>
-SELECT * FROM pgr_Dijkstra(edges_sql,ARRAY[2],3);
- seq | path_seq | start_vid | node | edge | cost | agg_cost
------+----------+-----------+------+------+------+---------
-                            </code></pre></p>
-                        <br></br>
-                        <img class="logo" src="../img/georepublic.png" />
-                    </section>
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h4> One to many <h4>
-                            <p><pre><code class="sql" >
-SELECT * FROM pgr_Dijkstra(edges_sql, 2,ARRAY[3]);
- seq | path_seq | end_vid | node | edge | cost | agg_cost
------+----------+---------+------+------+------+---------
-                            </code></pre></p>
-                        <br></br>
-                        <img class="logo" src="../img/georepublic.png" />
-                    </section>
-                    
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                           
-                        <h4> Many to many <h4>
-                            <p><pre><code class="sql" >
-SELECT * FROM pgr_Dijkstra(edges_sql,ARRAY[2],ARRAY[3]);
-seq | path_seq | start_vid | end_vid | node | edge | cost | agg_cost
-----+----------+-----------+---------+------+------+------+---------
-                            </code></pre></p>
-                        <br></br>
-                        <img class="logo" src="../img/georepublic.png" />
-                    </section>
-                </section>  <!-- variations -->
-
-
-
+                </section>  <!-- many to many -->
+                
+   
 
                 <section>  <!-- pgRouging minimize costs -->
                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
@@ -340,142 +373,7 @@ seq | path_seq | start_vid | end_vid | node | edge | cost | agg_cost
 
 
 
-                <!-- pgRouging 2.1 -->
-                <section>
-                    <!-- pgRouging 2.1 directed graph-->
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h3>Weighted Directed Graph</h3>
-                        <div style="font-size: 80%;"> <p>
-                        <ul>
-                            <li>
-                                Let $V$ be a set of vertices<br>
-                                $V = source \cup target \cup \{start_v\} \cup \{end_v\}$
-                            </li>
-                            <li>
-                                Let $E$ be a set of edges
-                                <ul>
-                                    <li>when $reverse\_cost = \varnothing$:<br>
-                                        $E = \{ (source_i, target_i, cost_i) | cost_i \geq 0 \}$
-                                    </li>
-                                    <li>when $reverse\_cost \neq \varnothing$:<br>
-                                        $E = \{ (source_i, target_i, cost_i) | cost_i \geq0 \}$<br>
-                                        $\cup \quad \{ (target_i, source_i, reverse\_cost_i) | reverse\_cost_i \geq 0)\}$
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>$G_d(V,E)$ is a weighted directed graph</li>
-                        </ul>
-                        </p></div>
-                        <br></br>
-                        <img class="logo" src="../img/georepublic.png" />
-                    </section>
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h3>Weighted Directed Graph</h3>
-                        <p><pre><code data-trim class="sql" style="line-height:28px; font-size: 140%;">
-source | target | cost | reverse_cost 
--------+--------+------+------------
-     3 |      6 |   40 |   38
-     3 |      8 |   25 |  -25
-     6 |      8 |  -1  |   32
-			</code></pre></p>
-                        <p> <br>
-                        <img style="border:0;background:#ffffff;padding:10px;height:300px" src="future/directed.gif" />
-                        <br></br>
-                        <img class="logo" src="../img/georepublic.png"/>
-                    </section>
-                </section>
-                    
-
-
-                <section>
-                    <!-- pgRouging 2.1 undirected graph-->
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h3>Weighted Undirected Graph</h3>
-                        <div style="font-size: 60%;"> <p>
-                        <ul>
-                            <li>
-                                Let $V$ be a set of vertices<br>
-                                $V = source \cup target \cup \{start_v\} \cup \{end_v\}$
-                            </li>
-                            <li>
-                                Let $E$ be a set of edges
-                                <ul>
-                                    <li>when $reverse\_cost = \varnothing$:<br>
-                                        $E = \{ (source_i, target_i, cost_i) | cost_i \geq 0 \}$<br>
-                                        $\cup \quad \{ (target_i, source_i, cost_i) | cost_i \geq 0 \}$
-                                    </li>
-                                    <li>when $reverse\_cost \neq \varnothing$:<br>
-                                        $E = \{ (source_i, target_i, cost_i) | cost_i \geq0 \}$<br>
-                                        $\cup \quad \{ (target_i, source_i, cost_i) | cost_i \geq 0 \}$<br>
-                                        $\cup \quad \{ (target_i, source_i, reverse\_cost_i) | reverse\_cost_i \geq 0)\}$<br>
-                                        $\cup \quad \{ (source_i, target_i, reverse\_cost_i) | reverse\_cost_i \geq 0)\}$
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>$G_u(V,E)$ is a weighted undirected graph</li>
-                        </ul>
-                        </p></div>
-                        <br></br>
-                        <img class="logo" src="../img/georepublic.png" />
-                    </section>
-                    
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h3>Weighted Undirected Graph</h3>
-                        <p><pre><code data-trim class="sql" style="line-height:28px; font-size: 140%;">
-source | target | cost | reverse_cost 
--------+--------+------+-------------
-     3 |      6 |   40 |   38
-     3 |      8 |   25 |  -25
-     6 |      8 |  -1  |   32
-			</code></pre></p>
-                        <p> <br>
-                        <img style="border:0;background:#ffffff;padding:10px;height:300px" src="future/undirected.gif" />
-                        <br></br>
-                        <img class="logo" src="../img/georepublic.png"/>
-                    </section>
-                </section>
-                
-                <section>
-                    <!-- pgRouging 2.1 undirected graph-->
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h3>pgr_Dijkstra</h3>
-                        <div style="font-size: 50%;"> <p>
-                        <ul>
-                            <li>
-                                Given a graph: <br>
-                                \[ G(V,E) =
-                                    \begin{cases}
-                                        G_d(V,E)       & \quad \text{when } directed = true\\
-                                        G_u(V,E)       & \quad \text{when } directed = false\\
-                                    \end{cases}
-                                \]
-                            </li>
-                            <li>  and the starting and ending vertices: <br>
-                                $start_v$ and  $end_v$
-                            </li>
-                        <li> The algorithm returns a path $\pi$, if it exists, which is the shortest path using Dijsktra algorithm between $start_v$ and $end_v$ in terms of a sequence of vertices and of edges:<br>
-                         \[
-                            \pi = 
-                            \{(path\_seq_i, node_i, edge_i, cost_i, agg\_cost_i) |  \\
-                            path\_seq_i = i \\
-                            node_1 = start_v \\
-                            \land node_{|\pi|} = end_v \\
-                            \land edge_i = 
-                                \begin{cases}
-                                    id(node_i, node_{i+i}, cost_{(node_i, node_{i+i})} ) & \quad \text{when } i \neq |\pi| \\
-                                    -1  & \quad \text{when } i = |\pi| \\ 
-                                \end{cases} \\
-                            \land agg\_cost_i = \sum_{j=1}^{i-1} cost_j
-                         \}
-                         \]
-                        </li> 
-                        <li>If there is no path, $\pi = \varnothing$ </li>
-                        </ul> </p></div>
-                        <br></br>
-                        <img class="logo" src="../img/georepublic.png" />
-                    </section>
-                </section>
-                
+                                
                 
                 <section>
                     <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
@@ -484,8 +382,7 @@ source | target | cost | reverse_cost
                         <p><pre><code class="sql"  data-trim contenteditable >
 SELECT * FROM pgr_Dijkstra(
   'SELECT id, source, target, cost, reverse_cost FROM edges',
-  3, -- start_vid
-  5, -- end_vid
+  3,  5,
   false);
 			</code></pre></p>
                         <h4> Without reverse cost </h4>
