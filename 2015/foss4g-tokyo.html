@@ -271,7 +271,7 @@ CREATE EXTENSION pgrouting; </code></pre>
                         <img class="logo" src="../img/georepublicBlack.png" />
                     </section>
 
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                    <section>
                         <h2>SQL Query</h2>
                         <pre><code data-trim class="sql example"> SELECT * FROM pgr_dijkstra('
       SELECT gid as id,
@@ -299,13 +299,13 @@ CREATE EXTENSION pgrouting; </code></pre>
                 </section>  <!-- one to one -->
               
                 <section> <!-- one to many-->
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                    <section>
                         <h2 style="padding-top:40px;padding-bottom:30px;">From one Place to many Destination</h2>
                         <h3 style="padding-top:40px;padding-bottom:30px;">TODO here goes image of a person, a route, and several restaurants</h3>
                         <br></br>
                         <img class="logo" src="../img/georepublicBlack.png" />
                     </section>
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                    <section>
                         <h2>SQL Query</h2>
                         <pre><code data-trim class="sql example"> SELECT * FROM pgr_dijkstra('
       SELECT gid AS id,
@@ -314,18 +314,18 @@ CREATE EXTENSION pgrouting; </code></pre>
              length_m AS cost
         FROM ways',
     61796, ARRAY[73402, 51647], false); </code></pre>
-                        <p> <br> <img class="logo" src="../img/georepublic.png" /> <p>
+                        <p> <br> <img class="logo" src="../img/georepublicBlack.png" /> <p>
                     </section>
                 </section>  <!-- one to many -->
 
                 <section> <!-- many to one-->
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                    <section>
                         <h2 style="padding-top:40px;padding-bottom:30px;">From many Places to one Destination</h2>
                         <h3 style="padding-top:40px;padding-bottom:30px;">TODO here goes image of several persons, routes, and one restaurant</h3>
                         <br></br>
-                        <img class="logo" src="../img/georepublic.png" />
+                        <img class="logo" src="../img/georepublicBlack.png" />
                     </section>
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                    <section>
                         <h2>SQL Query</h2>
                         <pre><code data-trim class="sql example"> SELECT * FROM pgr_dijkstra('
       SELECT gid AS id,
@@ -334,18 +334,18 @@ CREATE EXTENSION pgrouting; </code></pre>
              length_m AS cost
         FROM ways',
     ARRAY[61796,47568], 73402, false); </code></pre>
-                        <p> <br> <img class="logo" src="../img/georepublic.png" /> <p>
+                        <p> <br> <img class="logo" src="../img/georepublicBlack.png" /> <p>
                     </section>
                 </section>  <!-- one to many -->
                 
               <section> <!-- many to one-->
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                    <section>
                         <h2 style="padding-top:40px;padding-bottom:30px;">From many Places to one Destination</h2>
                         <h3 style="padding-top:40px;padding-bottom:30px;">TODO here goes image of several persons, routes, and several restaurants</h3>
                         <br></br>
-                        <img class="logo" src="../img/georepublic.png" />
+                        <img class="logo" src="../img/georepublicBlack.png" />
                     </section>
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                    <section>
                         <h2>SQL Query</h2>
                         <pre><code data-trim class="sql example"> SELECT * FROM pgr_dijkstra('
   SELECT gid AS id,
@@ -353,10 +353,10 @@ CREATE EXTENSION pgrouting; </code></pre>
          length_m AS cost
     FROM ways',
   ARRAY[61796, 47568], ARRAY[73402, 51647], false); </code></pre>
-                        <p> <br> <img class="logo" src="../img/georepublic.png" /> <p>
+                        <p> <br> <img class="logo" src="../img/georepublicBlack.png" /> <p>
                     </section>
 
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                    <section>
                         <h2>Query Result</h2>
                         <p><pre><code data-trim class="sql" style="line-height:28px; font-size: 120%;">
 |   Column  |     Content                     |
@@ -370,37 +370,37 @@ CREATE EXTENSION pgrouting; </code></pre>
 | cost      | Cost of the edge                |
 | agg_cost  | Cost of the path up to the node |
                          </code></pre>
-                        <p> <br> <img class="logo" src="../img/georepublic.png" /> <p>
+                        <p> <br> <img class="logo" src="../img/georepublicBlack.png" /> <p>
                     </section>
                 </section>  <!-- many to many -->
                 
    
 
                 <section>  <!-- pgRouging minimize costs -->
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                    <section>
                         <img style="border:0;background:none;padding-top:80px;padding-bottom:10px;height:250px" src="pgrouting/prague-clock.jpg" />
                         <img style="border:0;background:none;padding-top:80px;padding-bottom:10px;height:250px" src="pgrouting/costs.png" />
                         <h2>Costs</h2>
-                        <img class="logo" src="../img/georepublic.png" />
+                        <img class="logo" src="../img/georepublicBlack.png" />
                     </section>
 
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                    <section>
                         <img class="stretch" src="pgrouting/costvirt.png" />
                     </section>
 
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                    <section>
                         <img class="stretch" src="pgrouting/slope.png" />
                     </section>
 
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                    <section>
                         <img class="stretch" src="pgrouting/conditions.png" />
                     </section>
 
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                    <section>
                         <img class="stretch" src="pgrouting/road.jpg" />
                     </section>
 
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                    <section>
                         <img class="stretch" src="pgrouting/trails.png" />
                     </section>
 
@@ -412,7 +412,7 @@ CREATE EXTENSION pgrouting; </code></pre>
                                 
                 
                 <section>
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                    <section>
                         <h2> pgr_dijkstra </h2> <h3> on undirected graph </h3>
                         <h4> With reverse cost </h4>
                         <p><pre><code class="sql"  data-trim contenteditable >
@@ -429,9 +429,9 @@ SELECT * FROM pgr_Dijkstra(
   false);
 			</code></pre></p>
                         <br></br>
-                        <img class="logo" src="../img/georepublic.png" />
+                        <img class="logo" src="../img/georepublicBlack.png" />
                     </section>
-                    <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                    <section>
                         <h2> pgr_dijkstra </h2> <h3> directed graph </h3>
                         <h4> With reverse cost </h4>
                         <p><pre><code class="sql"  data-trim contenteditable >
@@ -448,29 +448,29 @@ SELECT * FROM pgr_Dijkstra(
   true);
                         </code></pre></p>
                         <br></br>
-                        <img class="logo" src="../img/georepublic.png" />
+                        <img class="logo" src="../img/georepublicBlack.png" />
                     </section>
                 </section>
 
                 
-                <!-- Machado -->
-                <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+               <!-- Machado -->
+                <section>
                     <h1 style="text-transform:none;margin-top:20px;font-size:50px;line-height:60px">
                     "Al andar se hace camino<br>
                     y al volver la vista atrás<br>
                     se ve la senda que nunca<br>
                     se ha de volver a pisar."<br>
                     </h1>
-                    <h2 style="text-transform:none;margin-top:20px;font-size:50px;line-height:60px">
-                    パスは、歩行によって行われ<br>
-                    そして、振り返って<br>
-                    パスは決してありません<br>
-                    彼は再び歩きました。<br>
+                    <h2 style="text-transform:none;color:#000000;margin-top:20px;font-size:50px;line-height:60px">
+                    君が歩くとそこに道はできる<br>
+                    そして後ろを振り返ったとき<br>
+                    二度と辿ることはできない道が見えるだろう<br>
                     </h2>
                     <h2 style="font-size:50px">Antonio Machado</h2>
                 </section>   <!-- end of Machado -->
+
                 
-                <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                <section>
                     <h2 style="padding-top:80px;">Interested in pgRouting?</h2>
                     <ul style="padding-top:40px;">
                         <li>pgRouting: <a href="http://pgrouting.org">http://pgrouting.org</a></li>
@@ -479,7 +479,7 @@ SELECT * FROM pgr_Dijkstra(
                     </ul> 
                     </p>
                     <br></br>
-                    <img class="logo" src="../img/georepublic.png" />
+                    <img class="logo" src="../img/georepublicBlack.png" />
                 </section>
 
             </div>
