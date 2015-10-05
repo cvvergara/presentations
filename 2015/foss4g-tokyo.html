@@ -132,6 +132,7 @@
                         <br><br><br>
                         <img class="logo" src="../img/georepublicBlack.png" />
                     </section>    
+                    
                     <section>    
                         <h3>Weighted Undirected Graph</h3>
                         <div style="font-size: 60%;"> <p>
@@ -202,7 +203,7 @@
                 
                 
                 
-                <section> <!-- pgRouging is Routing on the data base -->
+                <section data-background="pgrouting/image_003.jpg"> <!-- pgRouging is Routing on the data base -->
                     <section>
                         <img style="border:0;background:none;padding-top:30px;padding-bottom:30px;height:200px" src="pgrouting/database.png" />
                         <!-- TODO translate -->
@@ -257,13 +258,13 @@ CREATE EXTENSION pgrouting; </code></pre>
                 
                 
                 
-                <section>
+                <section data-background="pgrouting/image_003.jpg">
                     <h2>Let's Route!!!</h2>
                     <br><br><br>
                     <img class="logo" src="../img/georepublicBlack.png" />
                 </section>    
 
-                <section> <!-- one to one-->
+                <section data-background="pgrouting/image_003.jpg"> <!-- one to one-->
                     <section>
                         <h2 style="padding-top:10px;padding-bottom:5px;">From one Place <br> to one Destination</h2>
                         <img style="border:0;background:none;height:400px" src="tokyoImages/dijkstra1-oneToOne.png" />
@@ -306,16 +307,16 @@ CREATE EXTENSION pgrouting; </code></pre>
                     </section>
 
                     
+                    
                     <section>
                         <h2>SQL Query</h2>
                         <pre><code data-trim class="sql example"> SELECT * FROM pgr_dijkstra('
       SELECT gid as id,
-             source,
-             target,
+             source, target,
              cost_s as cost,
              reverse_cost_s AS reverse_cost 
         FROM ways',
-    73402, 61796, true);  </code></pre>
+    73402, 61796);  </code></pre>
                     <br> <img class="logo" src="../img/georepublicBlack.png" /> <p>
                     </section>
                     
@@ -327,50 +328,56 @@ CREATE EXTENSION pgrouting; </code></pre>
                     </section>
                 </section>  <!-- one to one -->
               
-                <section> <!-- one to many-->
+              
+              
+                <section data-background="pgrouting/image_003.jpg"> <!-- many to one-->
                     <section>
-                        <h2 style="padding-top:40px;padding-bottom:30px;">From one Place to many Destination</h2>
-                        <h3 style="padding-top:40px;padding-bottom:30px;">TODO here goes image of a person, a route, and several restaurants</h3>
+                        <h2 style="padding-top:10px;padding-bottom:5px;">From many houses <br> to one Restaurant</h2>
+                        <img style="border:0;background:none;height:400px" src="tokyoImages/dijkstra2-manyToOneHousesToRest.gif" />
                         <br></br>
                         <img class="logo" src="../img/georepublicBlack.png" />
                     </section>
                     <section>
                         <h2>SQL Query</h2>
                         <pre><code data-trim class="sql example"> SELECT * FROM pgr_dijkstra('
-      SELECT gid AS id,
-             source,
-             target,
-             length_m AS cost
-        FROM ways',
-    61796, ARRAY[73402, 51647], false); </code></pre>
-                        <p> <br> <img class="logo" src="../img/georepublicBlack.png" /> <p>
-                    </section>
-                </section>  <!-- one to many -->
-
-                <section> <!-- many to one-->
-                    <section>
-                        <h2 style="padding-top:40px;padding-bottom:30px;">From many Places to one Destination</h2>
-                        <h3 style="padding-top:40px;padding-bottom:30px;">TODO here goes image of several persons, routes, and one restaurant</h3>
-                        <br></br>
-                        <img class="logo" src="../img/georepublicBlack.png" />
-                    </section>
-                    <section>
-                        <h2>SQL Query</h2>
-                        <pre><code data-trim class="sql example"> SELECT * FROM pgr_dijkstra('
-      SELECT gid AS id,
-             source,
-             target,
-             length_m AS cost
-        FROM ways',
-    ARRAY[61796,47568], 73402, false); </code></pre>
+    SELECT gid as id,
+             source, target,
+             cost_s as cost,
+             reverse_cost_s AS reverse_cost 
+         FROM ways',
+    ARRAY[61796, 47568], 73402); </code></pre>
                         <p> <br> <img class="logo" src="../img/georepublicBlack.png" /> <p>
                     </section>
                 </section>  <!-- one to many -->
                 
-              <section> <!-- many to one-->
+                
+                
+                <section data-background="pgrouting/image_003.jpg"> <!-- one to many-->
                     <section>
-                        <h2 style="padding-top:40px;padding-bottom:30px;">From many Places to one Destination</h2>
-                        <h3 style="padding-top:40px;padding-bottom:30px;">TODO here goes image of several persons, routes, and several restaurants</h3>
+                        <h2 style="padding-top:10px;padding-bottom:5px;">From one Restaurant <br> to many houses</h2>
+                        <img style="border:0;background:none;height:400px" src="tokyoImages/dijkstra3-oneToManyRestToHouses.gif" />
+                        <br></br>
+                        <img class="logo" src="../img/georepublicBlack.png" />
+                    </section>
+                    <section>
+                        <h2>SQL Query</h2>
+                        <pre><code data-trim class="sql example"> SELECT * FROM pgr_dijkstra('
+    SELECT gid as id,
+             source, target,
+             cost_s as cost,
+             reverse_cost_s AS reverse_cost 
+        FROM ways',
+    73402, ARRAY[ 61796, 47568], true); </code></pre>
+                        <p> <br> <img class="logo" src="../img/georepublicBlack.png" /> <p>
+                    </section>
+                </section>  <!-- one to many -->
+
+                
+                
+                <section data-background="pgrouting/image_003.jpg"> <!-- many to many-->
+                    <section>
+                        <h2 style="padding-top:10px;padding-bottom:5px;">From many houses <br> to many restaurants</h2>
+                        <img style="border:0;background:none;height:400px" src="tokyoImages/dijkstra4-manyToManyHousesToRests.gif" />
                         <br></br>
                         <img class="logo" src="../img/georepublicBlack.png" />
                     </section>
@@ -379,9 +386,10 @@ CREATE EXTENSION pgrouting; </code></pre>
                         <pre><code data-trim class="sql example"> SELECT * FROM pgr_dijkstra('
   SELECT gid AS id,
          source, target,
-         length_m AS cost
-    FROM ways',
-  ARRAY[61796, 47568], ARRAY[73402, 51647], false); </code></pre>
+             cost_s as cost,
+             reverse_cost_s AS reverse_cost 
+        FROM ways',
+  ARRAY[61796, 47568], ARRAY[73402, 51647]); </code></pre>
                         <p> <br> <img class="logo" src="../img/georepublicBlack.png" /> <p>
                     </section>
 
@@ -405,7 +413,7 @@ CREATE EXTENSION pgrouting; </code></pre>
                 
    
 
-                <section>  <!-- pgRouging minimize costs -->
+                <section data-background="pgrouting/image_003.jpg">  <!-- pgRouging minimize costs -->
                     <section>
                         <img style="border:0;background:none;padding-top:80px;padding-bottom:10px;height:250px" src="pgrouting/prague-clock.jpg" />
                         <img style="border:0;background:none;padding-top:80px;padding-bottom:10px;height:250px" src="pgrouting/costs.png" />
@@ -440,7 +448,7 @@ CREATE EXTENSION pgrouting; </code></pre>
 
                                 
                 
-                <section>
+                <section data-background="pgrouting/image_003.jpg">
                     <section>
                         <h2> pgr_dijkstra </h2> <h3> on undirected graph </h3>
                         <h4> With reverse cost </h4>
