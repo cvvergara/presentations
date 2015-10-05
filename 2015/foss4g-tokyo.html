@@ -266,7 +266,7 @@ CREATE EXTENSION pgrouting; </code></pre>
                 <section> <!-- one to one-->
                     <section>
                         <h2 style="padding-top:10px;padding-bottom:5px;">From one Place <br> to one Destination</h2>
-                        <img style="border:0;background:none;height:400px" src="tokyoImages/oneToOne.png" />
+                        <img style="border:0;background:none;height:400px" src="tokyoImages/dijkstra1-oneToOne.png" />
                         <br></br>
                         <img class="logo" src="../img/georepublicBlack.png" />
                     </section>
@@ -277,9 +277,10 @@ CREATE EXTENSION pgrouting; </code></pre>
       SELECT gid as id,
              source,
              target,
-             length as cost
+             cost_s as cost,
+             reverse_cost_s AS reverse_cost 
         FROM ways',
-    61796, 73402, false); </code></pre>
+    61796, 73402, true); </code></pre>
                         <p> <br> <img class="logo" src="../img/georepublicBlack.png" /> <p>
                     </section>
 
@@ -292,9 +293,37 @@ CREATE EXTENSION pgrouting; </code></pre>
    2 |        2 | 40331 |  27259 | 4.4036 |   1.7314
    3 |        3 | 42625 |  27258 | 2.0006 |   6.1350
   ...
-   9 |        9 | 73402 |     -1 |      0 |  19.0029
+   7 |        9 | 73402 |     -1 |      0 |  19.0029
   </code></pre></p>
                         <p> <br> <img class="logo" src="../img/georepublicBlack.png" /> <p>
+                    </section>
+                    
+                    <section>
+                        <h2 style="padding-top:10px;padding-bottom:5px;">From House <br> to Restaurant</h2>
+                        <img style="border:0;background:none;height:400px" src="tokyoImages/dijkstra1-oneToOneHouseToRest.gif" />
+                        <br></br>
+                        <img class="logo" src="../img/georepublicBlack.png" />
+                    </section>
+
+                    
+                    <section>
+                        <h2>SQL Query</h2>
+                        <pre><code data-trim class="sql example"> SELECT * FROM pgr_dijkstra('
+      SELECT gid as id,
+             source,
+             target,
+             cost_s as cost,
+             reverse_cost_s AS reverse_cost 
+        FROM ways',
+    73402, 61796, true);  </code></pre>
+                    <br> <img class="logo" src="../img/georepublicBlack.png" /> <p>
+                    </section>
+                    
+                    <section>
+                        <h2 style="padding-top:10px;padding-bottom:5px;">From Restaurant <br> to House</h2>
+                        <img style="border:0;background:none;height:400px" src="tokyoImages/dijkstra1-oneToOneRestToHouse.gif" />
+                        <br></br>
+                        <img class="logo" src="../img/georepublicBlack.png" />
                     </section>
                 </section>  <!-- one to one -->
               
