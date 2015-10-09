@@ -265,7 +265,7 @@ CREATE EXTENSION pgrouting; </code></pre>
 
                 <section data-background="tokyoImages/portlandMap1.png"> <!-- one to one-->
                     <section style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h2 style="padding-top:10px;padding-bottom:5px;">From one Place <br> to one Destination</h2>
+                        <h2 style="padding-top:10px;padding-bottom:5px;">From one starting point <br> to one Destination</h2>
                         <img style="border:0;background:none;height:400px" src="tokyoImages/dijkstra1-oneToOne.png" />
                         <br></br>
                         <img class="logo" src="../img/georepublic.png" />
@@ -297,7 +297,14 @@ CREATE EXTENSION pgrouting; </code></pre>
   </code></pre></p>
                         <p> <br> <img class="logo" src="../img/georepublicBlack.png" /> <p>
                     </section>
-                    
+                                   
+                    <section data-background="tokyoImages/portlandMap1.png">
+                        <h2 style="font-size:100px" >Use other open source tools <br> for rendering</h2>
+                        <br><br><br>
+                        <img class="logo" src="../img/georepublicBlack.png" />
+                    </section>    
+
+ 
                     <section  style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
                         <h2 style="padding-top:10px;padding-bottom:5px;">From House <br> to Restaurant</h2>
                         <img style="border:0;background:none;height:400px" src="tokyoImages/dijkstra1-oneToOneHouseToRest.gif" />
@@ -331,8 +338,8 @@ CREATE EXTENSION pgrouting; </code></pre>
               
                 <section data-background="tokyoImages/portlandMap1.png"> <!-- many to one-->
                     <section  style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h2 style="padding-top:10px;padding-bottom:5px;">From many houses <br> to one Restaurant</h2>
-                        <img style="border:0;background:none;height:400px" src="tokyoImages/dijkstra2-manyToOneHousesToRest.gif" />
+                        <h2 style="padding-top:10px;padding-bottom:5px;">From many starting points <br> to one destination</h2>
+                        <img style="border:0;background:none;height:400px" src="tokyoImages/dijkstra2-manyToOneHousesToRestStatic.gif" />
                         <br></br>
                         <img class="logo" src="../img/georepublic.png" />
                     </section>
@@ -347,14 +354,20 @@ CREATE EXTENSION pgrouting; </code></pre>
     ARRAY[61796, 47568], 73402); </code></pre>
                         <p> <br> <img class="logo" src="../img/georepublicBlack.png" /> <p>
                     </section>
+                    <section  style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                        <h2 style="padding-top:10px;padding-bottom:5px;">From many houses <br> to one Restaurant</h2>
+                        <img style="border:0;background:none;height:400px" src="tokyoImages/dijkstra2-manyToOneHousesToRestPath.gif" />
+                        <br></br>
+                        <img class="logo" src="../img/georepublic.png" />
+                    </section>
                 </section>  <!-- one to many -->
                 
                 
                 
                 <section data-background="tokyoImages/portlandMap1.png"> <!-- one to many-->
                     <section  style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h2 style="padding-top:10px;padding-bottom:5px;">From one Restaurant <br> to many houses</h2>
-                        <img style="border:0;background:none;height:400px" src="tokyoImages/dijkstra3-oneToManyRestToHouses.gif" />
+                        <h2 style="padding-top:10px;padding-bottom:5px;">From one  starting point <br> to many destinations</h2>
+                        <img style="border:0;background:none;height:400px" src="tokyoImages/dijkstra3-oneToManyRestToHousesStatic.gif" />
                         <br></br>
                         <img class="logo" src="../img/georepublic.png" />
                     </section>
@@ -369,14 +382,21 @@ CREATE EXTENSION pgrouting; </code></pre>
     73402, ARRAY[ 61796, 47568], true); </code></pre>
                         <p> <br> <img class="logo" src="../img/georepublicBlack.png" /> <p>
                     </section>
+                                        <section  style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                        <h2 style="padding-top:10px;padding-bottom:5px;">From one restaurant<br> to many houses</h2>
+                        <img style="border:0;background:none;height:400px" src="tokyoImages/dijkstra3-oneToManyRestToHousesPath.gif" />
+                        <br></br>
+                        <img class="logo" src="../img/georepublic.png" />
+                    </section>
+
                 </section>  <!-- one to many -->
 
                 
                 
                 <section data-background="tokyoImages/portlandMap1.png"> <!-- many to many-->
                     <section  style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h2 style="padding-top:10px;padding-bottom:5px;">From many to many  <br> 家 ~ レストラン</h2>
-                        <img style="border:0;background:none;height:400px" src="tokyoImages/dijkstra4-manyToManyHousesToRests.gif" />
+                        <h2 style="padding-top:10px;padding-bottom:5px;">From many starting points <br>to many destnations</h2>
+                        <img style="border:0;background:none;height:400px" src="tokyoImages/dijkstra4-manyToManyHousesToRestsStatic.gif" />
                         <br></br>
                         <img class="logo" src="../img/georepublic.png" />
                     </section>
@@ -393,9 +413,15 @@ CREATE EXTENSION pgrouting; </code></pre>
   ARRAY[61796, 47568], ARRAY[73402, 51647]); </code></pre>
                         <p> <br> <img class="logo" src="../img/georepublicBlack.png" /> <p>
                     </section>
+                    <section  style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+                        <h2 style="padding-top:10px;padding-bottom:5px;">From many houses <br>to many restaurants</h2>
+                        <img style="border:0;background:none;height:400px" src="tokyoImages/dijkstra4-manyToManyHousesToRestsPath.gif" />
+                        <br></br>
+                        <img class="logo" src="../img/georepublic.png" />
+                    </section>
 
                     <section style="background-color:#ffffff;background:rgba(f, f, f, 0.85);">
-                        <h2>Query Result</h2>
+                        <h2>In general <br> Query Result</h2>
                         <p><pre><code data-trim class="sql" style="line-height:28px; font-size: 120%;">
 |   Column  |     Content                     |
 |-----------|---------------------------------|
