@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8">
 
-        <title>Shortest Path search in your Database and more with pgRouting</title>
+        <title>データベース内の最短経路探索とpgroutingについて</title>
 
         <meta name="description" content="Shortest Path search in your Database and more with pgRouting">
         <meta name="author" content="Vicky Vergara, Economist">
@@ -46,7 +46,7 @@
                 <section  data-background="tokyoImages/portlandMap1.png">
                     <h1 style="text-transform:none;margin-top:40px;font-size:100px;line-height:125px;color:#000000">データベース内の<br>最短経路探索<br>
                     </h1>
-                    <h3 class="large-margin" style="margin-top:70px !important;color:#0000FF;text-shadow:none;">とpgroutingなどについて</h3>
+                    <h3 class="large-margin" style="margin-top:70px !important;color:#0000FF;text-shadow:none;">とpgroutingについて</h3>
                     <p>
                         <small>Presented by <a href="http://blog.georepublic.info">Vicky Vergara</a> </small>
                     </p>
@@ -116,8 +116,7 @@
 
                      
                     <section>
-                        <!-- TODO translate -->
-                        <h2>New Release</h2>
+                        <h2>最新リリース</h2>
                         <img style="border:0;background:none;padding-top:20px;height:250px" src="tokyoImages/new-2.1-ver-animated.gif" />
                         <img style="border:0;background:none;padding-top:20px;height:250px" src="pgrouting/pgrouting.png" />
                         <h2 style="color:blue;">pgRouting 2.1</h2>
@@ -128,15 +127,15 @@
           
                     <!-- pgRouging 2.1 undirected graph-->
                     <section style="background-color:#ffffff;background:rgba(f, f, f, 0.85);">
-                        <h2>Precise definitions </h2>
+                        <h2>正確な定義</h2>
                         <br><br><br>
-                        For example ....
+                        例えば ....
                         <br><br><br>
                         <img class="logo" src="../img/georepublicBlack.png" />
                     </section>    
                     
                     <section style="background-color:#ffffff;background:rgba(f, f, f, 0.85);">    
-                        <h3>Weighted Undirected Graph</h3>
+                        <h3>重み付き無向グラフ</h3>
                         <div style="font-size: 60%;"> <p>
                         <ul>
                             <li>
@@ -166,18 +165,16 @@
                     </section>
  
                     <section style="background-color:#ffffff;background:rgba(f, f, f, 0.85);">
-                        <h2>Many algorithms </h2>
+                        <h2>多くのアルゴリズム</h2>
                         <br><br><br>
-                        For example ....
+                        例えば ....
                         <br><br><br>
                         <img class="logo" src="../img/georepublicBlack.png" />
                     </section>    
 
                     <section style="background-color:#ffffff;background:rgba(f, f, f, 0.85);">
-                        <!-- TODO translate -->
-                        <h2 style="padding-top:10px;padding-bottom:10px;">algorithms</h2>
+                        <h2 style="padding-top:10px;padding-bottom:10px;">アルゴリズム</h2>
                         <ul style="font-size:40px">
-                        <!-- TODO translate -->
                             <li> Shortest Path Algorithm
                                 <ul style="font-size:30px">
                                     <li>Dijkstra</li>
@@ -215,11 +212,11 @@
 
 
                     <section style="background-color:#ffffff;background:rgba(f, f, f, 0.85);">
-                        <h2>Prepare for Routing </h2>
+                        <h2>ルート検索の準備</h2>
                         <br>
                         <ul>
-                            <li>Create a Database</li>
-                            <li>Load data</li>
+                            <li>データベースの作成</li>
+                            <li>データのロード</li>
                         <ul>
                         <br><br><br>
                         <img class="logo" src="../img/georepublicBlack.png" />
@@ -228,7 +225,7 @@
 
 
                     <section style="background-color:#ffffff;background:rgba(f, f, f, 0.85);">
-                        <h2>Create a Database</h2>
+                        <h2>データベースの作成</h2>
                         <pre><code data-trim class="sql example">
 CREATE DATABASE routing;
 \c routing
@@ -238,7 +235,7 @@ CREATE EXTENSION pgrouting; </code></pre>
                     </section>
 
                      <section style="background-color:#ffffff;background:rgba(f, f, f, 0.85);">
-                        <h2>Load data</h2>
+                        <h2>データのロード</h2>
                         <pre><code class="sh" style="line-height:110%; font-size: 185%;">                        
  BBOX="-122.8,45.4,-122.5,45.6"
  wget --progress=dot:mega  
@@ -258,21 +255,21 @@ CREATE EXTENSION pgrouting; </code></pre>
                 
                 
                 <section data-background="tokyoImages/portlandMap1.png">
-                    <h2 style="font-size:100px" >Let's Route!!!</h2>
+                    <h2 style="font-size:100px" >ルート検索を実行!!!</h2>
                     <br><br><br>
                     <img class="logo" src="../img/georepublicBlack.png" />
                 </section>    
 
                 <section data-background="tokyoImages/portlandMap1.png"> <!-- one to one-->
                     <section style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h2 style="padding-top:10px;padding-bottom:5px;">From one starting point <br> to one Destination</h2>
+                        <h2 style="padding-top:10px;padding-bottom:5px;">1つの出発地点から<br>1つの到着地点</h2>
                         <img style="border:0;background:none;height:400px" src="tokyoImages/dijkstra1-oneToOne.png" />
                         <br></br>
                         <img class="logo" src="../img/georepublic.png" />
                     </section>
 
                     <section style="background-color:#ffffff;background:rgba(f, f, f, 0.85);">
-                        <h2>SQL Query</h2>
+                        <h2>SQL クエリ</h2>
                         <pre><code data-trim class="sql example"> SELECT * FROM pgr_dijkstra('
       SELECT gid as id,
              source,
@@ -285,7 +282,7 @@ CREATE EXTENSION pgrouting; </code></pre>
                     </section>
 
                     <section style="background-color:#ffffff;background:rgba(f, f, f, 0.85);">
-                        <h2>Query Result</h2>
+                        <h2>クエリの結果</h2>
                         <p><pre><code data-trim class="sql" style="line-height:28px; font-size: 120%;">
 .seq | path_seq | node  |  edge  |  cost  | agg_cost
 -----+----------+-------+--------+--------+---------
@@ -298,25 +295,25 @@ CREATE EXTENSION pgrouting; </code></pre>
                         <p> <br> <img class="logo" src="../img/georepublicBlack.png" /> <p>
                     </section>
                                    
-                    <section data-background="tokyoImages/portlandMap1.png">
-                        <h2>We are not alone</h2>
-                        <p  style="font-color:#ffffff;line-height:15px;font-size:80px;"> Use other open source tools for rendering</p>
-                        <br><br><br>
-                        <img class="logo" src="../img/georepublicBlack.png" />
-                    </section>    
 
  
                     <section  style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h2 style="padding-top:10px;padding-bottom:5px;">From House <br> to Restaurant</h2>
+                        <h2 style="padding-top:10px;padding-bottom:5px;">自宅からレストラン</h2>
                         <img style="border:0;background:none;height:400px" src="tokyoImages/dijkstra1-oneToOneHouseToRest.gif" />
                         <br></br>
                         <img class="logo" src="../img/georepublic.png" />
                     </section>
 
-                    
+                     <section data-background="tokyoImages/portlandMap1.png">
+                        <h2>私たちは1人ではありません</h2>
+                        <p  style="font-color:#ffffff;line-height:15px;font-size:80px;">オープンソースツールをレンダリングに使用</p>
+                        <br><br><br>
+                        <img class="logo" src="../img/georepublicBlack.png" />
+                    </section>    
+                   
                     
                     <section style="background-color:#ffffff;background:rgba(f, f, f, 0.85);">
-                        <h2>SQL Query</h2>
+                        <h2>SQL クエリ</h2>
                         <pre><code data-trim class="sql example"> SELECT * FROM pgr_dijkstra('
       SELECT gid as id,
              source, target,
@@ -328,7 +325,7 @@ CREATE EXTENSION pgrouting; </code></pre>
                     </section>
                     
                     <section  style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h2 style="padding-top:10px;padding-bottom:5px;">From Restaurant <br> to House</h2>
+                        <h2 style="padding-top:10px;padding-bottom:5px;">レストランから自宅</h2>
                         <img style="border:0;background:none;height:400px" src="tokyoImages/dijkstra1-oneToOneRestToHouse.gif" />
                         <br></br>
                         <img class="logo" src="../img/georepublic.png" />
@@ -339,13 +336,13 @@ CREATE EXTENSION pgrouting; </code></pre>
               
                 <section data-background="tokyoImages/portlandMap1.png"> <!-- many to one-->
                     <section  style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h2 style="padding-top:10px;padding-bottom:5px;">From many starting points <br> to one destination</h2>
+                        <h2 style="padding-top:10px;padding-bottom:5px;">複数の出発地点から<br>1つの到着地点</h2>
                         <img style="border:0;background:none;height:400px" src="tokyoImages/dijkstra2-manyToOneHousesToRestStatic.gif" />
                         <br></br>
                         <img class="logo" src="../img/georepublic.png" />
                     </section>
                     <section style="background-color:#ffffff;background:rgba(f, f, f, 0.85);">
-                        <h2>SQL Query</h2>
+                        <h2>SQL クエリ</h2>
                         <pre><code data-trim class="sql example"> SELECT * FROM pgr_dijkstra('
     SELECT gid as id,
              source, target,
@@ -356,7 +353,7 @@ CREATE EXTENSION pgrouting; </code></pre>
                         <p> <br> <img class="logo" src="../img/georepublicBlack.png" /> <p>
                     </section>
                     <section  style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h2 style="padding-top:10px;padding-bottom:5px;">From many houses <br> to one Restaurant</h2>
+                        <h2 style="padding-top:10px;padding-bottom:5px;">複数の家から1つのレストラン</h2>
                         <img style="border:0;background:none;height:400px" src="tokyoImages/dijkstra2-manyToOneHousesToRestPath.gif" />
                         <br></br>
                         <img class="logo" src="../img/georepublic.png" />
@@ -367,13 +364,13 @@ CREATE EXTENSION pgrouting; </code></pre>
                 
                 <section data-background="tokyoImages/portlandMap1.png"> <!-- one to many-->
                     <section  style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h2 style="padding-top:10px;padding-bottom:5px;">From one  starting point <br> to many destinations</h2>
+                        <h2 style="padding-top:10px;padding-bottom:5px;">1つの出発地点から<br>複数の到着地点</h2>
                         <img style="border:0;background:none;height:400px" src="tokyoImages/dijkstra3-oneToManyRestToHousesStatic.gif" />
                         <br></br>
                         <img class="logo" src="../img/georepublic.png" />
                     </section>
                     <section style="background-color:#ffffff;background:rgba(f, f, f, 0.85);">
-                        <h2>SQL Query</h2>
+                        <h2>SQL クエリ</h2>
                         <pre><code data-trim class="sql example"> SELECT * FROM pgr_dijkstra('
     SELECT gid as id,
              source, target,
@@ -384,7 +381,7 @@ CREATE EXTENSION pgrouting; </code></pre>
                         <p> <br> <img class="logo" src="../img/georepublicBlack.png" /> <p>
                     </section>
                                         <section  style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h2 style="padding-top:10px;padding-bottom:5px;">From one restaurant<br> to many houses</h2>
+                        <h2 style="padding-top:10px;padding-bottom:5px;">1つのレストランから複数の家</h2>
                         <img style="border:0;background:none;height:400px" src="tokyoImages/dijkstra3-oneToManyRestToHousesPath.gif" />
                         <br></br>
                         <img class="logo" src="../img/georepublic.png" />
@@ -396,7 +393,7 @@ CREATE EXTENSION pgrouting; </code></pre>
                 
                 <section data-background="tokyoImages/portlandMap1.png"> <!-- many to many-->
                     <section  style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h2 style="padding-top:10px;padding-bottom:5px;">From many starting points <br>to many destnations</h2>
+                        <h2 style="padding-top:10px;padding-bottom:5px;">複数の出発地点から<br>複数の到着地点</h2>
                         <img style="border:0;background:none;height:400px" src="tokyoImages/dijkstra4-manyToManyHousesToRestsStatic.gif" />
                         <br></br>
                         <img class="logo" src="../img/georepublic.png" />
@@ -404,7 +401,7 @@ CREATE EXTENSION pgrouting; </code></pre>
                     
                     
                     <section style="background-color:#ffffff;background:rgba(f, f, f, 0.85);">
-                        <h2>SQL Query</h2>
+                        <h2>SQL クエリ</h2>
                         <pre><code data-trim class="sql example"> SELECT * FROM pgr_dijkstra('
   SELECT gid AS id,
          source, target,
@@ -415,14 +412,14 @@ CREATE EXTENSION pgrouting; </code></pre>
                         <p> <br> <img class="logo" src="../img/georepublicBlack.png" /> <p>
                     </section>
                     <section  style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                        <h2 style="padding-top:10px;padding-bottom:5px;">From many houses <br>to many restaurants</h2>
+                        <h2 style="padding-top:10px;padding-bottom:5px;">複数の家から複数のレストラン</h2>
                         <img style="border:0;background:none;height:400px" src="tokyoImages/dijkstra4-manyToManyHousesToRestsPath.gif" />
                         <br></br>
                         <img class="logo" src="../img/georepublic.png" />
                     </section>
 
                     <section style="background-color:#ffffff;background:rgba(f, f, f, 0.85);">
-                        <h2>In general <br> Query Result</h2>
+                        <h2>一般的な <br> クエリの結果</h2>
                         <p><pre><code data-trim class="sql" style="line-height:28px; font-size: 120%;">
 |   Column  |     Content                     |
 |-----------|---------------------------------|
@@ -445,7 +442,7 @@ CREATE EXTENSION pgrouting; </code></pre>
                     <section>
                         <img style="border:0;background:none;padding-top:80px;padding-bottom:10px;height:250px" src="pgrouting/prague-clock.jpg" />
                         <img style="border:0;background:none;padding-top:80px;padding-bottom:10px;height:250px" src="pgrouting/costs.png" />
-                        <h2>Costs</h2>
+                        <h2>コスト</h2>
                         <img class="logo" src="../img/georepublicBlack.png" />
                     </section>
 
@@ -456,13 +453,13 @@ CREATE EXTENSION pgrouting; </code></pre>
                     </section>
 
                     <section>
-                        <h2> Routing bicycles</h2>
+                        <h2>自転車のルート検索</h2>
                         <img  style="height:450px" src="tokyoImages/slope.png" />
                         <br></br>
                         <img class="logo" src="../img/georepublicBlack.png" />
                     </section>
                     <section style="background-color:#ffffff;background:rgba(f, f, f, 0.85);">
-                        <h2> Internal SQL </h2>
+                        <h2>内部の SQL </h2>
                         <pre><code data-trim class="sql example" style="line-height:28px;font-size:100%">
 SELECT gid AS id, source, target,
     CASE 
@@ -486,13 +483,13 @@ SELECT gid AS id, source, target,
                     
                     
                     <section>
-                        <h2> Field work</h2>
+                        <h2>フィールドワーク</h2>
                         <img  style="height:450px"  src="tokyoImages/conditions.png" />
                         <br></br>
                         <img class="logo" src="../img/georepublicBlack.png" />
                     </section>
                     <section style="background-color:#ffffff;background:rgba(f, f, f, 0.85);">
-                        <h2> Internal SQL </h2>
+                        <h2>内部の SQL</h2>
                         <pre><code data-trim class="sql example" style="line-height:28px;font-size:100%">
 SELECT gid AS id, source, target,
     CASE 
@@ -513,13 +510,13 @@ SELECT gid AS id, source, target,
                     </section>
 
                     <section>
-                        <h2> Routing cows</h2>
+                        <h2>牛のルート検索</h2>
                         <img style="height:450px"  src="tokyoImages/road.jpg" />
                         <br></br>
                         <img class="logo" src="../img/georepublicBlack.png" />
                     </section>
                     <section style="background-color:#ffffff;background:rgba(f, f, f, 0.85);">
-                        <h2> Internal SQL </h2>
+                        <h2>内部の SQL</h2>
                         <pre><code data-trim class="sql example" style="line-height:28px;font-size:100%">
 SELECT gid AS id, source, target,
     length AS cost
@@ -531,14 +528,14 @@ FROM ways WHERE road_type = 'rural'
                     </section>
 
                     <section>
-                        <h2> Routing Hickers</h2>
+                        <h2>ハイカーのルート検索</h2>
                         <img style="height:450px"  src="tokyoImages/trails.png" />
                         <br></br>
                         <img class="logo" src="../img/georepublicBlack.png" />
                         
                     </section>
                     <section style="background-color:#ffffff;background:rgba(f, f, f, 0.85);">
-                        <h2> Internal SQL (part 1)</h2>
+                        <h2>内部の SQL (パート1)</h2>
                         <pre><code data-trim class="sql example" style="line-height:28px;font-size:100%">
 SELECT gid AS id, source, target,
     CASE 
@@ -556,7 +553,7 @@ SELECT gid AS id, source, target,
                         <img class="logo" src="../img/georepublicBlack.png" />
                     </section>
                     <section style="background-color:#ffffff;background:rgba(f, f, f, 0.85);">
-                        <h2> Internal SQL (part 2)</h2>
+                        <h2>内部の SQL (パート2)</h2>
                         <pre><code data-trim class="sql example" style="line-height:28px;font-size:100%">
 ...
 
@@ -585,15 +582,15 @@ SELECT gid AS id, source, target,
                 <section data-background="tokyoImages/portlandMap1.png">
                 
                     <section style="background-color:#ffffff;background:rgba(f, f, f, 0.85);">
-                        <h2> pgr_dijkstra </h2> <h3> directed graph </h3>
-                        <h4> With reverse cost </h4>
+                        <h2> pgr_dijkstra </h2> <h3>有向グラフ</h3>
+                        <h4>逆方向のコストあり</h4>
                         <p><pre><code class="sql"  data-trim contenteditable >
 SELECT * FROM pgr_Dijkstra(
   'SELECT id, source, target, cost, reverse_cost FROM edges',
   3, 5,
   true);
                         </code></pre></p>
-                        <h4> Without reverse cost </h4>
+                        <h4>逆方向のコストなし</h4>
                         <p><pre><code class="sql"  data-trim contenteditable >
 SELECT * FROM pgr_Dijkstra(
   'SELECT id, source, target, cost FROM edges',
@@ -606,15 +603,15 @@ SELECT * FROM pgr_Dijkstra(
                     
                     
                     <section style="background-color:#ffffff;background:rgba(f, f, f, 0.85);">
-                        <h2> pgr_dijkstra </h2> <h3> on undirected graph </h3>
-                        <h4> With reverse cost </h4>
+                        <h2> pgr_dijkstra </h2> <h3>無向グラフ</h3>
+                        <h4>逆方向のコストあり</h4>
                         <p><pre><code class="sql"  data-trim contenteditable >
 SELECT * FROM pgr_Dijkstra(
   'SELECT id, source, target, cost, reverse_cost FROM edges',
   3,  5,
   false);
 			</code></pre></p>
-                        <h4> Without reverse cost </h4>
+                        <h4>逆方向のコストなし</h4>
                         <p><pre><code class="sql"  data-trim contenteditable >
 SELECT * FROM pgr_Dijkstra(
   'SELECT id, source, target, cost FROM edges',
@@ -626,6 +623,21 @@ SELECT * FROM pgr_Dijkstra(
                     </section>
                 </section>
 
+                <section  data-background="tokyoImages/portlandMap1.png">
+                <section style="background-color:#ffffff;background:rgba(f, f, f, 0.85);">
+                    <h2 style="padding-top:80px;">Interested in pgRouting?</h2>
+                    <ul style="padding-top:40px;">
+                        <li>pgRouting: <a href="http://pgrouting.org">http://pgrouting.org</a></li>
+                        <li>pgRouting workshop: <a href="http://workshop.pgrouting.org/">http://workshop.pgrouting.org/</a></li>
+                        <li>Website: <a href="http://georepublic.info">http://georepublic.info</a></li>
+                        <li>Email: <a href="mailto:vicky@georepublic.de">vicky@georepublic.de</a></li>
+                        
+                    </ul> 
+                    </p>
+                    <br></br>
+                    <img class="logo" src="../img/georepublicBlack.png" />
+                </section>
+                </section>
                 
                 <!-- Machado -->
                 <section  data-background="tokyoImages/portlandMap1.png">
@@ -647,21 +659,7 @@ SELECT * FROM pgr_Dijkstra(
 
                 
                 
-                <section  data-background="tokyoImages/portlandMap1.png">
-                <section style="background-color:#ffffff;background:rgba(f, f, f, 0.85);">
-                    <h2 style="padding-top:80px;">Interested in pgRouting?</h2>
-                    <ul style="padding-top:40px;">
-                        <li>pgRouting: <a href="http://pgrouting.org">http://pgrouting.org</a></li>
-                        <li>pgRouting workshop: <a href="http://workshop.pgrouting.org/">http://workshop.pgrouting.org/</a></li>
-                        <li>Website: <a href="http://georepublic.info">http://georepublic.info</a></li>
-                        <li>Email: <a href="mailto:vicky@georepublic.de">vicky@georepublic.de</a></li>
-                        
-                    </ul> 
-                    </p>
-                    <br></br>
-                    <img class="logo" src="../img/georepublicBlack.png" />
-                </section>
-                </section>
+
 
             </div>
 
