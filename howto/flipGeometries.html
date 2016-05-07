@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8">
 
-<title>Shortest Path search in your Database and more with pgRouting</title>
+<title>pgRouting: How to flip geometries</title>
 
 <meta name="description" content="How to flip edges">
 <meta name="author" content="Vicky Vergara, Economist">
@@ -56,7 +56,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
         <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
             <h2 style="padding-top:40px;padding-bottom:30px;">Material</h2>
             <ul>
-                <li>PostgreSQL database sample_data</li>
+                <li>PostgreSQL database the sample data of the documentation</li>
                 <li>Qgis</li>
             </ul>
         </section>
@@ -65,26 +65,26 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
             <h3>Let's see the map</h3>
             <ol>
                 <li>Open Qgis</li>
-                <li>Open sample_data project</li>
-                <li>Choose "edges (simple)" layer</li>
-                <li>Choose "vertices" layer</li>
-                <li>Unselect any other layer </li>
+                <li>Connect to  <i style="color:green"><strong>sample_data</strong></i> database</li>
+                <li>Add <i style="color:green"><strong>edge_table</strong></i> and rename to <i style="color:red"><strong>Edges</strong></i></li>
+                <li>Add <i style="color:green"><strong>edge_table_vertices_pgr</strong></i> and rename to <i style="color:red"><strong>Vertices</strong></i></li>
+                <li>Label the <i style="color:red"><strong>Vertices</strong></i> layer with id</li>
             </ol>
         </section>
 
-        <!-- TODO -->
         <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-            <img class="stretch" src="../img/sample_data/edges-simple.png" />
+            <img class="stretch" src="./flipGeometries/flipgeometries1.jpg" />
         </section>
 
         <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
             <h3>Making a route from 2 to 3</h3>
-            <pre><code data-trim class="sql example"> SELECT * FROM pgr_dijkstra('
-      SELECT id,
-             source,target,
-             cost, reverse_cost
-        FROM edge_table',
-    2, 3, true); </code></pre>
+            <pre><code data-trim class="sql" style="line-height:50px; font-size: 140%;">
+SELECT * FROM pgr_dijkstra('
+  SELECT id,
+    source,target,
+    cost, reverse_cost
+  FROM edge_table',
+  2, 3, true); </code></pre>
         </section>
 
 
@@ -103,7 +103,7 @@ seq | path_seq | node | edge | cost | agg_cost
         </section>
 
         <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-            The interest is on the geometry of the route ... 
+            The interest is on the <i style="color:green"><strong>geometry</strong></i> of the route ...
         </section>
 
         <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
@@ -111,7 +111,7 @@ seq | path_seq | node | edge | cost | agg_cost
             <ol>
                 <li>Join the results with edge_table</li>
                 <li>Extract the geometry</li>
-                <li>"seq" will give us the unique id</li>
+                <li>"seq" will give us the unique id (QGIS requisite)</li>
             </ol>
             <pre><code data-trim class="sql" style="line-height:28px; font-size: 140%;">
 CREATE VIEW route_from2To3_1 AS
@@ -130,16 +130,14 @@ SELECT seq, the_geom AS route_geom FROM dijkstra
 
         <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
             <h3>See the result in Qgis</h3>
-            <ul>
-                <li>Add the route_from2To3_1 </li>
-                <li>Choose "edges (simple)" layer</li>
-                <li>Choose "vertices" layer</li>
-                <li>Unselect any other layer </li>
-            </ul>
+            <ol>
+                <li>Add new layer <i style="color:red"><strong>route_from2To3_1 </strong></i></li>
+                <li>Hide <i style="color:red"><strong>Edges</strong></i> layer </li>
+            </ol>
         </section>
 
         <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-            <h3>TODO map goes here</h3>
+            <img class="stretch" src="./flipGeometries/flipgeometries2.jpg" />
         </section>
 
         <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
@@ -147,31 +145,36 @@ SELECT seq, the_geom AS route_geom FROM dijkstra
         </section>
 
         <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-            But ...
+            <h3>Add arrows on QGIS</h3>
+            <ol>
+                <li>Add arrows to <i style="color:red"><strong>route_from2To3_1 </strong></i></li>
+            </ol>
         </section>
 
         <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-            After adding arrows to the "route_from2To3_1" layer ...
+            <img class="stretch" src="./flipGeometries/flipgeometries3.jpg" />
         </section>
 
         <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-            <h3>TODO map goes here</h3>
+            <p>After adding arrows to the  <i style="color:red"><strong>route_from2To3_1 </strong></i>  layer </p>
+            <p>Some arrows indicate the "wrong" direction</p>
+            <ul>
+                <li>From 9 to 4</li>
+                <li>From 4 to 3</li>
+            </ul>
         </section>
 
         <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-            Some arrows point to the wrong direction ...
+            There is the need to temporarly flip the geometries!!
         </section>
 
-        <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-            There is the need to flip geometries!!
-        </section>
 
         <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
             The orientation of the geometries depend on the node from where the route's edge starts
         </section>
 
         <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-            Use the <i><b>node</b></i> column of the results to adjust the geometry
+            Use the <i style="color:green"><b>node</b></i> column of the results to adjust the geometry
         </section>
 
         <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
@@ -186,7 +189,7 @@ Else
             <h3> Code </h3>
             <pre><code data-trim class="sql" style="line-height:28px; font-size: 140%;">
 CASE
-WHEN result.node = edge_table.source
+WHEN dijkstra.node = edge_table.source
   THEN edge_table.the_geom
   ELSE ST_Reverse(edge_table.the_geom)
 END AS route_geom
@@ -205,7 +208,7 @@ dijkstra AS (SELECT * FROM pgr_dijkstra('
     2, 3, true))
 SELECT seq,
     CASE
-    WHEN result.node = edge_table.source
+    WHEN dijkstra.node = edge_table.source
       THEN edge_table.the_geom
       ELSE ST_Reverse(edge_table.the_geom)
     END AS route_geom
@@ -217,19 +220,20 @@ FROM dijkstra
 
         <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
             <h3>See the result in Qgis</h3>
-            <ul>
-                <li>Add the route_from2To3_2 </li>
-                <li>Add arrows to "route_from2To3_2" layer </li>
-            </ul>
-        </section>
-
-        <!-- TODO -->
-        <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-            TODO image goes here
+            <ol>
+                <li>Add new layer <i style="color:red"><strong>route_from2To3_2</strong></i></li>
+                <li>Add arrows to <i style="color:red"><strong>route_from2To3_2</strong></i> layer</li>
+                <li>Hide layer <i style="color:red"><strong>route_from2To3_1</strong></i></li>
+            </ol>
         </section>
 
         <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-            When additional information is needed, for example, the id of the geometry ...
+            <img class="stretch" src="./flipGeometries/flipgeometries4.jpg" />
+        </section>
+
+        <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+            <h3>When additional information is needed</h3>
+            <p>For example, the id of the geometry...</p>
         </section>
 
         <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
@@ -241,9 +245,9 @@ dijkstra AS (SELECT * FROM pgr_dijkstra('
     SELECT id, source, target, cost, reverse_cost
         FROM edge_table',
     2, 3, true))
-SELECT seq, id AS name -- additional information
+SELECT seq, id AS name, -- additional information
     CASE
-    WHEN result.node = edge_table.source
+    WHEN dijkstra.node = edge_table.source
       THEN edge_table.the_geom
       ELSE ST_Reverse(edge_table.the_geom)
     END AS route_geom
@@ -255,16 +259,17 @@ FROM dijkstra
         <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
             <h3>See the result in Qgis</h3>
             <ul>
-                <li>Add the route_from2To3_3 </li>
-                <li>Add arrows to "route_from2To3_2" layer </li>
-                <li>Label each segment with "name" </li>
-            </ul>
+            <ol>
+                <li>Add new layer <i style="color:red"><strong>route_from2To3_3</strong></i></li>
+                <li>Add arrows to <i style="color:red"><strong>route_from2To3_3</strong></i> layer</li>
+                <li>Label each segment with <i style="color:green">name</i> </li>
+                <li>Hide layer <i style="color:red"><strong>route_from2To3_2</strong></i></li>
+            </ol>
         </section>
 
         <!-- TODO -->
         <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-            TODO image goes here
-            <img class="stretch" src="pgrouting/costvirt.png" />
+            <img class="stretch" src="./flipGeometries/flipgeometries5.jpg" />
         </section>
 
     </div>
