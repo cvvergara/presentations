@@ -4,10 +4,10 @@
 <head>
 <meta charset="utf-8">
 
-<title>reveal.js – The HTML Presentation Framework</title>
+<title>Garbage Collection with FOSS4G</title>
 
-<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-<meta name="author" content="Hakim El Hattab">
+<meta name="description" content="Garbage Collection with FOSS4G">
+<meta name="author" content="Vicky Vergara">
 
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -15,7 +15,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 <link rel="stylesheet" href="css/reveal.css">
-<link rel="stylesheet" href="css/theme/black.css" id="theme">
+<link rel="stylesheet" href="css/theme/white.css" id="theme">
 
 <!-- Theme used for syntax highlighting of code -->
 <link rel="stylesheet" href="lib/css/zenburn.css">
@@ -43,17 +43,19 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
     <div class="slides">
 
-        <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+        <section data-background="img-garbageCollection/portlandMap1.png">
             <h1 style="text-transform:none;margin-top:40px;font-size:100px;line-height:125px">Garbage Collection<br>
             </h1>
             <h3 class="large-margin" style="margin-top:70px !important;color:#13daec;text-shadow:none;">... and more with FOSS4G</h3>
-            <p>
+            <br>
+            <br>
+            <br>
             <small>Presented by <a href="http://blog.georepublic.info">Vicky Vergara</a> </small>
             </p>
         </section>
 
         <!-- Poem -->
-        <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+        <section data-background="img-garbageCollection/portlandMap1.png" style="background-color:#ffffff;background:rgba(f, f, f, 0.85);">
             <h1 style="text-transform:none;margin-top:20px;font-size:60px;line-height:80px">
                 This Old Earth
             </h1>
@@ -68,10 +70,32 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
             <p> <small>
                 <a href="http://www.canteach.ca/elementary/songspoems51.html"> www.canteach.ca</a> 
             </small> </p>
+            </section>   <!-- end of Poem -->
         </section>   <!-- end of Poem -->
 
-        <section>  <!-- Vicky's background -->
-            <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+        <section data-background="img-garbageCollection/portlandMap1.png" style="background-color:#ffffff;background:rgba(f, f, f, 0.85);">
+            <h4>Links To prensentation</h4>
+            <br> <br> <br> <br> 
+            <a href="img-garbageCollection/garbageCollection.pdf"> garbageCollection.pdf </a> 
+            <br></br>
+            Animations on next slides.
+        </section>
+
+        <section data-background="img-garbageCollection/portlandMap1.png" style="background-color:#ffffff;background:rgba(f, f, f, 0.85);">
+            <h4>insertBestPairInCleanTrip</h4>
+            <img alt="insertBestPairInCleanTrip" style="width: auto; height: auto;max-height: 500px" 
+            src="img-garbageCollection/animatedRouteDetail.gif" />
+            <br></br>
+        </section>
+
+        <section data-background="img-garbageCollection/portlandMap1.png" style="background-color:#ffffff;background:rgba(f, f, f, 0.85);">
+            <h4>The Complete Route</h4>
+            <img alt="The complete Route"  style="width: auto; height: auto;max-height: 500px"
+            src="img-garbageCollection/animatedCompleteRoute.gif" />
+            <br></br>
+        </section>
+
+        <section data-background="img-garbageCollection/portlandMap1.png" style="background-color:#ffffff;background:rgba(f, f, f, 0.85);">
                 <h1 style="text-transform:none;margin-top:20px;font-size:50px;line-height:60px">Celia Virginia Vergara Castillo
                 </h1>
                 <br></br>
@@ -85,308 +109,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
                 <br> <br>
                 Please, enjoy FOSS4G Bonn!!!
                 <br><br>
-            </section>
         </section>   <!-- end of Vicky's background -->
-
-
-        <section>   <!-- The Problem -->
-            <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                <!-- TODO truck with VRP on top -->
-                <img style="border:0;background:none;padding-top:80px;padding-bottom:40px;height:250px" src="img-garbageCollection/TODOvrp.png" />
-                <h2>Garbage Collection<br>Problem</h2>
-                <br></br>
-            </section>
-
-            <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                <h3>Garbage Collection Problem</h3>
-                <br></br>
-                <br>
-                <ul style="font-size:30px">
-                    <li>Is an important logistic activity within any city</li>
-                    <li>Pick all garbage and dump into a dump site</li>
-                    <li>Do the task with minimum Cost</li>
-                </ul>
-                <br></br> Let's be green
-                <br></br>
-                <br></br>
-            </section>
-        </section>
-
-        <section>   <!-- The General Problem -->
-            <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                <h4>Garbage Collection Problem</h4>
-                <br> There is a city </br>
-                <!-- TODO -->
-                <img alt="City" style="border:0;background:none;padding-top:80px;padding-bottom:40px;height:250px" src="./img-garbageCollection/city.png" >
-                <br></br>
-            </section>
-            <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                <h4>Garbage Collection Problem</h4>
-                <br> With Containers full of garbage </br>
-                <!-- TODO -->
-                <img alt="City with full Containers" style="border:0;background:none;padding-top:80px;padding-bottom:40px;height:250px" src="img-garbageCollection/cityWithContainersFull.png" >
-                <br></br>
-            </section>
-            <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                <h4>Garbage Collection Problem</h4>
-                <br> There are garbage trucks </br>
-                <!-- TODO -->
-                <img alt="Garbage truck" style="border:0;background:none;padding-top:80px;padding-bottom:40px;height:250px" src="img-garbageCollection/garbageTruck.png" >
-                <br></br>
-            </section>
-            <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                <h4>Garbage Collection Problem</h4>
-                <br> Trucks pick up the garbage </br>
-                <!-- TODO -->
-                <img alt="Garbage trucks passing in front of the city" style="border:0;background:none;padding-top:80px;padding-bottom:40px;height:250px"
-                src="img-garbageCollection/garbageTruckPickGarbage.png" />
-                <br></br>
-            </section>
-            <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                <h4>Garbage Collection Problem</h4>
-                <br> The garbage is picked up </br>
-                <!-- TODO -->
-                <img alt="City with Empty containers"
-                style="border:0;background:none;padding-top:80px;padding-bottom:40px;height:250px" 
-                src="img-garbageCollection/cityWithemptyContainers.png" />
-                <br></br>
-            </section>
-        </section>
-
-        <section>   <!-- The City -->
-            <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                <h4>City</h4>
-                <br> With Municipalities</br>
-                <!-- TODO -->
-                <img alt="City with municipalities" style="border:0;background:none;padding-top:80px;padding-bottom:40px;height:250px" 
-                src="img-garbageCollection/citywithmunicipalities.png" />
-                <br></br>
-            </section>
-            <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                <h4>City</h4>
-                <br> Have transit rules</br>
-                <!-- TODO -->
-                <img alt="Speed limit sign with no truck sign" style="border:0;background:none;padding-top:80px;padding-bottom:40px;height:250px" 
-                src="img-garbageCollection/speedLimitSignNoTruckSign.png" />
-                <br></br>
-            </section>
-
-            <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                <h4>City</h4>
-                <br> Have speed limits</br>
-                <!-- TODO -->
-                <img alt="Speed limit sign" style="border:0;background:none;padding-top:80px;padding-bottom:40px;height:250px" 
-                src="img-garbageCollection/speedLimitSign.png" />
-                <br></br>
-            </section>
-            <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                <h4>City</h4>
-                <br> Rush hour</br>
-                <!-- TODO -->
-                <img alt="Slow trafic" style="border:0;background:none;padding-top:80px;padding-bottom:40px;height:250px" 
-                src="img-garbageCollection/rushHour.png" />
-                <br></br>
-            </section>
-        </section>
-
-        <section>   <!-- The staring Site -->
-            <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                <h4>Starting Site</h4>
-                <br> Starting Site</br>
-                <!-- TODO -->
-                <img alt="Starting Site" style="border:0;background:none;padding-top:80px;padding-bottom:40px;height:250px" 
-                src="img-garbageCollection/startingSite.png" />
-                <br></br>
-            </section>
-            <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                <h4>Starting Site</h4>
-                <br> Open 24/7</br>
-                <!-- TODO -->
-                <img alt="Starting Site" style="border:0;background:none;padding-top:80px;padding-bottom:40px;height:250px" 
-                src="img-garbageCollection/startingSite24-7.png" />
-                <br></br>
-            </section>
-        </section>
-
-        <section>   <!-- The ending Site -->
-            <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                <h4>Ending Site</h4>
-                <br> Ending Site</br>
-                <!-- TODO -->
-                <img alt="Ending Site" style="border:0;background:none;padding-top:80px;padding-bottom:40px;height:250px" 
-                src="img-garbageCollection/endingSite.png" />
-                <br></br>
-            </section>
-            <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                <h4>Ending Site</h4>
-                <br> Open 24/7</br>
-                <!-- TODO -->
-                <img alt="Ending Site" style="border:0;background:none;padding-top:80px;padding-bottom:40px;height:250px" 
-                src="img-garbageCollection/endingSite24-7.png" />
-                <br></br>
-            </section>
-        </section>
-
-        <section>   <!-- The dump Site -->
-            <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                <h4>Dump Site</h4>
-                <br> Dump Site</br>
-                <!-- TODO -->
-                <img alt="Dump Site" style="border:0;background:none;padding-top:80px;padding-bottom:40px;height:250px" 
-                src="img-garbageCollection/dumpSite.png" />
-                <br></br>
-            </section>
-            <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                <h4>Dump Site</h4>
-                <br> Open 24/7</br>
-                <!-- TODO -->
-                <img alt="Dump Site" style="border:0;background:none;padding-top:80px;padding-bottom:40px;height:250px" 
-                src="img-garbageCollection/dumpSite24-7.png" />
-                <br></br>
-            </section>
-        </section>
-
-        <section>   <!-- The Containers -->
-            <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                <h4>Containers </h4>
-                <br> Have a known fixed location</br>
-                <!-- TODO -->
-                <img alt="Container and a lat/long info" style="border:0;background:none;padding-top:80px;padding-bottom:40px;height:250px" 
-                src="img-garbageCollection/containerWithLatLonInfo.png" />
-                <br></br>
-            </section>
-            <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                <h4>Containers </h4>
-                <br> Have a purpose</br>
-                <!-- TODO -->
-                <img alt="Containers for different purposes" style="border:0;background:none;padding-top:80px;padding-bottom:40px;height:250px" 
-                src="img-garbageCollection/containersDifferentPurpose.png" />
-                <br></br>
-            </section>
-            <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                <h4>Containers </h4>
-                <br> Have a capacity</br>
-                <!-- TODO -->
-                <img alt="Containers of different size" style="border:0;background:none;padding-top:80px;padding-bottom:40px;height:250px" 
-                src="img-garbageCollection/containersDifferentSize.png" />
-                <br></br>
-            </section>
-            <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                <h4>Containers </h4>
-                <br> Can not be picked up at some times</br>
-                <!-- TODO -->
-                <img alt="Street Market with Containers" style="border:0;background:none;padding-top:80px;padding-bottom:40px;height:250px" 
-                src="img-garbageCollection/streetMarketWithContainers.png" />
-                <br></br>
-            </section>
-        </section>
-
-        <section>   <!-- The trucks -->
-            <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                <h4>Trucks</h4>
-                <br> Different Capacities</br>
-                <!-- TODO -->
-                <img alt="TrucksDifferentSizes" style="border:0;background:none;padding-top:80px;padding-bottom:40px;height:250px" 
-                src="img-garbageCollection/TODOtruckDifferentSizes.png" />
-                <br></br>
-            </section>
-
-            <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                <h4>Trucks</h4>
-                <br> Depart from as Starting Site (trucks deposit)</br>
-                <!-- TODO -->
-                <img alt="TrucksSleeping" style="border:0;background:none;padding-top:80px;padding-bottom:40px;height:250px" 
-                src="img-garbageCollection/TODOtrucksSleeping.png" />
-                <br></br>
-            </section>
-
-            <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                <h4>Trucks</h4>
-                <br> Go pickup the garbage</br>
-                <!-- TODO -->
-                <img alt="TrucksPckingupGarbage" style="border:0;background:none;padding-top:80px;padding-bottom:40px;height:250px" 
-                src="img-garbageCollection/TODOtrucksPickingupGarbage.png" />
-                <br></br>
-            </section>
-
-            <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                <h4>Trucks</h4>
-                <br> When full the go to a Dumping site</br>
-                <!-- TODO -->
-                <img alt="TrucksPouringGarbage" style="border:0;background:none;padding-top:80px;padding-bottom:40px;height:250px" 
-                src="img-garbageCollection/TODOtrucksPouringGarbage.png" />
-                <br></br>
-            </section>
-
-            <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                <h4>Trucks</h4>
-                <br> When Job is finish they go to Ending Site (trucks deposit)</br>
-                <!-- TODO -->
-                <img alt="TrucksPouringGarbage" style="border:0;background:none;padding-top:80px;padding-bottom:40px;height:250px" 
-                src="img-garbageCollection/TODOtrucksPouringGaarbage.png" />
-                <br></br>
-            </section>
-
-            <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                <h4>Trucks</h4>
-                <br> Now drivers are lazy</br>
-                <!-- TODO -->
-                <img alt="LazyDrivers" style="border:0;background:none;padding-top:80px;padding-bottom:40px;height:250px" 
-                src="img-garbageCollection/TODOlazyDrivers.png" />
-                <br></br>
-            </section>
-
-        </section>
-
-        <section>   <!-- The drivers -->
-            <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                <h4>Drivers</h4>
-                <br> Different Schedules</br>
-                <!-- TODO -->
-                <img alt="Drivers Different Schedules" style="border:0;background:none;padding-top:80px;padding-bottom:40px;height:250px" 
-                src="img-garbageCollection/TODOdriversDifferentSchedules.png" />
-                <br></br>
-            </section>
-
-            <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                <h4>Drivers</h4>
-                <br> Pick garbage after dumping</br>
-                <!-- TODO -->
-                <img alt="TrucksSleeping" style="border:0;background:none;padding-top:80px;padding-bottom:40px;height:250px" 
-                src="img-garbageCollection/TODOtrucksSleeping.png" />
-                <br></br>
-            </section>
-
-            <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                <h4>Drivers</h4>
-                <br> Before end of shift: go to dump</br>
-                <!-- TODO -->
-                <img alt="TrucksSleeping" style="border:0;background:none;padding-top:80px;padding-bottom:40px;height:250px" 
-                src="img-garbageCollection/TODOtrucksSleeping.png" />
-                <br></br>
-            </section>
-
-            <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                <h4>Drivers</h4>
-                <br> Before end of shift: go to dump</br>
-                <!-- TODO -->
-                <img alt="TrucksSleeping" style="border:0;background:none;padding-top:80px;padding-bottom:40px;height:250px" 
-                src="img-garbageCollection/TODOtrucksSleeping.png" />
-                <br></br>
-            </section>
-
-            <section data-background="pgrouting/image_001.jpg" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-                <h4>Drivers</h4>
-                <br> End of shift: in the Ending Site</br>
-                <!-- TODO -->
-                <img alt="TrucksSleeping" style="border:0;background:none;padding-top:80px;padding-bottom:40px;height:250px" 
-                src="img-garbageCollection/TODOtrucksSleeping.png" />
-                <br></br>
-            </section>
-        </section>
-
-
-
     </div>
 
 </div>
