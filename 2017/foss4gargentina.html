@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+
+<title>pgRouting FOSS4G Argentina</title>
+
+<meta name="description" content="pgRouting">
+<meta name="author" content="Vicky Vergara">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<link rel="stylesheet" href="css/reveal.css">
+<link rel="stylesheet" href="css/theme/white.css" id="theme">
+
+<!-- Theme used for syntax highlighting of code -->
+<link rel="stylesheet" href="lib/css/zenburn.css">
+<link rel="stylesheet" href="css/additional.css">
+
+<!-- Printing and PDF exports -->
+<script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+
+<!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+
+
+
+<body>
+
+<div class="reveal">
+
+    <div class="slides">
+
+        <section data-background="./images/argentina1.png"  style="background-color:#000000;background:rgba(174, 214, 241, 0.85);" data-transition="convex">
+            <h3 style="text-transform:none;color:#0d47a1;text-shadow:none;">
+                El Camino Más Corto en la Base de Datos<br>
+            </h3>
+            <br>
+            <img style="border:none;background-color:none;box-shadow:none;;height:250px" src="images/pgrouting.gif" />
+            <br>
+            <h3 class="large-margin" style="text-transform:none;margin-top:70px;color:#0d47a1;text-shadow:none;">
+                ... y más con pgRouting
+            </h3>
+            <small>Presented by <a href="http://georepublic.info">Vicky Vergara</a> </small>
+            </p>
+        </section>
+
+        <!-- Poem -->
+        <section data-background="./images/argentina1.png"  style="background-color:#000000;background:rgba(174, 214, 241, 0.85);"  data-transition="convex">
+            <br> 
+            <br> 
+            <h3 style="text-transform:none;color:#0d47a1;text-shadow:none;">
+            “Dirán que andas por un camino equivocado, si andas por tu camino."
+            <h3>
+
+            <br> 
+            <p>  Antonio Porchia </p>
+            </section>   <!-- end of Poem -->
+        </section>   <!-- end of Poem -->
+
+
+        <section data-background="./images/argentina1.png"  style="background-color:#000000;background:rgba(174, 214, 241, 0.85);"  data-transition="convex">
+            <h1 style="text-transform:none;color:#0d47a1;margin-top:20px;font-size:50px;line-height:60px">Celia Virginia Vergara Castillo
+            </h1>
+            <br>
+            <ul style="font-size:30px">
+                <li>Economista</li>
+                <li>Ciencias de la Computación</li>
+                <li>Trabaja en Georepublic</li>
+                <li>Desarrolladora de pgRouting</li>
+                <li>Mexicana</li>
+                <li>Conocida como Vicky</li>
+            </ul>
+            <br> <br>
+            Disfrutar de FOSS4G Argentina!!!
+            <br><br>
+        </section>
+        <!-- end of Vicky's background -->
+
+
+
+        <!-- Que es el -->
+        <section  data-transition="convex">
+            <section data-background="./images/argentina1.png"  style="background-color:#000000;background:rgba(174, 214, 241, 0.85);"  data-transition="convex">
+                <h3 style="text-transform:none;color:#0d47a1;text-shadow:none;">
+                    Que es el<br><br>
+                </h3>
+
+                <img style="border:none;background-color:none;box-shadow:none;;height:250px" src="images/pgrouting.gif" />
+                <h3 style="text-transform:none;color:#0d47a1;text-shadow:none;">
+                    Proyecto PgRouting
+                </h3>
+            </section>
+
+            <section data-background="./images/argentina1.png"  style="background-color:#000000;background:rgba(174, 214, 241, 0.85);"  data-transition="convex">
+                <img class="stretch" style="background-color:#ffffff" src="../img/OSGeo_community.png" />
+            </section>
+
+            <section data-background="./images/argentina1.png"  style="background-color:#000000;background:rgba(174, 214, 241, 0.85);"  data-transition="convex">
+                <img style="border:0;background:#ffffff;padding:10px;height:300px" src="../2015/pgrouting/postgres.gif" />
+                <img style="border:0;background:#ffffff;padding:10px;height:300px" src="../2015/pgrouting/postgis.png" />
+                <br>
+                <img style="border:0;background:#ffffff;padding:10px;height:50px" src="../2015/pgrouting/boostlogo.jpeg" />
+            </section>
+
+            <section data-background="./images/argentina1.png"  style="background-color:#000000;background:rgba(174, 214, 241, 0.85);"  data-transition="convex">
+                <img style="border:0;background:#ffffff;height:300px" src="../2015/pgrouting/osi.png" />
+            </section>
+
+            <section data-background="./images/argentina1.png"  style="background-color:#000000;background:rgba(174, 214, 241, 0.85);"  data-transition="convex">
+                <img class="stretch" src="../2015/pgrouting/forkme.png" />
+            </section>
+        </section>
+        <!-- FIN: Que es el -->
+
+        <!-- Que hay en el -->
+        <section  data-transition="convex">
+            <section data-background="./images/argentina1.png"  style="background-color:#000000;background:rgba(174, 214, 241, 0.85);"  data-transition="convex">
+                <h3 style="text-transform:none;color:#0d47a1;text-shadow:none;">
+                    Que hay en el
+                </h3>
+                <img style="border:none;background-color:none;box-shadow:none;;height:250px" src="images/pgrouting.gif" />
+                <h3 style="text-transform:none;color:#0d47a1;text-shadow:none;">
+                    Proyecto PgRouting
+                </h3>
+            </section>
+
+            <section data-background="./images/argentina1.png"  style="background-color:#000000;background:rgba(174, 214, 241, 0.85);"  data-transition="convex">
+                <h3 style="text-transform:none;color:#0d47a1;text-shadow:none;">
+                    osm2pgRouting
+                </h3>
+                <img style="border:none;background-color:none;box-shadow:none;;height:250px" src="images/Openstreetmap_logo.svg" />
+                <img style="border:none;background-color:none;box-shadow:none;;height:50px;padding-bottom:110px" src="images/arrowRight.png" />
+                <img style="border:none;background-color:none;box-shadow:none;;height:250px" src="images/pgrouting.gif" />
+            </section>
+
+            <section data-background="./images/argentina1.png"  style="background-color:#000000;background:rgba(174, 214, 241, 0.85);"  data-transition="convex">
+                <h3 style="text-transform:none;color:#0d47a1;text-shadow:none;">
+                    pgRoutingLayers
+                </h3>
+                <img style="border:none;background-color:none;box-shadow:none;;height:250px" src="images/pgrouting.gif" />
+                <img style="border:none;background-color:none;box-shadow:none;;height:50px;padding-bottom:110px" src="images/arrowRight.png" />
+                <img style="border:none;background-color:none;box-shadow:none;;height:250px" src="images/qgis.jpg" />
+            </section>
+
+            <section data-background="./images/argentina1.png"  style="background-color:#000000;background:rgba(174, 214, 241, 0.85);"  data-transition="convex">
+                <h3 style="text-transform:none;color:#0d47a1;text-shadow:none;">
+                    pgRouting
+                </h3>
+                <img style="border:none;background-color:none;box-shadow:none;;height:250px" src="images/pgrouting.gif" />
+            </section>
+        </section>
+        <!-- FIN: Que hay en el -->
+
+        <!-- Hacer una ruta -->
+        <section  data-transition="convex">
+            <section data-background="./images/argentina1.png"  style="background-color:#000000;background:rgba(174, 214, 241, 0.85);"  data-transition="convex">
+                <h3 style="text-transform:none;color:#0d47a1;text-shadow:none;">
+                    Usando el
+                </h3>
+                <img style="border:none;background-color:none;box-shadow:none;;height:250px" src="images/pgrouting.gif" />
+                <h3 style="text-transform:none;color:#0d47a1;text-shadow:none;">
+                    Proyecto PgRouting
+                </h3>
+            </section>
+
+            <section data-background="./images/argentina1.png"  style="background-color:#000000;background:rgba(174, 214, 241, 0.85);"  data-transition="convex">
+                <h2 style="text-transform:none;color:#0d47a1;text-shadow:none;">Crear una Base de Datos</h2>
+                <pre><code style="background-color:#ffffff" data-trim class="sql example">createdb argentina;
+psql -c "CREATE EXTENSION postgis" -d argentina
+psql -c "CREATE EXTENSION pgrouting" -d argentina </code></pre> 
+            </section>
+
+            <section data-background="./images/argentina1.png"  style="background-color:#000000;background:rgba(174, 214, 241, 0.85);"  data-transition="convex">
+                <h2 style="text-transform:none;color:#0d47a1;text-shadow:none;">Obtener Datos SIG</h2>
+                <pre><code style="background-color:#ffffff" data-trim class="sql example">
+BBOX="-58.44370, -34.57352, -58.43700, -34.57043"
+wget --progress=dot:mega \
+    -O "argentinafoss4g.osm" \
+    "http://www.overpass-api.de/api/xapi?*[bbox=${BBOX}][@meta]"
+ </code></pre> 
+            </section>
+
+            <section data-background="./images/argentina1.png"  style="background-color:#000000;background:rgba(174, 214, 241, 0.85);"  data-transition="convex">
+                <h2 style="text-transform:none;color:#0d47a1;text-shadow:none;">Importar Datos a la Base de Datos</h2>
+                <pre><code style="background-color:#ffffff" data-trim class="shell example">
+osm2pgrouting \
+    -f argentinafoss4g.osm \
+    -d argentina \
+    -U usuario -W password
+ </code></pre> 
+            </section>
+
+            <section data-background="./images/argentina1.png"  style="background-color:#000000;background:rgba(174, 214, 241, 0.85);"  data-transition="convex">
+                <h2 style="text-transform:none;color:#0d47a1;text-shadow:none;">Ejecutar un Query</h2>
+                <pre><code style="background-color:#ffffff" data-trim class="sql">
+SELECT * FROM pgr_dijkstra(
+'SELECT gid AS
+     id,
+     source,
+     target,
+     cost_s AS cost,
+     reverse_cost_s AS reverse_cost FROM ways',
+    18, 16);
+</code></pre> 
+            </section>;
+
+            <section data-background="./images/argentina1.png"  style="background-color:#000000;background:rgba(174, 214, 241, 0.85);"  data-transition="convex">
+                <h3 style="text-transform:none;color:#0d47a1;text-shadow:none;">Resultados</h3>
+                <pre><code style="background-color:#ffffff;font-size: 80%" data-trim class="sql">
+ seq | path_seq | node | edge |       cost        |     agg_cost      
+-----+----------+------+------+-------------------+-------------------
+   1 |        1 |   18 |   98 | 0.729963776732285 |                 0
+   2 |        2 |   65 |  188 | 0.609540796785944 | 0.729963776732285
+   3 |        3 |  139 |   34 | 0.779552735077638 |  1.33950457351823
+   4 |        4 |   15 |   67 |  12.7287743080311 |  2.11905730859587
+   5 |        5 |   42 |   36 |  10.6159737661904 |   14.847831616627
+   6 |        6 |   16 |   -1 |                 0 |  25.4638053828173
+(6 rows)
+</code></pre></p>
+            </section>
+        </section>
+        <!-- FIN: Hacer una ruta -->
+
+
+        <!-- Presente -->
+        <section  data-transition="convex">
+            <section data-background="./images/argentina1.png"  style="background-color:#000000;background:rgba(174, 214, 241, 0.85);"  data-transition="convex">
+                <h2 style="text-transform:none;color:#0d47a1;text-shadow:none;">
+                    Clasificación de Funciones (v2.5)
+                </h2>
+                <ul style="color:#0d47a1;font-size:30px">
+                    <li>Disponibles</li>
+                    <li>Propuestas</li>
+                    <li>Experimentales</li>
+                </ul>
+            </section>
+
+            <section data-background="./images/argentina1.png"  style="background-color:#000000;background:rgba(174, 214, 241, 0.85);"  data-transition="convex">
+                <h3 style="text-transform:none;color:#0d47a1;text-shadow:none;">
+                    Funciones Disponibles
+                </h3>
+                <p> Existen desde la versión 2.0</p>
+                <ul style="color:#0d47a1;font-size:30px">
+                    <li>pgr_dijkstra</li>
+                    <li>pgr_astar</li>
+                    <li>pgr_drivingDistance</li>
+                    <li>pgr_bdAstar</li>
+                    <li>pgr_bdDijkstra</li>
+                    <li>etc.</li>
+                </ul>
+                </li>
+            </section>
+
+            <section data-background="./images/argentina1.png"  style="background-color:#000000;background:rgba(174, 214, 241, 0.85);"  data-transition="convex">
+                <h3 style="text-transform:none;color:#0d47a1;text-shadow:none;">
+                    Funciones Propuestas
+                </h3>
+                <p> Propuestas para la versión 3.0</p>
+                <p> Se consideran estables para su uso</p>
+                <ul style="color:#0d47a1;font-size:30px">
+                    <li>Familia de functiones "Flow" (Flujo)</li>
+                    <li>Familia de functiones "withPoints" (con puntos)</li>
+                    <li>Categoría "Cost" (Costo)</li> 
+                    <li>Categoría "Cost Matrix" (Matriz de Costos)</li> 
+                </ul>
+                </li>
+            </section>
+
+            <section data-background="./images/argentina1.png"  style="background-color:#000000;background:rgba(174, 214, 241, 0.85);"  data-transition="convex">
+                <h3 style="text-transform:none;color:#0d47a1;text-shadow:none;">
+                    Funciones Experimentales
+                </h3>
+                <p> Necesitan más pruebas/correcciones</p>
+                <ul style="color:#0d47a1;font-size:30px">
+                    <li>Familia de functiones "Components" (Componentes)</li>
+                    <li>Familia de functiones "Contraction" (Contracción)</li>
+                    <li>Familia de functiones "VRP" (Problemas de Ruteo de Vehículos)</li>
+                    <li>pgr_lineGraph</li> 
+                </ul>
+                </li>
+            </section>
+        </section>
+
+        <!-- pgRouging minimize costs -->
+        <section  data-transition="convex">
+            <section data-background="./images/argentina1.png"  style="background-color:#000000;background:rgba(174, 214, 241, 0.85);"  data-transition="convex">
+                <img style="border:0;background:none;padding-top:80px;padding-bottom:10px;height:250px" src="../2015/pgrouting/prague-clock.jpg" />
+                <img style="border:0;background:none;padding-top:80px;padding-bottom:10px;height:250px" src="../2015/pgrouting/costs.png" />
+                <h2>Costos</h2>
+            </section>
+
+            <section data-background="./images/argentina1.png"  style="background-color:#000000;background:rgba(174, 214, 241, 0.85);"  data-transition="convex">
+                <img  src="../2015/pgrouting/costvirt.png" />
+            </section>
+
+            <section data-background="./images/argentina1.png"  style="background-color:#000000;background:rgba(174, 214, 241, 0.85);"  data-transition="convex">
+                <img  src="../2015/pgrouting/slope.png" />
+            </section>
+
+            <section data-background="./images/argentina1.png"  style="background-color:#000000;background:rgba(174, 214, 241, 0.85);"  data-transition="convex">
+                <img  src="../2015/pgrouting/conditions.png" />
+            </section>
+
+            <section data-background="./images/argentina1.png"  style="background-color:#000000;background:rgba(174, 214, 241, 0.85);"  data-transition="convex">
+                <img  src="../2015/pgrouting/road.jpg" />
+            </section>
+
+            <section data-background="./images/argentina1.png"  style="background-color:#000000;background:rgba(174, 214, 241, 0.85);"  data-transition="convex">
+                <img  src="../2015/pgrouting/trails.png" />
+            </section>
+        </section>  <!-- pgRouging minimize costs -->
+
+
+
+        <section data-background="./images/argentina1.png"  style="background-color:#000000;background:rgba(174, 214, 241, 0.85);"  data-transition="convex">
+            <h2 style="padding-top:80px;">Interesado en pgRouting?</h2>
+            <ul style="padding-top:40px;">
+                <li>pgRouting: <a href="http://pgrouting.org">http://pgrouting.org</a></li>
+                <li>Email: <a href="mailto:vicky@georepublic.de">vicky@georepublic.de</a></li>
+                <li>Website: <a href="http://georepublic.info">http://georepublic.info</a></li>                        
+            </ul> 
+            </p>
+            <br></br>
+        </section>
+
+
+    </div>
+</div>
+
+<div id="myLogo" style="background: url(../img/georepublicBlue.png);
+    position: absolute;
+    bottom: 1%;
+    left: 1%;
+    width: 280px;
+    height: 60px;">
+</div>
+
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+
+// More info https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+controls: true,
+progress: true,
+history: true,
+center: true,
+
+transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+// More info https://github.com/hakimel/reveal.js#dependencies
+dependencies: [
+{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+{ src: 'plugin/zoom-js/zoom.js', async: true },
+{ src: 'plugin/notes/notes.js', async: true }
+]
+});
+
+</script>
+
+</body>
+</html>
+
+
