@@ -159,34 +159,35 @@ SELECT seq, the_geom AS route_geom FROM dijkstra
             <p>Después de agregar flechas a la capa <i style="color:red"><strong>route_from2To3_1 </strong></i></p>
             <p>Algunas flechas van en la dirección equivocada</p>
             <ul>
-                <li>De <i style="color:red"><strong>4</strong></i> a <i style="color:red"><strong>9</strong></i> debiera ser de <i style="color:red"><strong>9</strong></i> a <i style="color:red"><strong>4</strong></i></li>
-		<li>De <i style="color:red"><strong>3</strong></i> a <i style="color:red"><strong>4</strong></i> debiera ser de <i style="color:red"><strong>4</strong></i> a <i style="color:red"><strong>3</strong></i></li>
+               <li>De <i style="color:red"><strong>4</strong></i> a <i style="color:red"><strong>9</strong></i> debiera ser de <i style="color:green"><strong>9</strong></i> a <i style="color:green"><strong>4</strong></i></li>
+	       <li>De <i style="color:red"><strong>3</strong></i> a <i style="color:red"><strong>4</strong></i> debiera ser de <i style="color:green"><strong>4</strong></i> a <i style="color:green"><strong>3</strong></i></li>
             </ul>
         </section>
 
         <section data-background="images/mexicoMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-            There is the need to temporarly flip the geometries!!
+            Está la necesidad de invertir las geometrías temporalmente!!
         </section>
 
 
         <section data-background="images/mexicoMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+	    La orientación de las geometrías depende del nodo donte el segmento de la ruta comienza
             The orientation of the geometries depend on the node from where the route's edge starts
         </section>
 
         <section data-background="images/mexicoMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-            Use the <i style="color:green"><b>node</b></i> column of the results to adjust the geometry
+		Usar la columna <i style="color:green"><b>node</b></i> de los resultados para ajustar la geometría
         </section>
 
         <section data-background="images/mexicoMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-            <h3> Pseudocode </h3>
+            <h3> Pseudocódigo </h3>
             <pre><code data-trim class="sql" style="line-height:28px; font-size: 140%;">
-if (The node is the source on the edge_table)
-    The orientation of the geometry is ok
-Else
-    Reverse the orientation of the geometry
+SI (el nodo es source en edge_table)
+    La orientación de la geometría está bien
+ELSE
+    Invertir la orientación de la geometría
             </code></pre>
 
-            <h3> Code </h3>
+            <h3> Código en SQL </h3>
             <pre><code data-trim class="sql" style="line-height:28px; font-size: 140%;">
 CASE
 WHEN dijkstra.node = edge_table.source
@@ -198,7 +199,7 @@ END AS route_geom
 
 
         <section data-background="images/mexicoMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-            <p>Make a new view </p>
+            <p>Hacer una nueva vista</p>
             <pre><code data-trim class="sql" style="line-height:28px; font-size: 140%;">
 CREATE VIEW route_from2To3_2 AS
 WITH
@@ -219,11 +220,11 @@ FROM dijkstra
 
 
         <section data-background="images/mexicoMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-            <h3>See the result in Qgis</h3>
+            <h3>Ver el resultado en QGIS</h3>
             <ol>
-                <li>Add new layer <i style="color:red"><strong>route_from2To3_2</strong></i></li>
-                <li>Add arrows to <i style="color:red"><strong>route_from2To3_2</strong></i> layer</li>
-                <li>Hide layer <i style="color:red"><strong>route_from2To3_1</strong></i></li>
+                <li>Añadir la capa <i style="color:red"><strong>route_from2To3_2</strong></i></li>
+                <li>Añadir flechas a la capa <i style="color:red"><strong>route_from2To3_2</strong></i> layer</li>
+                <li>Esconder la capa <i style="color:red"><strong>route_from2To3_1</strong></i></li>
             </ol>
         </section>
 
