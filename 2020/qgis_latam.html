@@ -233,12 +233,12 @@ FROM dijkstra
         </section>
 
         <section data-background="images/mexicoMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-            <h3>When additional information is needed</h3>
-            <p>For example, the id of the geometry...</p>
+            <h3>Cuando se necesita información adicional</h3>
+            <p>Por ejemplo: el id de la geometría usado como nombre...</p>
         </section>
 
         <section data-background="images/mexicoMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-            <h3>Make a new view </h3>
+            <h3>Hacemos otra vista </h3>
             <pre><code data-trim class="sql" style="line-height:28px; font-size: 120%;">
 CREATE VIEW route_from2To3_3 AS
 WITH
@@ -246,7 +246,7 @@ dijkstra AS (SELECT * FROM pgr_dijkstra('
     SELECT id, source, target, cost, reverse_cost
         FROM edge_table',
     2, 3, true))
-SELECT seq, id AS name, -- additional information
+SELECT seq, id AS name, -- informacion adicional
     CASE
     WHEN dijkstra.node = edge_table.source
       THEN edge_table.the_geom
@@ -261,10 +261,10 @@ FROM dijkstra
             <h3>See the result in Qgis</h3>
             <ul>
             <ol>
-                <li>Add new layer <i style="color:red"><strong>route_from2To3_3</strong></i></li>
-                <li>Add arrows to <i style="color:red"><strong>route_from2To3_3</strong></i> layer</li>
-                <li>Label each segment with <i style="color:green">name</i> </li>
-                <li>Hide layer <i style="color:red"><strong>route_from2To3_2</strong></i></li>
+                <li>Añadir la nueva capa <i style="color:red"><strong>route_from2To3_3</strong></i></li>
+                <li>Añadir flechas a la capa <i style="color:red"><strong>route_from2To3_3</strong></i></li>
+                <li>Agregar la etiqueta <i style="color:green">name</i> </li>
+                <li>Esconder la capa <i style="color:red"><strong>route_from2To3_2</strong></i></li>
             </ol>
         </section>
 
