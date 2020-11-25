@@ -45,38 +45,38 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
 
         <!-- How to flip edges -->
-        <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-            <h2>The pgRouting Project</h2>
+        <section data-background="images/mexicoMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+            <h2>El proyecto pgRouting /h2>
             <img style="border:0;background:none;padding-top:80px;padding-bottom:40px;height:250px" src="../img/pgrouting.png" />
-            <h3>How to Flip Geometries</h3>
+            <h3>Taller: Uso básico de pgRouting con QGIS</h3>
             <br></br>
             <img class="logo" src="../img/georepublic.png" />
         </section>
 
-        <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+        <section data-background="images/mexicoMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
             <h2 style="padding-top:40px;padding-bottom:30px;">Material</h2>
             <ul>
-                <li>Database with the sample data of the documentation</li>
-                <li>Qgis</li>
+                <li>Base de datos con los datos ejemplo de la documentación <i style="color:green"><strong>datos_ejemplo</strong></i>/li>
+                <li>QGIS</li>
             </ul>
         </section>
 
-        <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-            <h3>Let's see the map</h3>
+        <section data-background="images/mexicoMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+            <h3>Veamos el mapa</h3>
             <ol>
-                <li>Open Qgis</li>
-                <li>Connect to  <i style="color:green"><strong>sample_data</strong></i> database</li>
-                <li>Add <i style="color:green"><strong>edge_table</strong></i> and rename to <i style="color:red"><strong>Edges</strong></i></li>
-                <li>Add <i style="color:green"><strong>edge_table_vertices_pgr</strong></i> and rename to <i style="color:red"><strong>Vertices</strong></i></li>
-                <li>Label the <i style="color:red"><strong>Vertices</strong></i> layer with id</li>
+                <li>Abrir QGIS</li>
+                <li>Conectarse a la base de datos <i style="color:green"><strong>datos_ejemplo</strong></i> database</li>
+                <li>Agregar <i style="color:green"><strong>edge_table</strong></i> and cambiarle nombre a <i style="color:red"><strong>Aristas</strong></i></li>
+                <li>Agregar <i style="color:green"><strong>edge_table_vertices_pgr</strong></i> and cambiarle nombre <i style="color:red"><strong>Vertices</strong></i></li>
+                <li>Etiquetar la capa <i style="color:red"><strong>Vertices</strong></i> con el id</li>
             </ol>
         </section>
 
-        <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+        <section data-background="images/mexicoMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
             <img class="stretch" src="./qgis_latam/flipgeometries1.jpg" />
         </section>
 
-        <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+        <section data-background="images/mexicoMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
             <h3>Making a route from 2 to 3</h3>
             <pre><code data-trim class="sql" style="line-height:50px; font-size: 140%;">
 SELECT * FROM pgr_dijkstra('
@@ -88,7 +88,7 @@ SELECT * FROM pgr_dijkstra('
         </section>
 
 
-        <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+        <section data-background="images/mexicoMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
             <h3>Query Results</h3>
             <pre><code data-trim class="sql" style="line-height:28px; font-size: 140%;">
 seq | path_seq | node | edge | cost | agg_cost 
@@ -102,11 +102,11 @@ seq | path_seq | node | edge | cost | agg_cost
 (6 rows) </code></pre>
         </section>
 
-        <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+        <section data-background="images/mexicoMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
             The interest is on the <i style="color:green"><strong>geometry</strong></i> of the route ...
         </section>
 
-        <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+        <section data-background="images/mexicoMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
             <h3>Make a view </h3>
             <ol>
                 <li>Join the results with edge_table</li>
@@ -128,7 +128,7 @@ SELECT seq, the_geom AS route_geom FROM dijkstra
         </section>
 
 
-        <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+        <section data-background="images/mexicoMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
             <h3>See the result in Qgis</h3>
             <ol>
                 <li>Add new layer <i style="color:red"><strong>route_from2To3_1 </strong></i></li>
@@ -136,26 +136,26 @@ SELECT seq, the_geom AS route_geom FROM dijkstra
             </ol>
         </section>
 
-        <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+        <section data-background="images/mexicoMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
             <img class="stretch" src="./qgis_latam/flipgeometries2.jpg" />
         </section>
 
-        <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+        <section data-background="images/mexicoMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
             So far so good
         </section>
 
-        <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+        <section data-background="images/mexicoMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
             <h3>Add arrows on QGIS</h3>
             <ol>
                 <li>Add arrows to <i style="color:red"><strong>route_from2To3_1 </strong></i></li>
             </ol>
         </section>
 
-        <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+        <section data-background="images/mexicoMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
             <img class="stretch" src="./qgis_latam/flipgeometries3.jpg" />
         </section>
 
-        <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+        <section data-background="images/mexicoMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
             <p>After adding arrows to the  <i style="color:red"><strong>route_from2To3_1 </strong></i>  layer </p>
             <p>Some arrows indicate the "wrong" direction</p>
             <ul>
@@ -164,20 +164,20 @@ SELECT seq, the_geom AS route_geom FROM dijkstra
             </ul>
         </section>
 
-        <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+        <section data-background="images/mexicoMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
             There is the need to temporarly flip the geometries!!
         </section>
 
 
-        <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+        <section data-background="images/mexicoMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
             The orientation of the geometries depend on the node from where the route's edge starts
         </section>
 
-        <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+        <section data-background="images/mexicoMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
             Use the <i style="color:green"><b>node</b></i> column of the results to adjust the geometry
         </section>
 
-        <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+        <section data-background="images/mexicoMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
             <h3> Pseudocode </h3>
             <pre><code data-trim class="sql" style="line-height:28px; font-size: 140%;">
 if (The node is the source on the edge_table)
@@ -197,7 +197,7 @@ END AS route_geom
         </section>
 
 
-        <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+        <section data-background="images/mexicoMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
             <p>Make a new view </p>
             <pre><code data-trim class="sql" style="line-height:28px; font-size: 140%;">
 CREATE VIEW route_from2To3_2 AS
@@ -218,7 +218,7 @@ FROM dijkstra
         </section>
 
 
-        <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+        <section data-background="images/mexicoMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
             <h3>See the result in Qgis</h3>
             <ol>
                 <li>Add new layer <i style="color:red"><strong>route_from2To3_2</strong></i></li>
@@ -227,16 +227,16 @@ FROM dijkstra
             </ol>
         </section>
 
-        <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+        <section data-background="images/mexicoMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
             <img class="stretch" src="./qgis_latam/flipgeometries4.jpg" />
         </section>
 
-        <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+        <section data-background="images/mexicoMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
             <h3>When additional information is needed</h3>
             <p>For example, the id of the geometry...</p>
         </section>
 
-        <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+        <section data-background="images/mexicoMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
             <h3>Make a new view </h3>
             <pre><code data-trim class="sql" style="line-height:28px; font-size: 120%;">
 CREATE VIEW route_from2To3_3 AS
@@ -256,7 +256,7 @@ FROM dijkstra
             </code></pre>
         </section>
 
-        <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+        <section data-background="images/mexicoMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
             <h3>See the result in Qgis</h3>
             <ul>
             <ol>
@@ -268,7 +268,7 @@ FROM dijkstra
         </section>
 
         <!-- TODO -->
-        <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+        <section data-background="images/mexicoMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
             <img class="stretch" src="./qgis_latam/flipgeometries5.jpg" />
         </section>
 
