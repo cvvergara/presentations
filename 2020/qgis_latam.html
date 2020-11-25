@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+
+<title>pgRouting: WORKSHOP QGIS-LATAM 2020</title>
+
+<meta name="description" content="Uso Básico de QGIS con pgRouting">
+<meta name="author" content="Vicky Vergara, Economist">
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+<link rel="stylesheet" href="../css/reveal.min.css">
+<link rel="stylesheet" href="../css/theme/default.css" id="theme">
+
+<!-- For syntax highlighting -->
+<link rel="stylesheet" href="../lib/css/zenburn.css">
+
+<!-- Printing and PDF exports -->
+<script>
+var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+
+
+<link rel="stylesheet" href="../css/custom.css">
+
+<!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+</head>
+
+<body>
+
+<div class="reveal">
+
+    <div class="slides">
+
+
+        <!-- How to flip edges -->
+        <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+            <h2>The pgRouting Project</h2>
+            <img style="border:0;background:none;padding-top:80px;padding-bottom:40px;height:250px" src="../img/pgrouting.png" />
+            <h3>How to Flip Geometries</h3>
+            <br></br>
+            <img class="logo" src="../img/georepublic.png" />
+        </section>
+
+        <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+            <h2 style="padding-top:40px;padding-bottom:30px;">Material</h2>
+            <ul>
+                <li>Database with the sample data of the documentation</li>
+                <li>Qgis</li>
+            </ul>
+        </section>
+
+        <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+            <h3>Let's see the map</h3>
+            <ol>
+                <li>Open Qgis</li>
+                <li>Connect to  <i style="color:green"><strong>sample_data</strong></i> database</li>
+                <li>Add <i style="color:green"><strong>edge_table</strong></i> and rename to <i style="color:red"><strong>Edges</strong></i></li>
+                <li>Add <i style="color:green"><strong>edge_table_vertices_pgr</strong></i> and rename to <i style="color:red"><strong>Vertices</strong></i></li>
+                <li>Label the <i style="color:red"><strong>Vertices</strong></i> layer with id</li>
+            </ol>
+        </section>
+
+        <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+            <img class="stretch" src="./qgis_latam/flipgeometries1.jpg" />
+        </section>
+
+        <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+            <h3>Making a route from 2 to 3</h3>
+            <pre><code data-trim class="sql" style="line-height:50px; font-size: 140%;">
+SELECT * FROM pgr_dijkstra('
+  SELECT id,
+    source,target,
+    cost, reverse_cost
+  FROM edge_table',
+  2, 3, true); </code></pre>
+        </section>
+
+
+        <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+            <h3>Query Results</h3>
+            <pre><code data-trim class="sql" style="line-height:28px; font-size: 140%;">
+seq | path_seq | node | edge | cost | agg_cost 
+----+----------+------+------+------+----------
+  1 |        1 |    2 |    4 |    1 |        0
+  2 |        2 |    5 |    8 |    1 |        1
+  3 |        3 |    6 |    9 |    1 |        2
+  4 |        4 |    9 |   16 |    1 |        3
+  5 |        5 |    4 |    3 |    1 |        4
+  6 |        6 |    3 |   -1 |    0 |        5
+(6 rows) </code></pre>
+        </section>
+
+        <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+            The interest is on the <i style="color:green"><strong>geometry</strong></i> of the route ...
+        </section>
+
+        <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+            <h3>Make a view </h3>
+            <ol>
+                <li>Join the results with edge_table</li>
+                <li>Extract the geometry</li>
+                <li>"seq" will give us the unique id (QGIS requisite)</li>
+            </ol>
+            <pre><code data-trim class="sql" style="line-height:28px; font-size: 140%;">
+CREATE VIEW route_from2To3_1 AS
+WITH
+dijkstra AS (SELECT * FROM pgr_dijkstra('
+    SELECT id,
+        source, target,
+        cost, reverse_cost
+        FROM edge_table',
+    2, 3, true))
+SELECT seq, the_geom AS route_geom FROM dijkstra
+   JOIN edge_table ON(edge = id);
+            </code></pre>
+        </section>
+
+
+        <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+            <h3>See the result in Qgis</h3>
+            <ol>
+                <li>Add new layer <i style="color:red"><strong>route_from2To3_1 </strong></i></li>
+                <li>Hide <i style="color:red"><strong>Edges</strong></i> layer </li>
+            </ol>
+        </section>
+
+        <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+            <img class="stretch" src="./qgis_latam/flipgeometries2.jpg" />
+        </section>
+
+        <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+            So far so good
+        </section>
+
+        <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+            <h3>Add arrows on QGIS</h3>
+            <ol>
+                <li>Add arrows to <i style="color:red"><strong>route_from2To3_1 </strong></i></li>
+            </ol>
+        </section>
+
+        <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+            <img class="stretch" src="./qgis_latam/flipgeometries3.jpg" />
+        </section>
+
+        <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+            <p>After adding arrows to the  <i style="color:red"><strong>route_from2To3_1 </strong></i>  layer </p>
+            <p>Some arrows indicate the "wrong" direction</p>
+            <ul>
+                <li>From 4 to 9 should be from 9 to 4</li>
+                <li>From 3 to 4 should be from 4 to 3</li>
+            </ul>
+        </section>
+
+        <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+            There is the need to temporarly flip the geometries!!
+        </section>
+
+
+        <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+            The orientation of the geometries depend on the node from where the route's edge starts
+        </section>
+
+        <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+            Use the <i style="color:green"><b>node</b></i> column of the results to adjust the geometry
+        </section>
+
+        <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+            <h3> Pseudocode </h3>
+            <pre><code data-trim class="sql" style="line-height:28px; font-size: 140%;">
+if (The node is the source on the edge_table)
+    The orientation of the geometry is ok
+Else
+    Reverse the orientation of the geometry
+            </code></pre>
+
+            <h3> Code </h3>
+            <pre><code data-trim class="sql" style="line-height:28px; font-size: 140%;">
+CASE
+WHEN dijkstra.node = edge_table.source
+  THEN edge_table.the_geom
+  ELSE ST_Reverse(edge_table.the_geom)
+END AS route_geom
+            </code></pre>
+        </section>
+
+
+        <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+            <p>Make a new view </p>
+            <pre><code data-trim class="sql" style="line-height:28px; font-size: 140%;">
+CREATE VIEW route_from2To3_2 AS
+WITH
+dijkstra AS (SELECT * FROM pgr_dijkstra('
+    SELECT id, source, target, cost, reverse_cost
+        FROM edge_table',
+    2, 3, true))
+SELECT seq,
+    CASE
+    WHEN dijkstra.node = edge_table.source
+      THEN edge_table.the_geom
+      ELSE ST_Reverse(edge_table.the_geom)
+    END AS route_geom
+FROM dijkstra
+   JOIN edge_table ON(edge = id);
+            </code></pre>
+        </section>
+
+
+        <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+            <h3>See the result in Qgis</h3>
+            <ol>
+                <li>Add new layer <i style="color:red"><strong>route_from2To3_2</strong></i></li>
+                <li>Add arrows to <i style="color:red"><strong>route_from2To3_2</strong></i> layer</li>
+                <li>Hide layer <i style="color:red"><strong>route_from2To3_1</strong></i></li>
+            </ol>
+        </section>
+
+        <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+            <img class="stretch" src="./qgis_latam/flipgeometries4.jpg" />
+        </section>
+
+        <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+            <h3>When additional information is needed</h3>
+            <p>For example, the id of the geometry...</p>
+        </section>
+
+        <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+            <h3>Make a new view </h3>
+            <pre><code data-trim class="sql" style="line-height:28px; font-size: 120%;">
+CREATE VIEW route_from2To3_3 AS
+WITH
+dijkstra AS (SELECT * FROM pgr_dijkstra('
+    SELECT id, source, target, cost, reverse_cost
+        FROM edge_table',
+    2, 3, true))
+SELECT seq, id AS name, -- additional information
+    CASE
+    WHEN dijkstra.node = edge_table.source
+      THEN edge_table.the_geom
+      ELSE ST_Reverse(edge_table.the_geom)
+    END AS route_geom
+FROM dijkstra
+   JOIN edge_table ON(edge = id);
+            </code></pre>
+        </section>
+
+        <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+            <h3>See the result in Qgis</h3>
+            <ul>
+            <ol>
+                <li>Add new layer <i style="color:red"><strong>route_from2To3_3</strong></i></li>
+                <li>Add arrows to <i style="color:red"><strong>route_from2To3_3</strong></i> layer</li>
+                <li>Label each segment with <i style="color:green">name</i> </li>
+                <li>Hide layer <i style="color:red"><strong>route_from2To3_2</strong></i></li>
+            </ol>
+        </section>
+
+        <!-- TODO -->
+        <section data-background="../img/portlandMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
+            <img class="stretch" src="./qgis_latam/flipgeometries5.jpg" />
+        </section>
+
+    </div>
+
+</div>
+
+<script src="../lib/js/head.min.js"></script>
+<script src="../js/reveal.min.js"></script>
+
+<script>
+
+// Full list of configuration options available at:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: true,
+
+transition: 'convex', // none/fade/slide/convex/concave/zoom
+math: {
+// mathjax: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js',
+config: 'TeX-AMS_HTML-full'
+},
+
+// Optional reveal.js plugins
+dependencies: [
+{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+{ src: '../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+{ src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+{ src: '../plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+{ src: '../plugin/zoom-js/zoom.js', async: true },
+{ src: '../plugin/notes/notes.js', async: true },
+{ src: '../plugin/math/math.js', async: true }
+]
+});
+
+</script>
+
+</body>
+</html>
