@@ -66,7 +66,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
             <ol>
                 <li>Abrir QGIS</li>
                 <li>Conectarse a la base de datos <i style="color:green"><strong>datos_ejemplo</strong></i> database</li>
-                <li>Agregar <i style="color:green"><strong>edge_table</strong></i> y cambiar nombre a <i style="color:red"><strong>Aristas</strong></i></li>
+                <li>Agregar <i style="color:green"><strong>edge_table</strong></i> y cambiar nombre a <i style="color:red"><strong>Edges</strong></i></li>
                 <li>Agregar <i style="color:green"><strong>edge_table_vertices_pgr</strong></i> y cambiar nombre a <i style="color:red"><strong>Vertices</strong></i></li>
                 <li>Etiquetar la capa <i style="color:red"><strong>Vertices</strong></i> con el id</li>
             </ol>
@@ -77,7 +77,7 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
         </section>
 
         <section data-background="images/mexicoMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-            <h3>Making a route from 2 to 3</h3>
+            <h3>Hacer una ruta de 2 a 3</h3>
             <pre><code data-trim class="sql" style="line-height:50px; font-size: 140%;">
 SELECT * FROM pgr_dijkstra('
   SELECT id,
@@ -89,7 +89,7 @@ SELECT * FROM pgr_dijkstra('
 
 
         <section data-background="images/mexicoMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-            <h3>Query Results</h3>
+            <h3>Resultados de la consulta</h3>
             <pre><code data-trim class="sql" style="line-height:28px; font-size: 140%;">
 seq | path_seq | node | edge | cost | agg_cost 
 ----+----------+------+------+------+----------
@@ -103,15 +103,15 @@ seq | path_seq | node | edge | cost | agg_cost
         </section>
 
         <section data-background="images/mexicoMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-            The interest is on the <i style="color:green"><strong>geometry</strong></i> of the route ...
+            El interés es en la <i style="color:green"><strong>geometría</strong></i> de la ruta ...
         </section>
 
         <section data-background="images/mexicoMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-            <h3>Make a view </h3>
+            <h3>Haciendo una vista</h3>
             <ol>
-                <li>Join the results with edge_table</li>
-                <li>Extract the geometry</li>
-                <li>"seq" will give us the unique id (QGIS requisite)</li>
+                <li>Hacer la operación <i style="color:BLUE"><strong>JOIN</strong></i> con la tabla <i style="color:green"><strong>edge_table</strong></i></li>
+                <li>Extraer la geometría</li>
+                <li>La columna "seq" nos da un identioficador único que QGIS necesita</li>
             </ol>
             <pre><code data-trim class="sql" style="line-height:28px; font-size: 140%;">
 CREATE VIEW route_from2To3_1 AS
@@ -129,10 +129,10 @@ SELECT seq, the_geom AS route_geom FROM dijkstra
 
 
         <section data-background="images/mexicoMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-            <h3>See the result in Qgis</h3>
+            <h3>Ver los resultados en Qgis</h3>
             <ol>
-                <li>Add new layer <i style="color:red"><strong>route_from2To3_1 </strong></i></li>
-                <li>Hide <i style="color:red"><strong>Edges</strong></i> layer </li>
+                <li>Añadir la capa <i style="color:red"><strong>route_from2To3_1 </strong></i></li>
+                <li>Esconder la capa <i style="color:red"><strong>Edges</strong></i></li>
             </ol>
         </section>
 
