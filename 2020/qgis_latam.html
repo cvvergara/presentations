@@ -111,7 +111,7 @@ seq | path_seq | node | edge | cost | agg_cost
             <ol>
                 <li>Hacer la operación <i style="color:BLUE"><strong>JOIN</strong></i> con la tabla <i style="color:green"><strong>edge_table</strong></i></li>
                 <li>Extraer la geometría</li>
-                <li>La columna "seq" nos da un identioficador único que QGIS necesita</li>
+                <li>La columna "seq" nos da un identificador único que QGIS necesita</li>
             </ol>
             <pre><code data-trim class="sql" style="line-height:28px; font-size: 140%;">
 CREATE VIEW route_from2To3_1 AS
@@ -141,13 +141,13 @@ SELECT seq, the_geom AS route_geom FROM dijkstra
         </section>
 
         <section data-background="images/mexicoMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-            So far so good
+            Hasta ahorita todo va como debe
         </section>
 
         <section data-background="images/mexicoMap.png" style="background-color:#000000;background:rgba(0, 0, 0, 0.85);">
-            <h3>Add arrows on QGIS</h3>
+            <h3>Agregar flechas en QGIS</h3>
             <ol>
-                <li>Add arrows to <i style="color:red"><strong>route_from2To3_1 </strong></i></li>
+                <li>Agregar flechas a la capa <i style="color:red"><strong>route_from2To3_1 </strong></i></li>
             </ol>
         </section>
 
